@@ -289,7 +289,7 @@
                                     <h4 class="header-title">Formulario factura</h4>
 
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-5   ">
                                             <p class="mb-1 fw-bold ">Cliente</p>
         
                                             <select class="form-control" data-toggle="select2" data-width="100%">
@@ -340,15 +340,15 @@
                                                 <label class="form-check-label" for="customradio1">Servicio</label>
                                             </div>
 
-                                            <select class="form-control" data-toggle="select2" data-width="100%">
-                                                    <option value="AK">Ibuprofeno</option>
+                                            <select class="form-control" data-toggle="select2" data-width="100%" >
+                                                    <option value="AK">Seleccione Servicio</option>
                                                     <option value="HI">Cataflan</option>
                                                     <option value="CA">X-Ray</option>
                                                     <option value="NV">Apendicitis</option>
                                             </select>
                                         </div> <!-- end col -->
 
-                                        <div class="col-md-2">
+                                        <div  class=" col-md-2">
                                             <br>
                                             <br>
                                             <br>
@@ -375,7 +375,7 @@
                                             </select>
                                         </div> <!-- end col -->
                                         
-                                        <div class="col-md-2">
+                                        <div style="margin: -13px; " class="col-md-2">
                                         <br>
                                         <br>
                                         <br>
@@ -384,8 +384,84 @@
                                         <label for="inputZip" class="form-label">.</label>
                                         <button type="button" class="btn btn-primary waves-effect waves-light">Agregar</button>
                                         </div>
+                                        <div><br></div>
+                                        <hr class="my-3">
 
                                     </div> <!-- end row -->
+
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Id Producto</th>
+                                                            <th>Servicio</th>
+                                                         <th>Detalle</th>
+                                                         <th>Cantidad</th>
+                                                         <th>Precio</th>
+                                                         <th>Descuento</th>
+                                                        </tr>
+                                                    </thead>
+                                        
+                                                 <tbody>
+                                                      <tr>
+                                                          <td>1</td>
+                                                         <td>Ibuprofeno</td>
+                                                         <td>2 cada 5 horas</td>
+                                                            <td>10</td>
+                                                         <td>1000</td>
+                                                         <td>15%</td>
+                                                      </tr>
+                                                     <tr>
+                                                          <td>2</td>
+                                                            <td>X-Ray</td>
+                                                         <td>X-Ray Gato</td>
+                                                            <td>1</td>
+                                                            <td>15000</td>
+                                                            <td>N/A</td>
+                                                     </tr>
+                                                     <tr>
+                                                            <td>3</td>
+                                                         <td>Cataflan</td>
+                                                            <td>1 cada 8 horas</td>
+                                                            <td>20</td>
+                                                            <td>18000</td>
+                                                          <td>N/A</td>
+                                                         </tr>
+                                                            <tr>
+                                                            <td>4</td>
+                                                            <td>Apendicitis</td>
+                                                          <td>Apendicitis Rata</td>
+                                                            <td>1</td>
+                                                            <td>20000</td>
+                                                            <td>50%</td>
+                                                       </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        
+                                        <div style="margin-left: 50px;" class="col-md-4">
+                                            <br>
+                                            <label for="inputZip" class="form-label">Sub Total</label>
+                                            <input type="text" class="form-control" id="inputZip" >
+
+                                            <div class="row">   
+                                                <div class="col-md-4">
+                                                    <br>
+                                                    <label for="inputZip" class="form-label">IVA Productos</label>
+                                                    <input type="text" class="form-control" id="inputZip" >
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <br>                                         
+                                                    <label for="inputZip" class="form-label">Servicios</label>
+                                                    <input type="text" class="form-control" id="inputZip" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end .table-responsive-->
 
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
