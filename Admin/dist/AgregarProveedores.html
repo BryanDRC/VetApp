@@ -10,6 +10,11 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+                <!-- Plugins css -->
+                <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+                <link href="assets/libs/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
+        
+
 		<!-- App css -->
 
 		<link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
@@ -79,14 +84,10 @@
                     </div>
 
                     <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                        <li>
-                            <button class="button-menu-mobile disable-btn waves-effect">
-                                <i class="fe-menu"></i>
-                            </button>
-                        </li>
+
     
                         <li>
-                            <h4 class="page-title-main">Formulario Mascota</h4>
+                            <h4 class="page-title-main">Formulario Proveedores</h4>
                         </li>
             
                     </ul>
@@ -282,24 +283,29 @@
                                     <br>
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 style="margin-left: 98px;" class="mb-3 header-title">Formulario Mascotas</h4>
+                                            <h4 style="margin-left: 86px;" class="mb-3 header-title">Formulario Proveedores</h4>
                                             <form>
                                                 <br>
                                                 <div class="mb-2">
                                                     <label for="exampleInputNombre" class="form-label">Nombre</label>
-                                                    <input type="text" class="form-control" id="exampleInputNombre" placeholder="Nombre de la Mascota">
-                                                </div>
-                                                <div class="mb-2">
-                                                    <label for="exampleInputApellido" class="form-label">Especie</label>
-                                                    <input type="text" class="form-control" id="exampleInputApellido" placeholder="Especie de la Mascota">
+                                                    <input type="text" class="form-control" id="exampleInputNombre" placeholder="Nombre del Proveedor">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="exampleInputEspecie" class="form-label">Dueño</label>
-                                                    <input type="text" class="form-control" id="exampleInputEspecie" placeholder="Cédula del Dueño">
+                                                    <label for="exampleInputCedulaDueño" class="form-label">Cédula Jurídica</label>
+                                                    <input type="text" class="form-control" id="exampleInputCedulaDueño" placeholder="Cédula Jurídica">
                                                 </div>
+                                                <div class="mb-2">
+                                                    <label for="exampleInputNombreMascota" class="form-label">Número Telefónico</label>
+                                                    <input type="text" class="form-control" id="exampleInputNombreMascota" placeholder="Número de la Empresa">
+                                                </div>
+                                                <div class="mb-2">
 
+                                                    <h4 class="header-title">Foto del Proveedor</h4>
+            
+                                                <input type="file" data-plugins="dropify" data-height="100" />
 
-                                                <button style="margin-left: 93px;" type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#custom-modal"><a class="btn btn-primary" href="Mascota.html" role="button">Agregar Mascota</a></button>
+                                                </div>
+                                                <button style="margin-left: 82px;" type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#custom-modal"><a class="btn btn-primary" href="AgregarProveedores.html" role="button">Agregar Proveedor</a></button>
                                             </form>
                                         </div> <!-- end card-body -->
                                     </div> <!-- end card -->
@@ -442,6 +448,13 @@
         <script src="assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
         <script src="assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
         <script src="assets/libs/feather-icons/feather.min.js"></script>
+
+                <!-- Plugins js -->
+                <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
+                <script src="assets/libs/dropify/js/dropify.min.js"></script>
+        
+                <!-- Init js-->
+                <script src="assets/js/pages/form-fileuploads.init.js"></script>
 
         <!-- App js-->
         <script src="assets/js/app.min.js"></script>

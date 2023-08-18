@@ -286,14 +286,16 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Formulario factura</h4>
+                                    <h4 style="margin-left: 45%;" class="header-title">Formulario factura</h4>
+                                    <br>
+                                    <br>
 
-                                    <div class="row">
-                                        <div class="col-md-5   ">
+                                    <div style="margin-left: 19%;" class="row">
+                                        <div class="col-md-3">
                                             <p class="mb-1 fw-bold ">Cliente</p>
         
                                             <select class="form-control" data-toggle="select2" data-width="100%">
-                                                <option>Seleccionar Cliente</option>
+                                                    <option value="AK">Seleccione Cliente</option>
                                                     <option value="AK">Luis Navarro</option>
                                                     <option value="HI">Luis Villareal</option>
                                                     <option value="CA">Yohan Mora</option>
@@ -301,10 +303,9 @@
                                             </select>
                                         </div> <!-- end col -->
 
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                             <label for="inputState" class="form-label">Moneda</label>
                                             <select id="inputState" class="form-select">
-                                                <option>Tipo de Moneda</option>
                                                 <option>Colón</option>
                                                 <option>Dolar</option>
                                             </select>
@@ -313,7 +314,6 @@
                                         <div class="col-md-2">
                                             <label for="inputState" class="form-label">Tipo Factura</label>
                                             <select id="inputState" class="form-select">
-                                                <option>Tipo de Factura</option>
                                                 <option>Contado</option>
                                                 <option>Credito</option>
                                             </select>
@@ -328,8 +328,8 @@
 
                                     </div> <!-- end row -->
                                     <br>    
-                                    <div class="row">
-                                        <div class="col-md-4">
+                                    <div style="margin-left: 19%;" class="row">
+                                        <div class="col-md-3">
                                             <p class="mb-1 fw-bold ">Servicio a facturar</p>
                                             <div class="form-check mb-2">
                                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="customradio1" checked>
@@ -341,7 +341,7 @@
                                             </div>
 
                                             <select class="form-control" data-toggle="select2" data-width="100%" >
-                                                    <option value="AK">Seleccione Servicio</option>
+                                                    <option value="">Seleccione Servicio</option>
                                                     <option value="HI">Cataflan</option>
                                                     <option value="CA">X-Ray</option>
                                                     <option value="NV">Apendicitis</option>
@@ -372,22 +372,14 @@
                                             <br>
                                             <label for="inputZip" class="form-label">Descuento</label>
                                             <input type="text" class="form-control" id="inputZip">
-                                            </select>
+                                            </select><br>
                                         </div> <!-- end col -->
                                         
-                                        <div style="margin: -13px; " class="col-md-2">
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <label for="inputZip" class="form-label">.</label>
-                                        <button type="button" class="btn btn-primary waves-effect waves-light">Agregar</button>
-                                        </div>
-                                        <div><br></div>
-                                        <hr class="my-3">
 
                                     </div> <!-- end row -->
+                                        <button style="margin-left: 570px;" type="button" class="btn btn-primary waves-effect waves-light">Agregar</button>
+                                        <div><br></div>
+                                        <hr class="my-2">
 
                                     <div class="row">
                                         <div class="col-md-7">
@@ -460,81 +452,55 @@
                                                     <input type="text" class="form-control" id="inputZip" >
                                                 </div>
                                             </div>
+                                            <br>                                         
+                                            <label for="inputZip" class="form-label">Total a Pagar</label>
+                                            <input type="text" class="form-control" id="inputZip" >
                                         </div>
                                     </div> <!-- end .table-responsive-->
+                                    <br>
+                                    <hr class="my-2">
+                                    <br>
+
+                                    <h4 style="margin-left: 45%;" class="header-title">Procesar factura</h4>
+                                    <br>
+                                    <br>
+
+                                    <div style="margin-left: 19%;" class="row">
+                                        <div class="col-md-3">
+                                            <label for="inputState" class="form-label">Tipo de Pago</label>
+                                            <select id="inputState" class="form-select">
+                                                <option>Efectivo</option>
+                                                <option>Tarjeta</option>
+                                            </select>
+                                        </div> <!-- end col -->
+
+                                        <div class="col-md-3">
+                                            <label for="inputZip" class="form-label">Cancela Con</label>
+                                            <input type="text" class="form-control" id="inputZip" placeholder="₡₡₡">
+                                        </div> <!-- end col -->
+
+                                        <div class="col-md-3">
+                                            <label for="inputZip" class="form-label">Vuelto</label>
+                                            <input type="text" class="form-control" id="inputZip" placeholder="₡₡₡">
+                                        </div> <!-- end col -->
+
+
+                                    </div> <!-- end row -->
+                                    <br>    
+                                    <div style="margin-left: 19%;" class="row">
+                                        <div class="col-md-3">
+                                        </div> <!-- end col -->
+                                        </div> <!-- end row -->
+                                        <button style="margin-left: 570px;" type="button" class="btn btn-primary waves-effect waves-light">Procesas</button>
+                                        <div><br></div>
 
                                 </div> <!-- end card-body-->
                             </div> <!-- end card-->
-                        </div> <!-- end col-->
-                    </div> 
-                    <!-- end row-->
+                                </div> <!-- end col-->
+                            </div> 
+                            <!-- end row-->
 
-                        <!-- Form row -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="header-title">Gutters</h4>
-                                        <p class="text-muted font-13">More complex layouts can also be created with the grid system.</p>
-
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="inputEmail4" class="form-label">Email</label>
-                                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                                                </div>
-                                                <div class="col-md-6 mb-3">
-                                                    <label for="inputPassword4" class="form-label">Password</label>
-                                                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="inputAddress" class="form-label">Address</label>
-                                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="inputAddress2" class="form-label">Address 2</label>
-                                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="mb-3 col-md-6">
-                                                    <label for="inputCity" class="form-label">City</label>
-                                                    <input type="text" class="form-control" id="inputCity">
-                                                </div>
-                                                <div class="mb-3 col-md-4">
-                                                    <label for="inputState" class="form-label">State</label>
-                                                    <select id="inputState" class="form-select">
-                                                        <option>Choose</option>
-                                                        <option>Option 1</option>
-                                                        <option>Option 2</option>
-                                                        <option>Option 3</option>
-                                                    </select>
-                                                </div>
-                                                <div class="mb-3 col-md-2">
-                                                    <label for="inputZip" class="form-label">Zip</label>
-                                                    <input type="text" class="form-control" id="inputZip">
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck11">
-                                                    <label class="form-check-label" for="customCheck11">Check this custom checkbox</label>
-                                                </div>
-                                            </div>
-
-                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Sign in</button>
-
-                                        </form>
-
-                                    </div> <!-- end card-body -->
-                                </div> <!-- end card-->
-                            </div> <!-- end col -->
-                        </div>
-                        <!-- end row -->
+                        
                         
                     </div> <!-- container -->
 

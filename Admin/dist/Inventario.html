@@ -273,10 +273,108 @@
 
             <div class="content-page">
                 <div class="content">
-                    
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                                            <table class="table table-centered mb-0" id="inline-editable">
+                                                
+                                            </table>
+           
+
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row justify-content-between">
+                                            <div class="col-md-4">
+                                                <div class="mt-3 mt-md-0">
+                                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#custom-modal"><a class="btn btn-primary" href="AgregarInventario.html" role="button">Agregar Inventario</a></button>
+                                                </div>
+                                                    </div><!-- end col-->
+                                                    <div class="col-md-8">
+                                                <form class="d-flex flex-wrap align-items-center justify-content-sm-end">
+                                                    <label for="status-select" class="me-2">Buscar Por</label>
+                                                    <div class="me-sm-2">
+                                                        <select class="form-select my-1 my-md-0" id="status-select">
+                                                            <option selected="">Todo</option>
+                                                            <option value="1">Id</option>
+                                                            <option value="3">Nombre</option>
+                                                            <option value="4">Proveedor</option>
+                                                        </select>
+                                                    </div>
+                                                    <label for="inputPassword2" class="visually-hidden">Buscar</label>
+                                                    <div>
+                                                        <input type="search" class="form-control my-1 my-md-0" id="inputPassword2" placeholder="Buscar...">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div> <!-- end row -->
+        
+                                            <div class="table-responsive">
+                                            
+                                            <table class="table table-centered mb-0" id="btn-editable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <th>Nombre Producto</th>
+                                                        <th>Proveedor</th>
+
+                                                    </tr>
+                                                </thead>
+                                            
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Tiger Nixon</td>
+                                                        <td>System Architect</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>Garrett Winters</td>
+                                                        <td>Accountant</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>Ashton Cox</td>
+                                                        <td>Junior Technical Author</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>Cedric Kelly</td>
+                                                        <td>Senior Javascript Developer</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>Airi Satou</td>
+                                                        <td>Accountant</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>6</td>
+                                                        <td>Brielle Williamson</td>
+                                                        <td>Integration Specialist</td>
+
+                                                    </tr>
+                                                   
+                                                </tbody>
+                                            </table>
+                                        </div> <!-- end .table-responsive-->
+                                    </div> <!-- end card-body -->
+                                </div> <!-- end card -->
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
     
-                  
+                    </div> <!-- container -->
+
                 </div> <!-- content -->
+
+
             </div>
 
             <!-- ============================================================== -->
@@ -286,120 +384,118 @@
 
         </div>
         <!-- END wrapper -->
+       <!-- Right Sidebar -->
+       <div class="right-bar">
 
-        <!-- Right Sidebar -->
-        <div class="right-bar">
+        <div data-simplebar class="h-100">
 
-            <div data-simplebar class="h-100">
+            <div class="rightbar-title">
+                <a href="javascript:void(0);" class="right-bar-toggle float-end">
+                    <i class="mdi mdi-close"></i>
+                </a>
+                <h4 class="font-16 m-0 text-white">Editalo a tu gusto!</h4>
+            </div>
+    
+            <!-- Tab panes -->
+            <div class="tab-content pt-0">  
 
-                <div class="rightbar-title">
-                    <a href="javascript:void(0);" class="right-bar-toggle float-end">
-                        <i class="mdi mdi-close"></i>
-                    </a>
-                    <h4 class="font-16 m-0 text-white">Editalo a tu gusto!</h4>
-                </div>
-        
-                <!-- Tab panes -->
-                <div class="tab-content pt-0">  
+                <div class="tab-pane active" id="settings-tab" role="tabpanel">
 
-                    <div class="tab-pane active" id="settings-tab" role="tabpanel">
-
-                        <div class="p-3">
-
-
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Color Scheme</h6>
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="layout-color" value="light"
-                                    id="light-mode-check" checked />
-                                <label class="form-check-label" for="light-mode-check">Light Mode</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="layout-color" value="dark"
-                                    id="dark-mode-check" />
-                                <label class="form-check-label" for="dark-mode-check">Dark Mode</label>
-                            </div>
-
-                            <!-- Left Sidebar-->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Left Sidebar Color</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-color" value="light" id="light" />
-                                <label class="form-check-label" for="light-check">Light</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-color" value="dark" id="dark" checked/>
-                                <label class="form-check-label" for="dark-check">Dark</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-color" value="brand" id="brand" />
-                                <label class="form-check-label" for="brand-check">Brand</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-3">
-                                <input type="checkbox" class="form-check-input" name="leftbar-color" value="gradient" id="gradient" />
-                                <label class="form-check-label" for="gradient-check">Gradient</label>
-                            </div>
-
-                            <!-- size -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Left Sidebar Size</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-size" value="default"
-                                    id="default-size-check" checked />
-                                <label class="form-check-label" for="default-size-check">Default</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-size" value="condensed"
-                                    id="condensed-check" />
-                                <label class="form-check-label" for="condensed-check">Condensed <small>(Extra Small size)</small></label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-size" value="compact"
-                                    id="compact-check" />
-                                <label class="form-check-label" for="compact-check">Compact <small>(Small size)</small></label>
-                            </div>
-
-                            <!-- User info -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Sidebar User Info</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="sidebar-user" value="true" id="sidebaruser-check" />
-                                <label class="form-check-label" for="sidebaruser-check">Enable</label>
-                            </div>
+                    <div class="p-3">
 
 
-                            <!-- Topbar -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Topbar</h6>
+                        <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Color Scheme</h6>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="layout-color" value="light"
+                                id="light-mode-check" checked />
+                            <label class="form-check-label" for="light-mode-check">Light Mode</label>
+                        </div>
 
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="topbar-color" value="dark" id="darktopbar-check"
-                                    checked />
-                                <label class="form-check-label" for="darktopbar-check">Dark</label>
-                            </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="layout-color" value="dark"
+                                id="dark-mode-check" />
+                            <label class="form-check-label" for="dark-mode-check">Dark Mode</label>
+                        </div>
 
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="topbar-color" value="light" id="lighttopbar-check" />
-                                <label class="form-check-label" for="lighttopbar-check">Light</label>
-                            </div>
+                        <!-- Left Sidebar-->
+                        <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Left Sidebar Color</h6>
 
-                            <div class="d-grid mt-4">
-                                <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
-                            </div>
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftbar-color" value="light" id="light" />
+                            <label class="form-check-label" for="light-check">Light</label>
+                        </div>
 
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftbar-color" value="dark" id="dark" checked/>
+                            <label class="form-check-label" for="dark-check">Dark</label>
+                        </div>
+
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftbar-color" value="brand" id="brand" />
+                            <label class="form-check-label" for="brand-check">Brand</label>
+                        </div>
+
+                        <div class="form-check form-switch mb-3">
+                            <input type="checkbox" class="form-check-input" name="leftbar-color" value="gradient" id="gradient" />
+                            <label class="form-check-label" for="gradient-check">Gradient</label>
+                        </div>
+
+                        <!-- size -->
+                        <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Left Sidebar Size</h6>
+
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftbar-size" value="default"
+                                id="default-size-check" checked />
+                            <label class="form-check-label" for="default-size-check">Default</label>
+                        </div>
+
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftbar-size" value="condensed"
+                                id="condensed-check" />
+                            <label class="form-check-label" for="condensed-check">Condensed <small>(Extra Small size)</small></label>
+                        </div>
+
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="leftbar-size" value="compact"
+                                id="compact-check" />
+                            <label class="form-check-label" for="compact-check">Compact <small>(Small size)</small></label>
+                        </div>
+
+                        <!-- User info -->
+                        <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Sidebar User Info</h6>
+
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="sidebar-user" value="true" id="sidebaruser-check" />
+                            <label class="form-check-label" for="sidebaruser-check">Enable</label>
+                        </div>
+
+
+                        <!-- Topbar -->
+                        <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Topbar</h6>
+
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="topbar-color" value="dark" id="darktopbar-check"
+                                checked />
+                            <label class="form-check-label" for="darktopbar-check">Dark</label>
+                        </div>
+
+                        <div class="form-check form-switch mb-1">
+                            <input type="checkbox" class="form-check-input" name="topbar-color" value="light" id="lighttopbar-check" />
+                            <label class="form-check-label" for="lighttopbar-check">Light</label>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
                         </div>
 
                     </div>
+
                 </div>
+            </div>
 
-            </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
-
+        </div> <!-- end slimscroll-menu-->
+    </div>
+    <!-- /Right-bar -->
         <!-- Right bar overlay-->
         <div class="rightbar-overlay"></div>
 
