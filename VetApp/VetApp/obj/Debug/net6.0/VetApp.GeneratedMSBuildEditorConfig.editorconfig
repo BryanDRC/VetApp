@@ -1,0 +1,113 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = VetApp
+build_property.RootNamespace = VetApp
+build_property.ProjectDir = C:\Users\bdroj\OneDrive\Escritorio\VetApp\VetApp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\bdroj\OneDrive\Escritorio\VetApp\VetApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Citas/Citas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcQ2l0YXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Clientes/AgregarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQWdyZWdhckNsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Clientes/AgregarMascota.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQWdyZWdhck1hc2NvdGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Clientes/Cliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Clientes/Mascota.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcTWFzY290YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Credenciales/AgregarEmpleado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlZGVuY2lhbGVzXEFncmVnYXJFbXBsZWFkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Credenciales/Empleado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlZGVuY2lhbGVzXEVtcGxlYWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Facturacion/CierreCaja.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYWNpb25cQ2llcnJlQ2FqYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Facturacion/Cobro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYWNpb25cQ29icm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Insumos/AgregarInventario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdW1vc1xBZ3JlZ2FySW52ZW50YXJpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Insumos/AgregarProveedores.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdW1vc1xBZ3JlZ2FyUHJvdmVlZG9yZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Insumos/Inventario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdW1vc1xJbnZlbnRhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Insumos/Proveedores.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5zdW1vc1xQcm92ZWVkb3Jlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Planillla/Planilla.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbmlsbGxhXFBsYW5pbGxhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Reportes/ReporteCitas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZUNpdGFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Reportes/ReportePlanilla.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZVBsYW5pbGxhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Reportes/ReporteTransacciones.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZVRyYW5zYWNjaW9uZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-nvmhc4qt8g
+
+[C:/Users/bdroj/OneDrive/Escritorio/VetApp/VetApp/Views/Shared/_LayoutAutentificacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBdXRlbnRpZmljYWNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jbo5znbftt
