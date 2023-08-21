@@ -19,6 +19,9 @@ namespace VetApp.Controllers
             return View();
         }
 
-
+        public IActionResult EditarEmpleado()
+        {
+            return View();
+        }
     }
 }
