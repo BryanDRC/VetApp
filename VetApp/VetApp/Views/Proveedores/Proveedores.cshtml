@@ -15,7 +15,7 @@
                             <div class="row justify-content-between">
                                 <div class="col-md-4">
                                     <div class="mt-3 mt-md-0">
-                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#custom-modal"><a class="btn btn-primary" href="@Url.Action("AgregarProveedores","Proveedores")" role="button">Agregar Proveedores</a></button>
+                                        <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#standard-modal">Agregar Proveedores</button>
                                     </div>
                                 </div><!-- end col-->
                                 <div class="col-md-8">
@@ -52,7 +52,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Editar</a>
+                                    <a data-bs-toggle="modal" data-bs-target="#standard-modal" class="dropdown-item">Editar</a>
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Eliminar</a>
                                 </div>
@@ -86,7 +86,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Editar</a>
+                                    <a data-bs-toggle="modal" data-bs-target="#standard-modal" class="dropdown-item">Editar</a>
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Eliminar</a>
                                 </div>
@@ -118,7 +118,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Editar</a>
+                                    <a data-bs-toggle="modal" data-bs-target="#standard-modal" class="dropdown-item">Editar</a>
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Eliminar</a>
                                 </div>
@@ -154,7 +154,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Editar</a>
+                                    <a data-bs-toggle="modal" data-bs-target="#standard-modal" class="dropdown-item">Editar</a>
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Eliminar</a>
                                 </div>
@@ -187,7 +187,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Editar</a>
+                                    <a data-bs-toggle="modal" data-bs-target="#standard-modal" class="dropdown-item">Editar</a>
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Eliminar</a>
                                 </div>
@@ -219,7 +219,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item">Editar</a>
+                                    <a data-bs-toggle="modal" data-bs-target="#standard-modal" class="dropdown-item">Editar</a>
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item">Eliminar</a>
                                 </div>
@@ -250,6 +250,62 @@
     </div> <!-- content -->
 
 </div>
+
+<!-- Standard modal content -->
+
+<div id="standard-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 class="modal-title" id="standard-modalLabel">Formulario Proveedores</h4>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <form>
+                    <br>
+                    <div class="mb-2">
+                        <label for="exampleInputNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="exampleInputNombre" placeholder="Nombre del Proveedor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputCedulaDueño" class="form-label">Cédula Jurídica</label>
+                        <input type="text" class="form-control" id="exampleInputCedulaDueño" placeholder="Cédula Jurídica">
+                    </div>
+                    <div class="mb-2">
+                        <label for="exampleInputNombreMascota" class="form-label">Número Telefónico</label>
+                        <input type="text" class="form-control" id="exampleInputNombreMascota" placeholder="Número de la Empresa">
+                    </div>
+                    <div class="mb-2">
+
+                        <h4 class="header-title">Foto del Proveedor</h4>
+
+                        <input type="file" data-plugins="dropify" data-height="100" />
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+
+                <button type="button" class="btn btn-primary">Aceptar</button>
+
+            </div>
+
+        </div><!-- /.modal-content -->
+
+    </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal -->
 
 <!-- ============================================================== -->
 <!-- End Page content -->
