@@ -51,7 +51,7 @@ namespace VetAppApi.Models
         }
 
 
-        public int PutClient(ClientObj clientObj)
+        public int UpdateClient(ClientObj clientObj)
         {
             using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
             {

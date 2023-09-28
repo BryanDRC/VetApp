@@ -41,7 +41,7 @@ namespace VetAppApi.Controllers
                 if (clientObj == null)
                     return NoContent();
 
-                var result = _clientModel.PutClient(clientObj);
+                var result = _clientModel.UpdateClient(clientObj);
                 if (result > 0)
                 {
                     return Ok(clientObj);
