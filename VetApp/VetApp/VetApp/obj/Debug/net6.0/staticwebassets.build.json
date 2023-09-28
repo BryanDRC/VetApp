@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ud+eCUXoQHXoNAiBetRIRn93x0tQltpvsOo7KcWeu28=",
+  "Hash": "9cldkZEU03Otlf9pQ/B6dplbfSTwAVe1SLUAsVdpdq8=",
   "Source": "VetApp",
   "BasePath": "_content/VetApp",
   "Mode": "Default",
@@ -2854,6 +2854,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\app.min.js.map"
+    },
+    {
+      "Identity": "C:\\VeterinariaApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\AuthLogin\\Login.js",
+      "SourceId": "VetApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\VeterinariaApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
+      "BasePath": "_content/VetApp",
+      "RelativePath": "js/AuthLogin/Login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\AuthLogin\\Login.js"
     },
     {
       "Identity": "C:\\VeterinariaApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\layout.js",

@@ -30,7 +30,7 @@
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Contraseña</label>
-                                <input asp-for="UserPassword" class="form-control" placeholder="Contraseña" type="password" required />
+                                <input asp-for="UserPassword" class="form-control" placeholder="Contraseña" type="password" id="password" onblur="validarcontrasena();" required />
                             </div>
 
                             <div class="mb-3 d-grid text-center">
@@ -50,4 +50,6 @@
     </div>
     <!-- end container -->
 </div>
+
+
 <!-- end page -->

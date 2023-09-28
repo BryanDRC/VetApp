@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using VetAppApi.Entities;
+using VetAppApi.Services;
 
 namespace VetAppApi.Models
 {
@@ -18,13 +19,15 @@ namespace VetAppApi.Models
 
         public UserObj? Login(UserObj userObj)
         {
+            string encryptPassword = PasswordHash.EncryptPassword(userObj.UserPassword); 
+
             using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
             {
                 return connection.Query<UserObj>("SP_LogIn",
                     new
                     {
                         userObj.UserNickName,
-                        userObj.UserPassword
+                        encryptPassword
                     }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
