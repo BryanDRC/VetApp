@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\prograAvanzada\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {}
+    "C:\\VeterinariaApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {}
   },
   "projects": {
-    "C:\\prograAvanzada\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {
+    "C:\\VeterinariaApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\prograAvanzada\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+        "projectUniqueName": "C:\\VeterinariaApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
         "projectName": "VetAppApi",
-        "projectPath": "C:\\prograAvanzada\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+        "projectPath": "C:\\VeterinariaApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
         "packagesPath": "C:\\Users\\XPC\\.nuget\\packages\\",
-        "outputPath": "C:\\prograAvanzada\\VetAppApi\\VetAppApi\\obj\\",
+        "outputPath": "C:\\VeterinariaApp\\VetAppApi\\VetAppApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\XPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,9 +41,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.151, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
             }
           },
           "imports": [
