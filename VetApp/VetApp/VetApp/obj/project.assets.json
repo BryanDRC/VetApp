@@ -9544,27 +9544,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\XPC\\.nuget\\packages\\": {}
+    "C:\\Users\\Yohan Alvarado\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\VeterinariaApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
+      "projectUniqueName": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
       "projectName": "VetApp",
-      "projectPath": "C:\\VeterinariaApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
-      "packagesPath": "C:\\Users\\XPC\\.nuget\\packages\\",
-      "outputPath": "C:\\VeterinariaApp\\VetApp\\VetApp\\VetApp\\obj\\",
+      "projectPath": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
+      "packagesPath": "C:\\Users\\Yohan Alvarado\\.nuget\\packages\\",
+      "outputPath": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\XPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Yohan Alvarado\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9607,7 +9611,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
