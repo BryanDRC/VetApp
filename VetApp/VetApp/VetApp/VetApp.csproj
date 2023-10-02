@@ -7,13 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\UsersPictures\305090835.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Controllers\InventarioController.cs~RF298602d6.TMP" />
     <None Remove="Controllers\ReportesController.cs~RF29414adb.TMP" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UsersPictures\" />
     <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\UsersPictures\305090835.jpg" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\VetApp.bundle.scp.css"
     },
     {
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\UsersPictures\\123456789.jpg",
+      "PackagePath": "staticwebassets\\UsersPictures\\123456789.jpg"
+    },
+    {
       "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\css\\app-rtl.min.css",
       "PackagePath": "staticwebassets\\css\\app-rtl.min.css"
     },

@@ -9,7 +9,7 @@
         public string UserMail { get; set; } = string.Empty;
         public string UserNickName { get; set; } = string.Empty;
         public string UserPassword { get; set; } = string.Empty;
-        public string UserPicture { get; set; } = string.Empty;
+        public string UserPicture { get; set; } = "";
         public string UserPhoneNumber { get; set; } = string.Empty;
         public int IdRol { get; set; } = 0;
         public int UserIdCard { get; set; } = 0;

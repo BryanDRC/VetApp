@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Pz11aSNXS46SbrYnKzUzzp49qeo7cfEEINkTQDPS+wE=",
+  "Hash": "eFY3O5oqIAvzcsRCTuqmaSFCM19jOAYskeJaSSouJXI=",
   "Source": "VetApp",
   "BasePath": "_content/VetApp",
   "Mode": "Default",
@@ -40713,6 +40713,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\libs\\x-editable\\LICENSE-MIT"
+    },
+    {
+      "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\UsersPictures\\123456789.jpg",
+      "SourceId": "VetApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
+      "BasePath": "_content/VetApp",
+      "RelativePath": "UsersPictures/123456789.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UsersPictures\\123456789.jpg"
     }
   ]
 }

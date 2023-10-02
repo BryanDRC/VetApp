@@ -55,7 +55,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/User/UpdateUseridUser="+idUser;
+                string url = "https://localhost:7032/api/User/DeleteUser?idUser=" + idUser;
                 HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
