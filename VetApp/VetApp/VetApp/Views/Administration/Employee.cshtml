@@ -14,11 +14,11 @@
 					<input type="hidden" id="idUserModal"/>
 					<div class=" col-md-4">
 						<label for="inputZip" class="form-label">Nombre</label>
-						<input type="text" class="form-control" id="userNameModal">
+						<input type="text" class="form-control" id="userNameModal"/>
 					</div> <!-- end col -->
 					<div class=" col-md-4">
 						<label for="inputZip" class="form-label">Primer Apellido</label>
-						<input type="text" class="form-control" id="userFirstLastNameModal">
+						<input type="text" class="form-control" id="userFirstLastNameModal"/>
 					</div> <!-- end col -->
 
 				</div> <!-- end row -->
@@ -26,33 +26,33 @@
 				<div style="margin-left: 25%;" class="row">
 					<div class=" col-md-4">
 						<label for="inputZip" class="form-label">Segundo Apellido</label>
-						<input type="text" class="form-control" id="userSecondLastNameModal">
+						<input type="text" class="form-control" id="userSecondLastNameModal" />
 					</div> <!-- end col -->
 					<div class=" col-md-4">
 						<label for="inputZip" class="form-label">Cédula</label>
-						<input type="text" class="form-control" id="userIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+						<input type="text" class="form-control" id="userIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 					</div> <!-- end col -->
 				</div> <!-- end row -->
 				<br>
 				<div style="margin-left: 25%;" class="row">
 					<div class=" col-md-4">
 						<label for="inputZip" class="form-label">Número de Teléfono</label>
-						<input type="text" class="form-control" id="userPhoneNumberModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+						<input type="text" class="form-control" id="userPhoneNumberModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 					</div> <!-- end col -->
 					<div class=" col-md-4">
 						<label for="inputZip" class="form-label">Correo Electronico</label>
-						<input type="text" class="form-control" id="userMailModal">
+						<input type="email" class="form-control" id="userMailModal" />
 					</div> <!-- end col -->
 				</div> <!-- end row -->
 				<br>
 				<div style="margin-left: 25%;" class="row">
 					<div class=" col-md-4">
 						<label for="inputZip" class="form-label">Alias</label>
-						<input type="text" class="form-control" id="userNickNameModal">
+						<input type="text" class="form-control" id="userNickNameModal"/>
 					</div> <!-- end col -->
 					<div class=" col-md-4">
 						<label for="inputZip" class="form-label">Contraseña</label>
-						<input type="password" class="form-control" id="userPasswordModal">
+						<input type="password" class="form-control" id="userPasswordModal"/>
 					</div> <!-- end col -->
 				</div> <!-- end row -->
 				<div style="margin-left: 25%;" class="row">
@@ -82,7 +82,7 @@
 				<div class="row">
 					<div class="modal-footer">
 						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-						<button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="SavaChanges()">Guardar Cambios</button>
+						<button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="SavaChangesUserModal()">Guardar Cambios</button>
 					</div>
 				</div>
 
@@ -105,7 +105,7 @@
 				<div class="row">
 					<div class="modal-footer">
 						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-						<button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="DeleteUser()">Aceptar</button>
+						<button type="button" class="btn btn-primary" id="btnDeleteModal" onclick="DeleteUser()">Aceptar</button>
 					</div>
 				</div>
 
@@ -149,9 +149,9 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-end">
 										<!-- item-->
-										<a onclick="OpenUpdateModal(@user.IdUser)" class="dropdown-item">Editar</a>
+										<a onclick="OpenUpdateUserModal(@user.IdUser)" class="dropdown-item">Editar</a>
 										<!-- item-->
-										<a onclick="OpenDeleteConfirmModal(@user.IdUser)" class="dropdown-item">Eliminar</a>
+										<a onclick="OpenDeleteConfirmUserModal(@user.IdUser)" class="dropdown-item">Eliminar</a>
 									</div>
 								</div>
 								<div>
