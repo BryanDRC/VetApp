@@ -25,16 +25,16 @@
                         <form asp-action="Index" method="post" asp-controller="Home">
                             <div class="mb-3">
                                 <label for="emailaddress" class="form-label">Nombre de Usuario</label>
-                                <input asp-for="UserNickName" class="form-control" placeholder="Nombre de Usuario" required />
+                                <input asp-for="UserNickName" class="form-control" id="nickname" placeholder="Nombre de Usuario" required />
                             </div>
 
                             <div class="mb-3">
                                 <label for="password" class="form-label">Contraseña</label>
-                                <input asp-for="UserPassword" class="form-control" placeholder="Contraseña" type="password" id="password" onblur="validarcontrasena();" required />
+                                <input asp-for="UserPassword" class="form-control" placeholder="Contraseña" type="password" id="password" required />
                             </div>
 
                             <div class="mb-3 d-grid text-center">
-                                <button type="submit" class="btn btn-block text-uppercase">Iniciar sesión</button>
+                                <button type="submit" id="loginbtn" class="btn btn-primary text-uppercase">Iniciar sesión</button>
                             </div>
 
                         </form>
