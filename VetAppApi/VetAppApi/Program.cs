@@ -12,6 +12,7 @@ builder.Services.AddSwaggerGen();
 // Custom services
 builder.Services.AddScoped<AuthModel>();
 builder.Services.AddScoped<UserModel>();
+builder.Services.AddScoped<PetModel>();
 
 var app = builder.Build();
 

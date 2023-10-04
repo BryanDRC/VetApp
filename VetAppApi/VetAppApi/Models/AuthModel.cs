@@ -19,7 +19,7 @@ namespace VetAppApi.Models
 
         public UserObj? Login(UserObj userObj)
         {
-            string encryptPassword = PasswordHash.EncryptPassword(userObj.UserPassword); 
+            //string encryptPassword = PasswordHash.EncryptPassword(userObj.UserPassword); 
 
             using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
             {
@@ -27,7 +27,8 @@ namespace VetAppApi.Models
                     new
                     {
                         userObj.UserNickName,
-                        encryptPassword
+                       userObj.UserPassword
+                       //encryptPassword
                     }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }

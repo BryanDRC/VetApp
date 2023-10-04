@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\VetApp",
+    "\\VetApp\\VetApp",
+    "\\VetApp\\VetApp\\wwwroot",
+    "\\VetApp\\VetApp\\wwwroot\\js",
+    "\\VetApp\\VetApp\\wwwroot\\js\\AuthLogin"
+  ],
+  "SelectedNode": "\\VetApp\\VetApp\\wwwroot\\js\\AuthLogin\\Login.js",
+  "PreviewInSolutionExplorer": false
+}
