@@ -2,6 +2,7 @@
 using System.Data;
 using VetAppApi.Entities;
 using Dapper;
+using VetAppApi.Services;
 
 namespace VetAppApi.Models
 {
@@ -18,7 +19,9 @@ namespace VetAppApi.Models
         {
             try
             {
-                using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+				string userPassword = PasswordHash.EncryptPassword(userObj.UserPassword);
+
+				using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
                     var datos = connection.Execute("SP_CreateUsers",
                         new { userObj.IdRol
@@ -28,8 +31,8 @@ namespace VetAppApi.Models
                         , userObj.UserIdCard
                         , userObj.UserMail
                         , userObj.UserNickName
-                        , userObj.UserPassword
-                        , userObj.UserPhoneNumber
+                        , userPassword
+						, userObj.UserPhoneNumber
                         , userObj.UserPicture},
                         commandType: CommandType.StoredProcedure);
 

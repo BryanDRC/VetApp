@@ -48,12 +48,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xJbnZlbnRhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bdroj/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Mascotas/AgregarMascota.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcQWdyZWdhck1hc2NvdGEuY3NodG1s
+[C:/Users/bdroj/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Pet/CreatePet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0XENyZWF0ZVBldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/bdroj/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Mascotas/Mascotas.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcTWFzY290YXMuY3NodG1s
+[C:/Users/bdroj/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Pet/EditPet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0XEVkaXRQZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/bdroj/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Pet/Pet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0XFBldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/bdroj/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Planilla/Planilla.cshtml]
