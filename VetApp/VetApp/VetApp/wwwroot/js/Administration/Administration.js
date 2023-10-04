@@ -20,15 +20,22 @@ $(document).on("click", "#btnAddEmployee", function () {
 
 let userPicture = $("#userPictureModal").val();
 
-function SavaChanges() {
+function SavaChangesUserModal() {
 
     let idUser = $("#idUserModal").val();
 
-    if (idUser.trim().length === 0) {
-        CreateUser();
-    } else {
-        UpdateUser();
+    let validateInput = validateInputs();
+
+    if (validateInput) {
+
+        if (idUser.trim().length === 0) {
+            CreateUser();
+        } else {
+            UpdateUser();
+        }
+
     }
+    
 
 }
 
@@ -62,18 +69,32 @@ function CreateUser() {
         success: function (res) {
 
             if (res == 1) {
-                alert("Registro correctamente");
-                location.reload();
+
+                Swal.fire({
+                    title: '',
+                    icon: 'success',
+                    text: 'Usuario registrado correctamente.',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result['isConfirmed']) {
+                        location.reload();
+                    }
+                })
+
                 return;
             }
-            alert("Ha ocurrido un error");
+            Swal.fire({
+                icon: 'error',
+                title: 'Erorr',
+                text: 'Lo sentimos ha ocurrido un error.',
+            });
 
         }
     });
 
 }
 
-function OpenUpdateModal(idUser){
+function OpenUpdateUserModal(idUser){
     $.ajax({
         type: "GET",
         url: "../Administration/GetUser?idUser=" + idUser,
@@ -129,11 +150,26 @@ function UpdateUser() {
         success: function (res) {
 
             if (res == 1) {
-                alert("Actualizado correctamente");
-                location.reload();
+
+                Swal.fire({
+                    title: '',
+                    icon: 'success',
+                    text: 'Usuario actualizado correctamente.',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result['isConfirmed']) {
+                        location.reload();
+                    }
+                })
+
                 return;
             }
-            alert("Ha ocurrido un error");
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Erorr',
+                text: 'Lo sentimos ha ocurrido un error.',
+            });
 
         }
     });
@@ -142,7 +178,7 @@ function UpdateUser() {
 
 let id = 0;
 
-function OpenDeleteConfirmModal(idUser) {
+function OpenDeleteConfirmUserModal(idUser) {
     id = idUser;
     $('#deleteUserModal').modal('show');   
 }
@@ -155,12 +191,24 @@ function DeleteUser() {
         success: function (res) {
 
             if (res == 1) {
-                $('#deleteUserModal').modal('hide');
-                alert("Eliminado correctamente");
-                location.reload();
+                Swal.fire({
+                    title: '',
+                    icon: 'success',
+                    text: 'Usuario eliminado correctamente.',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result['isConfirmed']) {
+                        location.reload();
+                    }
+                })
                 return;
             }
-            alert("Ha ocurrido un error");
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Erorr',
+                text: 'Lo sentimos ha ocurrido un error.',
+            });
 
         }
     });
@@ -187,3 +235,48 @@ input.addEventListener('change', function () {
     reader.readAsDataURL(file);
 });
 
+function validateInputs() {
+
+    let userName = $("#userNameModal").val();
+    let userFirstLastName = $("#userFirstLastNameModal").val();
+    let userSecondLastName = $("#userSecondLastNameModal").val();
+    let userIdCard = $("#userIdCardModal").val();
+    let userPhoneNumber = $("#userPhoneNumberModal").val();
+    let userMail = $("#userMailModal").val();
+    let userNickName = $("#userNickNameModal").val();
+    let idRol = $("#idRolModal").val();
+
+    if (userName.trim().length === 0) {
+        return false;
+    }
+
+    if (userFirstLastName.trim().length === 0) {
+        return false;
+    }
+
+    if (userSecondLastName.trim().length === 0) {
+        return false;
+    }
+
+    if (userIdCard.trim().length === 0) {
+        return false;
+    }
+
+    if (userPhoneNumber.trim().length === 0) {
+        return false;
+    }
+
+    if (userMail.trim().length === 0) {
+        return false;
+    }
+
+    if (userNickName.trim().length === 0) {
+        return false;
+    }
+
+    if (idRol.trim().length === 0) {
+        return false;
+    }
+
+    return true;
+}
