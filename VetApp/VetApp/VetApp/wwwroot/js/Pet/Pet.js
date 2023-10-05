@@ -55,10 +55,10 @@ function CreatePet() {
 
 }
 
-function OpenUpdateModal(idPet){
+function OpenUpdatePetModal(idPet){
     $.ajax({
         type: "GET",
-        url: "../Pet/GetPets?idPet=" + idPet,
+        url: "../Pet/EditPet?idPet=" + idPet,
         dataType: "json",
         success: function (res) {
 
@@ -75,7 +75,7 @@ function OpenUpdateModal(idPet){
     });
 }
 
-function UpdateUser() {
+function UpdatePet() {
 
     let idPet = $("#idPetModal").val();
     let petName = $("#petNameModal").val();
@@ -108,7 +108,7 @@ function UpdateUser() {
 
 let id = 0;
 
-function OpenDeleteConfirmModal(idPet) {
+function OpenDeleteConfirmPetModal(idPet) {
     id = idPet;
     $('#deletePetModal').modal('show');   
 }
@@ -141,11 +141,6 @@ input.addEventListener('change', function () {
     const reader = new FileReader();
 
     // Define la función de devolución de llamada que se ejecutará cuando se cargue el archivo
-    reader.onload = function () {
-        // El contenido de la imagen en Base64 estará en reader.result
-        const base64Image = reader.result;
-        userPicture = base64Image;
-    };
 
     // Lee el archivo como una URL de datos (Base64)
     reader.readAsDataURL(file);

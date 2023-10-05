@@ -10,7 +10,7 @@ $(document).on("click", "#btnAddClient", function () {
     $("#clientFirstLastNameModal").val('');
     $("#clientSecondLastNameModal").val('');
     $("#clientIdCardModal").val('');
-    $("#userclientphoneNumberModalMailModal").val('');
+    $("#clientphoneNumberModal").val('');
 
 
     $('#clientsModal').modal('show');
@@ -20,16 +20,16 @@ $(document).on("click", "#btnAddClient", function () {
 
 function SaveChangesClientModal() {
 
-    let idClient= $("#idClientModal").val();
+    let idClient = $("#idClientModal").val();
 
-    let validateInput = validateInputs();
+    let validateInputClient = validateInputsClient();
 
-    if (validateInput) {
+    if (validateInputClient) {
 
         if (idClient.trim().length === 0) {
-            CreateUser();
+            CreateClient();
         } else {
-            UpdateUser();
+            UpdateClient();
         }
 
     }
@@ -95,7 +95,7 @@ function OpenUpdateClientModal(idClient) {
             $("#clientFirstLastNameModal").prop("readonly", false);
             $("#clientSecondLastNameModal").prop("readonly", false);
             $("#clientIdCardModal").prop("readonly", false);
-            $("#userphoneNumberModal").prop("readonly", false);
+            $("#clientphoneNumberModal").prop("readonly", false);
 
 
             $("#clientNameModal").val(res.clientName);
@@ -198,8 +198,7 @@ function DeleteClient() {
     });
 }
 
-// Selecciona el elemento de entrada de archivo (input type="file") en tu HTML
-const input = document.getElementById('userPictureModal');
+
 
 // Agrega un evento para escuchar cuando se selecciona un archivo
 input.addEventListener('change', function () {

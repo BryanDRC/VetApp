@@ -29,7 +29,6 @@ namespace VetAppApi.Models
                         userObj.UserNickName,
                        userObj.UserPassword
                        //encryptPassword
-
                     }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }

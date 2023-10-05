@@ -1,4 +1,5 @@
-﻿namespace VetAppApi.Entities
+﻿
+namespace VetAppApi.Entities
 {
     public class ClientObj
     {

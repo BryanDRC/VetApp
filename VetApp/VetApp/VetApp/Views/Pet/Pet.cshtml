@@ -62,12 +62,10 @@
                                                 <td class="white-space: nowrap; width: 1%;">
                                                     <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
                                                         <div class="btn-group btn-group-sm" style="float: none;">
-                                                            <button type="button" class="tabledit-edit-button btn btn-success" style="float: none; margin-right:5px" onclick="OpenUpdateModal(@pets.IdPet)">
-                                                                <span class="mdi mdi-pencil"></span>
-                                                            </button>
+                                                            <href onclick="OpenUpdatePetModal(@pets.IdPet)" type="button">Editar</href>
 
-                                                            <button type="button" class="tabledit-edit-button btn btn-danger" data-delete-url="@Url.Action("DeletePet", "Pet")">
-                                                                <a onclick="OpenDeleteConfirmModal(@pets.IdPet)"a></a>
+
+                                                            <button type="button" class="tableedit-edit-button btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletePetModal" onclick="OpenDeleteConfirmPetModal(@pets.IdPet)">
                                                                 <span class="mdi mdi-close"></span>
                                                             </button>
 
@@ -155,6 +153,7 @@
 
 </div><!-- /.modal -->
 
+<script src="~/js/Pet/Pet.js"></script>
 <!-- ============================================================== -->
 <!-- End Page content -->
 <!-- ============================================================== -->
