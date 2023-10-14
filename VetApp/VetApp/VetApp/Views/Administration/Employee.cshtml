@@ -10,74 +10,83 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<div style="margin-left: 25%;" class="row">
+				<div class="row">
 					<input type="hidden" id="idUserModal"/>
-					<div class=" col-md-4">
+					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Nombre</label>
 						<input type="text" class="form-control" id="userNameModal"/>
+						<label id="userNameModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
-					<div class=" col-md-4">
+					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Primer Apellido</label>
 						<input type="text" class="form-control" id="userFirstLastNameModal"/>
+						<label id="userFirstLastNameModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
-
 				</div> <!-- end row -->
 				<br>
-				<div style="margin-left: 25%;" class="row">
-					<div class=" col-md-4">
+				<div class="row">
+					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Segundo Apellido</label>
 						<input type="text" class="form-control" id="userSecondLastNameModal" />
+						<label id="userSecondLastNameModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
-					<div class=" col-md-4">
+					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Cédula</label>
 						<input type="text" class="form-control" id="userIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+						<label id="userIdCardModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
 				</div> <!-- end row -->
 				<br>
-				<div style="margin-left: 25%;" class="row">
-					<div class=" col-md-4">
+				<div class="row">
+					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Número de Teléfono</label>
 						<input type="text" class="form-control" id="userPhoneNumberModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+						<label id="userPhoneNumberModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
-					<div class=" col-md-4">
+					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Correo Electronico</label>
-						<input type="email" class="form-control" id="userMailModal" />
+						<input type="email" class="form-control" id="userMailModal" oninput="validateEmail();" />
+						<label id="userMailModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
 				</div> <!-- end row -->
 				<br>
-				<div style="margin-left: 25%;" class="row">
-					<div class=" col-md-4">
+				<div class="row">
+					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Alias</label>
-						<input type="text" class="form-control" id="userNickNameModal"/>
+						<input type="text" class="form-control" id="userNickNameModal" />
+						<label id="userNickNameModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
-					<div class=" col-md-4">
-						<label for="inputZip" class="form-label">Contraseña</label>
-						<input type="password" class="form-control" id="userPasswordModal"/>
-					</div> <!-- end col -->
-				</div> <!-- end row -->
-				<div style="margin-left: 25%;" class="row">
-
-					<div style="margin-left: 15%;" class="col-md-4">
+					<div class="col-md-6">
 						<label for="inputState" class="form-label">Rol</label>
 						<select id="idRolModal" class="form-select">
 							<option value="1">Admin</option>
 							<option value="2">Insumos</option>
 							<option value="3">Recepcionista</option>
 						</select>
+						<label id="idRolModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
-					<br>
-					<div style="margin-left: 14%;" class="row">
-						<div class="col-md-4">
-							<br>
-							<h4 class="header-title">Foto del Empleado</h4>
-
-							<input type="file" data-plugins="dropify" data-height="100" id="userPictureModal" />
-
-						</div>
-					</div>
+					
 				</div> <!-- end row -->
 				<br>
-
+				<div class="row">
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Contraseña</label>
+						<input type="password" class="form-control" id="userPasswordModal" oninput="validatePassword();" />
+						<label id="userPasswordModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Confirmar Contraseña</label>
+						<input type="password" class="form-control" id="userPassworConfirmModal" oninput="validatePassword();" />
+						<label id="userPassworConfirmModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+				</div> <!-- end row -->
+				<br>
+				<div class="row">
+					<div class="col-md-4">
+						<label for="inputState" class="form-label">Foto del Empleado</label>
+						<input type="file" data-plugins="dropify" data-height="100" id="userPictureModal" />
+					</div> <!-- end col -->
+				</div> <!-- end row -->
 				<br>
 				<div class="row">
 					<div class="modal-footer">

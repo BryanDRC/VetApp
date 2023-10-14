@@ -18,7 +18,7 @@
             string imgPath = Path.Combine(path, imageName);
 
 
-            ImgStr = ImgStr.Replace("data:image/png;base64,", String.Empty);
+            ImgStr = ImgStr.Substring(ImgStr.LastIndexOf(',') + 1);
 
             byte[] imageBytes = Convert.FromBase64String(ImgStr);
 

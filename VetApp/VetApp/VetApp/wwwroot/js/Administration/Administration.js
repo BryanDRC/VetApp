@@ -25,11 +25,15 @@ function SavaChangesUserModal() {
     let idUser = $("#idUserModal").val();
 
     let validateInput = validateInputs();
+    let validateEmailMessage = validateEmail();
+    let validatePasswordMessage = validatePassword();
 
-    if (validateInput) {
+    if (validateInput && validateEmailMessage) {
 
         if (idUser.trim().length === 0) {
-            CreateUser();
+            if (validatePasswordMessage) {
+                CreateUser();
+            }
         } else {
             UpdateUser();
         }
@@ -235,6 +239,71 @@ input.addEventListener('change', function () {
     reader.readAsDataURL(file);
 });
 
+function validateEmail() {
+
+    let userMail = $("#userMailModal").val();
+    let userMailMessage = $("#userMailModalMessage");
+
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if (userMail.match(mailformat)) {
+        userMailMessage.text("");
+        return true;
+    }
+    else {
+        userMailMessage.text("Formato de correo incorrecto.");
+        return false;
+    }
+}
+
+function validatePassword() {
+
+    let userPassword = $("#userPasswordModal").val()
+    let userPasswordModalMessage = $("#userPasswordModalMessage");
+    let userPassworConfirm = $("#userPassworConfirmModal").val()
+    let userPassworConfirmModalMessage = $("#userPassworConfirmModalMessage");
+
+    userPasswordModalMessage.text("");
+    userPassworConfirmModalMessage.text("");
+
+    // Verificar longitud mínima
+    if (userPassword.length < 8) {
+        userPasswordModalMessage.text("Debe ser mayor o igual a 8 caracteres.");
+        return false;
+    }
+
+    // Verificar si contiene al menos una letra mayúscula
+    if (!/[A-Z]/.test(userPassword)) {
+        userPasswordModalMessage.text("Debe contener al menos una letra may\u00FAscula.");
+        return false;
+    }
+
+    // Verificar si contiene al menos una letra minúscula
+    if (!/[a-z]/.test(userPassword)) {
+        userPasswordModalMessage.text("Debe contener al menos una letra min\u00FAscula.");
+        return false;
+    }
+
+    // Verificar si contiene al menos un número
+    if (!/[0-9]/.test(userPassword)) {
+        userPasswordModalMessage.text("Debe contener al menos un n\u00FAmero.");
+        return false;
+    }
+
+    // Verificar si contiene al menos un caracter especial (por ejemplo, !@#$%^&*)
+    if (!/[!@#$%^&*]/.test(userPassword)) {
+        userPasswordModalMessage.text("Debe contener al menos un caracter especial.");
+        return false;
+    }
+
+    if (userPassword !== userPassworConfirm) {
+        userPassworConfirmModalMessage.text("Las contrase\u00F1as no coinciden.");
+        return false;
+    }
+    // La contrasena cumple con todos los criterios
+    return true;
+}
+
 function validateInputs() {
 
     let userName = $("#userNameModal").val();
@@ -246,35 +315,61 @@ function validateInputs() {
     let userNickName = $("#userNickNameModal").val();
     let idRol = $("#idRolModal").val();
 
+    let userNameMessage = $("#userNameModalMessage");
+    let userFirstLastNameMessage = $("#userFirstLastNameModalMessage");
+    let userSecondLastNameMessage = $("#userSecondLastNameModalMessage");
+    let userIdCardMessage = $("#userIdCardModalMessage");
+    let userPhoneNumberMessage = $("#userPhoneNumberModalMessage");
+    let userMailMessage = $("#userMailModalMessage");
+    let userNickNameMessage = $("#userNickNameModalMessage");
+    let idRolMessage = $("#idRolModalMessage");
+
+    userNameMessage.text("");
+    userFirstLastNameMessage.text("");
+    userSecondLastNameMessage.text("");
+    userIdCardMessage.text("");
+    userPhoneNumberMessage.text("");
+    userMailMessage.text("");
+    userNickNameMessage.text("");
+    idRolMessage.text("");
+
     if (userName.trim().length === 0) {
+        userNameMessage.text("Nombre no puede ir vac\u00EDo.");
         return false;
     }
 
     if (userFirstLastName.trim().length === 0) {
+        userFirstLastNameMessage.text("Primer apellido no puede ir vac\u00EDo.");
         return false;
     }
 
     if (userSecondLastName.trim().length === 0) {
+        userSecondLastNameMessage.text("Segundo apellido no puede ir vac\u00EDo.");
         return false;
     }
 
     if (userIdCard.trim().length === 0) {
+        userIdCardMessage.text("C\u00E9dula no puede ir vac\u00EDo.");
         return false;
     }
 
     if (userPhoneNumber.trim().length === 0) {
+        userPhoneNumberMessage.text("Tel\u00E9fono no puede ir vac\u00EDo.");
         return false;
     }
 
     if (userMail.trim().length === 0) {
+        userMailMessage.text("Correo no puede ir vac\u00EDo.");
         return false;
     }
 
     if (userNickName.trim().length === 0) {
+        userNickNameMessage.text("Alias no puede ir vac\u00EDo.");
         return false;
     }
 
     if (idRol.trim().length === 0) {
+        idRolMessage.text("Debe seleccionar un rol.");
         return false;
     }
 
