@@ -64,5 +64,35 @@ namespace VetApp.Models
                 return 0;
             }
         }
-    }
+
+		public UserObj? ValidateUserMailExist(string userMail)
+		{
+			using (var client = new HttpClient())
+			{
+				string url = "https://localhost:7032/api/User/ValidateUserMailExist?email="+userMail;
+
+				HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+
+				if (response.IsSuccessStatusCode)
+					return response.Content.ReadFromJsonAsync<UserObj>().Result;
+
+				return null;
+			}
+		}
+
+		public int UpdateUserPassword(UserObj userObj)
+		{
+			using (var client = new HttpClient())
+			{
+				JsonContent body = JsonContent.Create(userObj);
+				string url = "https://localhost:7032/api/User/UpdateUserPassword";
+				HttpResponseMessage response = client.PutAsync(url, body).GetAwaiter().GetResult();
+
+				if (response.IsSuccessStatusCode)
+					return response.Content.ReadFromJsonAsync<int>().Result;
+
+				return 0;
+			}
+		}
+	}
 }

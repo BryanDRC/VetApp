@@ -16,5 +16,20 @@ namespace VetApp.Models
                 return (response.IsSuccessStatusCode) ? response.Content.ReadFromJsonAsync<UserObj>().Result : null;
             }
         }
-    }
+
+		public string RequestNewPasswordEmailSend(UserObj userObj)
+		{
+			using (var client = new HttpClient())
+			{
+				JsonContent body = JsonContent.Create(userObj);
+				string url = "https://localhost:7032/api/Auth/RequestNewPasswordEmailSend";
+				HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
+
+				if (response.IsSuccessStatusCode)
+					return response.Content.ReadAsStringAsync().Result;
+
+				return String.Empty;
+			}
+		}
+	}
 }
