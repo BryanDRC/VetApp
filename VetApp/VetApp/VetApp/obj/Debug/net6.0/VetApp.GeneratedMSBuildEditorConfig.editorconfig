@@ -64,10 +64,21 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbmlsbGFcUGxhbmlsbGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< Updated upstream
 [C:/Users/Duant/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Proveedores/Supplier.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcU3VwcGxpZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+=======
+[C:/Users/Duant/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Proveedores/AgregarProveedores.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcQWdyZWdhclByb3ZlZWRvcmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Duant/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Proveedores/Proveedores.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcUHJvdmVlZG9yZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+>>>>>>> Stashed changes
 [C:/Users/Duant/OneDrive/Documentos/GitHub/VetApp/VetApp/VetApp/VetApp/Views/Reportes/ReporteCitas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZUNpdGFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
