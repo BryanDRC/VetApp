@@ -715,25 +715,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yohan Alvarado\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\bdroj\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+      "projectUniqueName": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
       "projectName": "VetAppApi",
-      "projectPath": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
-      "packagesPath": "C:\\Users\\Yohan Alvarado\\.nuget\\packages\\",
-      "outputPath": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetAppApi\\VetAppApi\\obj\\",
+      "projectPath": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+      "packagesPath": "C:\\Users\\bdroj\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetAppApi\\VetAppApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Yohan Alvarado\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\bdroj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -790,7 +785,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

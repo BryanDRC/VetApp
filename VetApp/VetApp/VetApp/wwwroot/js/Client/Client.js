@@ -3,9 +3,10 @@ $(document).on("click", "#btnAddClient", function () {
     $("#clientNameModal").prop("readonly", false);
     $("#clientFirstLastNameModal").prop("readonly", false);
     $("#clientSecondLastNameModal").prop("readonly", false);
-    $("#clientIdCardModal").prop("readonly", false);
     $("#clientphoneNumberModal").prop("readonly", false);
+    $("#clientIdCardModal").prop("readonly", false);
 
+    $("#idClientModal").val('');
     $("#clientNameModal").val('');
     $("#clientFirstLastNameModal").val('');
     $("#clientSecondLastNameModal").val('');
@@ -17,14 +18,14 @@ $(document).on("click", "#btnAddClient", function () {
 
 });
 
-
-function SaveChangesClientModal() {
+function SavaChangesClientModal() {
 
     let idClient = $("#idClientModal").val();
 
-    let validateInputClient = validateInputsClient();
+    let validateInput = validateInputs();
 
-    if (validateInputClient) {
+
+    if (validateInput) {
 
         if (idClient.trim().length === 0) {
             CreateClient();
@@ -42,7 +43,7 @@ function CreateClient() {
     let clientFirstLastName = $("#clientFirstLastNameModal").val();
     let clientSecondLastName = $("#clientSecondLastNameModal").val();
     let clientIdCard = $("#clientIdCardModal").val();
-    let clientPhoneNumber = $("#clientphoneNumberModal").val();
+    let clientphoneNumber = $("#clientphoneNumberModal").val();
 
 
     $.ajax({
@@ -54,7 +55,7 @@ function CreateClient() {
             "clientFirstLastName": clientFirstLastName,
             "clientSecondLastName": clientSecondLastName,
             "clientIdCard": clientIdCard,
-            "clientPhoneNumber": clientPhoneNumber
+            "clientphoneNumber": clientphoneNumber,
         },
         success: function (res) {
 
@@ -94,15 +95,17 @@ function OpenUpdateClientModal(idClient) {
             $("#clientNameModal").prop("readonly", false);
             $("#clientFirstLastNameModal").prop("readonly", false);
             $("#clientSecondLastNameModal").prop("readonly", false);
-            $("#clientIdCardModal").prop("readonly", false);
             $("#clientphoneNumberModal").prop("readonly", false);
+            $("#clientIdCardModal").prop("readonly", false);
 
 
+            $("#idClientModal").val(res.idClient);
             $("#clientNameModal").val(res.clientName);
             $("#clientFirstLastNameModal").val(res.clientFirstLastName);
             $("#clientSecondLastNameModal").val(res.clientSecondLastName);
             $("#clientIdCardModal").val(res.clientIdCard);
             $("#clientphoneNumberModal").val(res.clientphoneNumber);
+
 
             $('#clientsModal').modal('show');
 
@@ -116,8 +119,9 @@ function UpdateClient() {
     let clientName = $("#clientNameModal").val();
     let clientFirstLastName = $("#clientFirstLastNameModal").val();
     let clientSecondLastName = $("#clientSecondLastNameModal").val();
+    let clientIdCard = $("#clientPasswordModal").val();
     let clientphoneNumber = $("#clientphoneNumberModal").val();
-    let clientIdCard = $("#clientIdCardModal").val();
+
 
     $.ajax({
         type: "PUT",
@@ -138,7 +142,7 @@ function UpdateClient() {
                 Swal.fire({
                     title: '',
                     icon: 'success',
-                    text: 'cliente actualizado correctamente.',
+                    text: 'Cliente actualizado correctamente.',
                     confirmButtonText: 'Ok'
                 }).then((result) => {
                     if (result['isConfirmed']) {
@@ -160,17 +164,17 @@ function UpdateClient() {
 
 }
 
-let id = 0;
+let idtemp = 0;
 
 function OpenDeleteConfirmClientModal(idClient) {
-    id = idClient;
+    idtemp = idClient;
     $('#deleteClientModal').modal('show');
 }
 
 function DeleteClient() {
     $.ajax({
         type: "DELETE",
-        url: "../Client/DeleteClient?idClient=" + id,
+        url: "../Client/DeleteClient?idClient=" + idtemp,
         dataType: "json",
         success: function (res) {
 
@@ -197,53 +201,53 @@ function DeleteClient() {
         }
     });
 }
-
-
-
-// Agrega un evento para escuchar cuando se selecciona un archivo
-input.addEventListener('change', function () {
-    const file = input.files[0];
-
-    // Crea un objeto FileReader
-    const reader = new FileReader();
-
-    // Define la función de devolución de llamada que se ejecutará cuando se cargue el archivo
-    reader.onload = function () {
-        // El contenido de la imagen en Base64 estará en reader.result
-        const base64Image = reader.result;
-        userPicture = base64Image;
-    };
-
-    // Lee el archivo como una URL de datos (Base64)
-    reader.readAsDataURL(file);
-});
-
-function validateInputsClient() {
+function validateInputs() {
 
     let clientName = $("#clientNameModal").val();
     let clientFirstLastName = $("#clientFirstLastNameModal").val();
     let clientSecondLastName = $("#clientSecondLastNameModal").val();
     let clientIdCard = $("#clientIdCardModal").val();
-    let clientPhoneNumber = $("#clientphoneNumberModal").val();
+    let clientphoneNumber = $("#clientphoneNumberModal").val();
 
+    let clientNameMessage = $("#clientNameModalMessage");
+    let clientFirstLastNameMessage = $("#clientFirstLastNameModalMessage");
+    let clientSecondLastNameMessage = $("#clientSecondLastNameModalMessage");
+    let clientIdCardMessage = $("#clientIdCardModalMessage");
+    let clientphoneNumberMessage = $("#clientphoneNumberModalMessage");
+
+
+    clientNameMessage.text("");
+    clientFirstLastNameMessage.text("");
+    clientSecondLastNameMessage.text("");
+    clientIdCardMessage.text("");
+    clientphoneNumberMessage.text("");
 
     if (clientName.trim().length === 0) {
+        clientNameMessage.text("Nombre no puede ir vac\u00EDo.");
         return false;
     }
 
     if (clientFirstLastName.trim().length === 0) {
+        clientFirstLastNameMessage.text("Primer apellido no puede ir vac\u00EDo.");
         return false;
     }
 
     if (clientSecondLastName.trim().length === 0) {
+        clientSecondLastNameMessage.text("Segundo apellido no puede ir vac\u00EDo.");
         return false;
     }
 
     if (clientIdCard.trim().length === 0) {
+        clientIdCardMessage.text("C\u00E9dula no puede ir vac\u00EDo.");
         return false;
     }
 
-    if (clientPhoneNumber.trim().length === 0) {
+    if (clientphoneNumber.trim().length === 0) {
+        clientphoneNumberMessage.text("Tel\u00E9fono no puede ir vac\u00EDo.");
+        return false;
+    }
+    if (clientphoneNumber.trim().length < 8) {
+        clientphoneNumberMessage.text("Debe tener m\u00EDnimo 8 n\u00FAmeros.");
         return false;
     }
 
