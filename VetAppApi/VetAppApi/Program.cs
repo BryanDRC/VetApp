@@ -14,6 +14,7 @@ builder.Services.AddScoped<AuthModel>();
 builder.Services.AddScoped<UserModel>();
 builder.Services.AddScoped<PetModel>();
 builder.Services.AddScoped <ClientModel>();
+builder.Services.AddScoped<SupplierModel>();
 
 var app = builder.Build();
 

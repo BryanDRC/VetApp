@@ -737,6 +737,10 @@
       "PackagePath": "staticwebassets\\js\\Pet\\Pet.min.js.map"
     },
     {
+      "Id": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Supplier.js",
+      "PackagePath": "staticwebassets\\js\\Supplier\\Supplier.js"
+    },
+    {
       "Id": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\app.js",
       "PackagePath": "staticwebassets\\js\\app.js"
     },
