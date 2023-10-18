@@ -31,5 +31,19 @@ namespace VetAppApi.Models
                     }, commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
         }
+
+        public UserObj? recoverPassword(UserObj userObj)
+        {
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+            {
+                return connection.Query<UserObj>("SP_RecoverPassword",
+                    new
+                    {
+                        userObj.UserMail
+                    }, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+        }
+
+
     }
 }
