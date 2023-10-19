@@ -1,9 +1,13 @@
 {
   "Version": 1,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "Hash": "+qDey3EADfGsY42bnc16VELTQfZV43AffZvtzZdsfo4=",
 =======
   "Hash": "o0d+9rJHkC88Wlj4pZUk+6CJm+Bi+PVkn3Ke/QM6GZg=",
+>>>>>>> Stashed changes
+=======
+  "Hash": "fNBZdnA+MNOtKkmn/uVWY74VGTwISAfjpGk5xhIhxNk=",
 >>>>>>> Stashed changes
   "Source": "VetApp",
   "BasePath": "_content/VetApp",
@@ -57724,6 +57728,26 @@
     },
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+      "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\UsersPictures\\102320123.jpg",
+      "SourceId": "VetApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
+      "BasePath": "_content/VetApp",
+      "RelativePath": "UsersPictures/102320123.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UsersPictures\\102320123.jpg"
+    },
+    {
+>>>>>>> Stashed changes
       "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Proyecto\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\UsersPictures\\11111111.jpg",
       "SourceId": "VetApp",
       "SourceType": "Discovered",
