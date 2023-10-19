@@ -49,7 +49,20 @@ namespace VetApp.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [HttpGet]
+        public IActionResult RequestNewPasswordEmailSend()
+        {
+            return View();
+        }
+
+		[HttpPost]
+		public JsonResult RequestNewPasswordEmailSend(UserObj userObj)
+		{
+            var sendEmail = _authModel.RequestNewPasswordEmailSend(userObj);
+			return Json(sendEmail);
+		}
+
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

@@ -1,4 +1,5 @@
 using VetAppApi.Models;
+using VetAppApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddScoped<UserModel>();
 builder.Services.AddScoped<PetModel>();
 builder.Services.AddScoped <ClientModel>();
 builder.Services.AddScoped<SupplierModel>();
+builder.Services.AddScoped<EmailSend>();
 
 var app = builder.Build();
 

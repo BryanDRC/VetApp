@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using VetAppApi.Entities;
 using VetAppApi.Models;
+using VetAppApi.Services;
 
 namespace VetAppApi.Controllers
 {
@@ -11,10 +12,12 @@ namespace VetAppApi.Controllers
     public class AuthController : ControllerBase
     {
         private readonly AuthModel? _authModel;
+        private readonly EmailSend _emailSend;
 
-        public AuthController(AuthModel authModel)
+        public AuthController(AuthModel authModel, EmailSend emailSend)
         {
             _authModel = authModel;
+            _emailSend = emailSend;
         }
 
         [HttpPost]
@@ -31,5 +34,21 @@ namespace VetAppApi.Controllers
                 return BadRequest("Se produjo un error al iniciar sesión. " + ex);
             }
         }
-    }
+
+		[HttpPost]
+		[Route("RequestNewPasswordEmailSend")]
+		public ActionResult<string> RequestNewPasswordEmailSend(UserObj userObj)
+		{
+			try
+			{
+				_emailSend.RequestNewPasswordEmailSend(userObj.UserMail);
+
+                return "Solicitud enviada correctamente.";
+			}
+			catch (Exception ex)
+			{
+				return BadRequest("Se produjo un error al enviar la solicitud. " + ex);
+			}
+		}
+	}
 }

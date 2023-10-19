@@ -42,5 +42,19 @@ namespace VetAppApi.Controllers
         {
             return _userModel.DeleteUser(idUser);
         }
-    }
+
+		[HttpGet]
+		[Route("ValidateUserMailExist")]
+		public ActionResult<UserObj> ValidateUserMailExist(string email)
+		{
+			return _userModel.ValidateUserMailExist(email);
+		}
+
+		[HttpPut]
+		[Route("UpdateUserPassword")]
+		public ActionResult<int> UpdateUserPassword(UserObj userObj)
+		{
+			return _userModel.UpdateUserPassword(userObj);
+		}
+	}
 }

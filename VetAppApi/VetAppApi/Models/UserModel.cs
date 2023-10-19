@@ -127,5 +127,62 @@ namespace VetAppApi.Models
 
             return 0;
         }
-    }
+
+		public UserObj? ValidateUserMailExist(string userMail)
+		{
+
+			try
+			{
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+                {
+                    var datos = connection.Query<UserObj>("SP_ValidateUserMailExist", new
+                    {
+                        userMail
+                    },
+                        commandType: CommandType.StoredProcedure).FirstOrDefault();
+                    
+                    if(datos != null)
+                    {
+                        return datos;
+                    }
+
+					return new UserObj();
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			return new UserObj();
+		}
+
+		public int UpdateUserPassword(UserObj userObj)
+		{
+			try
+			{
+				string userPassword = PasswordHash.EncryptPassword(userObj.UserPassword);
+
+				using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+				{
+					var datos = connection.Execute("SP_UpdateUserPassword",
+						new
+						{
+							userObj.UserMail
+						,
+							userPassword
+						},
+						commandType: CommandType.StoredProcedure);
+
+					return datos;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			return 0;
+		}
+	}
 }

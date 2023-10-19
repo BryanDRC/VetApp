@@ -96,5 +96,25 @@ namespace VetApp.Controllers
 			return Json(user);
 		}
 
+		[HttpGet]
+		public JsonResult ValidateUserMailExist(string userMail)
+		{
+			var user = _employee.ValidateUserMailExist(userMail);
+			return Json(user);
+		}
+
+		[HttpGet]
+		public IActionResult UpdateUserPassword(string? email = null)
+		{
+			ViewBag.Email = email;
+			return View();
+		}
+
+		[HttpPut]
+		public JsonResult UpdateUserPassword(UserObj userObj)
+		{
+			var updateUserPassword = _employee.UpdateUserPassword(userObj);
+			return Json(updateUserPassword);
+		}
 	}
 }
