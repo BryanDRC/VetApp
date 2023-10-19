@@ -7,6 +7,6 @@
     "\\VetAppApi\\Models",
     "\\VetAppApi\\Services"
   ],
-  "SelectedNode": "\\VetAppApi\\Controllers\\AuthController.cs",
+  "SelectedNode": "\\VetAppApi\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
