@@ -5,7 +5,7 @@ function UpdateUserPassword() {
     if (validatePasswordMessage) {
 
         let userMail = $("#userMail").val();
-        let userPassword = $("#password").val();
+        let userPassword = $("#userPassword").val();
 
         $.ajax({
             type: "PUT",
@@ -48,8 +48,8 @@ function UpdateUserPassword() {
 
 function validatePassword() {
 
-    let userPassword = $("#password").val()
-    let userPasswordModalMessage = $("#passwordMessage");
+    let userPassword = $("#userPassword").val()
+    let userPasswordModalMessage = $("#userPasswordMessage");
     let userPassworConfirm = $("#confirmPassword").val()
     let userPassworConfirmModalMessage = $("#confirmPasswordMessage");
 
