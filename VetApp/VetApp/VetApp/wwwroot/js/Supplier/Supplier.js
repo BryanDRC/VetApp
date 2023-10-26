@@ -1,25 +1,24 @@
 $(document).on("click", "#btnAddSupplier", function () {
 
+    $("#idSupplierModal").prop("readonly", false);
     $("#supplierNameModal").prop("readonly", false);
-    $("#supplierPhoneNumberModal").prop("readonly", false);
+    $("#supplierFirstLastNameModal").prop("readonly", false);
     $("#supplierIdCardModal").prop("readonly", false);
-
-
 
     $("#idSupplierModal").val('');
     $("#supplierNameModal").val('');
     $("#supplierPhoneNumberModal").val('');
     $("#supplierIdCardModal").val('');
 
-
-
     $('#suppliersModal').modal('show');
 
 });
 
+
+
 function SavaChangesSupplierModal() {
 
-    let idSupplier = $("#idSupplierModal").val();
+    let idSupplier= $("#idSupplierModal").val();
 
     let validateInput = validateInputs();
 
@@ -42,8 +41,6 @@ function CreateSupplier() {
     let supplierPhoneNumber = $("#supplierPhoneNumberModal").val();
     let supplierIdCard = $("#supplierIdCardModal").val();
 
-
-
     $.ajax({
         type: "POST",
         url: "../Supplier/CreateSupplier",
@@ -52,7 +49,6 @@ function CreateSupplier() {
             "supplierName": supplierName,
             "supplierPhoneNumber": supplierPhoneNumber,
             "supplierIdCard": supplierIdCard
-
         },
         success: function (res) {
 
@@ -89,18 +85,15 @@ function OpenUpdateSupplierModal(idSupplier) {
         dataType: "json",
         success: function (res) {
 
-            $("#supplierNameModal").prop("readonly", false);
-            $("#supplierIdCardModal").prop("readonly", false);
+            $("#supplierNameModal").prop("readonly", true);
             $("#supplierPhoneNumberModal").prop("readonly", false);
-
+            $("#supplierIdCardModal").prop("readonly", true);
 
 
             $("#idSupplierModal").val(res.idSupplier);
             $("#supplierNameModal").val(res.supplierName);
             $("#supplierPhoneNumberModal").val(res.supplierPhoneNumber);
             $("#supplierIdCardModal").val(res.supplierIdCard);
-
-
 
             $('#suppliersModal').modal('show');
 
@@ -113,9 +106,7 @@ function UpdateSupplier() {
     let idSupplier = $("#idSupplierModal").val();
     let supplierName = $("#supplierNameModal").val();
     let supplierPhoneNumber = $("#supplierPhoneNumberModal").val();
-    let supplierIdCard = $("#supplierPasswordModal").val();
-
-
+    let supplierIdCard = $("#supplierIdCardModal").val();
 
     $.ajax({
         type: "PUT",
@@ -156,17 +147,17 @@ function UpdateSupplier() {
 
 }
 
-let idtemp = 0;
+let id = 0;
 
 function OpenDeleteConfirmSupplierModal(idSupplier) {
-    idtemp = idSupplier;
+    id = idSupplier;
     $('#deleteSupplierModal').modal('show');
 }
 
 function DeleteSupplier() {
     $.ajax({
         type: "DELETE",
-        url: "../Supplier/DeleteSupplier?idSupplier=" + idtemp,
+        url: "../Supplier/DeleteSupplier?idSupplier=" + id,
         dataType: "json",
         success: function (res) {
 
@@ -193,26 +184,29 @@ function DeleteSupplier() {
         }
     });
 }
+
 function validateInputs() {
 
     let supplierName = $("#supplierNameModal").val();
-    let supplierPhoneNumber = $("#supplierPhoneNumberModal").val();
     let supplierIdCard = $("#supplierIdCardModal").val();
-
+    let supplierPhoneNumber = $("#supplierPhoneNumberModal").val()
 
     let supplierNameMessage = $("#supplierNameModalMessage");
-    let supplierPhoneNumberMessage = $("#supplierPhoneNumberModalMessage");
     let supplierIdCardMessage = $("#supplierIdCardModalMessage");
-
+    let supplierPhoneNumberMessage = $("#supplierPhoneNumberModalMessage");
 
 
     supplierNameMessage.text("");
-    supplierPhoneNumberMessage.text("");
     supplierIdCardMessage.text("");
-
+    supplierPhoneNumberMessage.text("");
 
     if (supplierName.trim().length === 0) {
         supplierNameMessage.text("Nombre no puede ir vac\u00EDo.");
+        return false;
+    }
+
+    if (supplierIdCard.trim().length === 0) {
+        supplierIdCardMessage.text("C\u00E9dula fiscal no puede ir vac\u00EDo.");
         return false;
     }
 
@@ -222,16 +216,9 @@ function validateInputs() {
     }
 
     if (supplierPhoneNumber.trim().length < 8) {
-        supplierPhoneNumberMessage.text("Debe tener m\u00EDnimo 8 n\u00FAmeros.");
+        supplierPhoneNumberrMessage.text("Debe tener m\u00EDnimo 8 n\u00FAmeros.");
         return false;
     }
-
-    if (supplierIdCard.trim().length === 0) {
-        supplierIdCardMessage.text("C\u00E9dula no puede ir vac\u00EDo.");
-        return false;
-    }
-
-
 
     return true;
 }
