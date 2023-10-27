@@ -1,36 +1,36 @@
-$(document).on("click", "#btnAddPet", function () {
+Ôªø$(document).on("click", "#btnAddPet", function () {
+
 
     $("#petNameModal").prop("readonly", false);
     $("#petSpeciesModal").prop("readonly", false);
-    $("#clientNameModal").prop("readonly", false);
+    $("#IdClientModal").prop("readonly", false);
 
     $("#idPetModal").val('');
     $("#petNameModal").val('');
     $("#petSpeciesModal").val('');
-    $("#clientNameModal").val('');
-    $("#idClientModal").val('');
+    $("#IdClientModal").val('');
 
     $('#petsModal').modal('show');
 
 });
 
-
-function SavaChanges() {
-
+function SavaChangesPetModal() {
     let idPet = $("#idPetModal").val();
+    let validateInput = validateInputs();
 
-    if (idPet.trim().length === 0) {
-        CreatePet();
-    } else {
-        UpdatePet();
+    if (validateInput) {
+        if (idPet.trim().length === 0) {
+            CreatePet();
+        } else {
+            UpdatePet();
+        }
     }
-
 }
 
 function CreatePet() {
     let petName = $("#petNameModal").val();
     let petSpecies = $("#petSpeciesModal").val();
-    let clientName = $("#clientNameModal").val();   
+    let IdCLient = $("#IdClientModal").val();
 
     $.ajax({
         type: "POST",
@@ -39,110 +39,152 @@ function CreatePet() {
         data: {
             "petName": petName,
             "petSpecies": petSpecies,
-            "clientName": clientName,         
+            "IdCLient" : IdCLient
         },
         success: function (res) {
-
             if (res == 1) {
-                alert("Registro correctamente");
-                location.reload();
+                Swal.fire({
+                    title: '',
+                    icon: 'success',
+                    text: 'Mascota registrada correctamente.',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result['isConfirmed']) {
+                        location.reload();
+                    }
+                })
                 return;
             }
-            alert("Ha ocurrido un error");
-
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Lo sentimos ha ocurrido un error.',
+            });
         }
     });
-
 }
 
-function OpenUpdatePetModal(idPet){
+function OpenUpdatePetModal(idPet) {
     $.ajax({
         type: "GET",
-        url: "../Pet/EditPet?idPet=" + idPet,
+        url: "../Pet/GetPet?idPet=" + idPet,
         dataType: "json",
         success: function (res) {
+            $("#petNameModal").prop("readonly", false);
+            $("#petSpeciesModal").prop("readonly", false);
+            $("#IdClientModal").prop("readonly", false);
 
-            $("#petNameModal").prop("readonly", true);
-            $("#petSpeciesModal").prop("readonly", true);
-            $("#clientNameModal").prop("readonly", true);
-
-            $("#idPetModal").val(res.idPet);
+            $("#idPetModal").val(res.IdPet);
             $("#petNameModal").val(res.petName);
             $("#petSpeciesModal").val(res.petSpecies);
-            $("#clientNameModal").val(res.clientName);
+            $("#IdClientModal").val(res.IdCLient);
 
+            $('#petsModal').modal('show');
         }
     });
 }
 
 function UpdatePet() {
-
     let idPet = $("#idPetModal").val();
     let petName = $("#petNameModal").val();
     let petSpecies = $("#petSpeciesModal").val();
-    let clientName = $("#clientNameModal").val();
+    let IdClient = $("#IdClientModal").val();
 
     $.ajax({
         type: "PUT",
         url: "../Pet/UpdatePet",
         dataType: "json",
         data: {
-            "idPet": idPet,
+            "IdPet": idPet,
             "petName": petName,
             "petSpecies": petSpecies,
-            "clientName": clientName,
+            "IdClient": IdClient
         },
         success: function (res) {
-
             if (res == 1) {
-                alert("Actualizado correctamente");
-                location.reload();
+                Swal.fire({
+                    title: '',
+                    icon: 'success',
+                    text: 'Mascota actualizada correctamente.',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result['isConfirmed']) {
+                        location.reload();
+                    }
+                })
                 return;
             }
-            alert("Ha ocurrido un error");
-
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Lo sentimos ha ocurrido un error.',
+            });
         }
     });
-
 }
 
-let id = 0;
+let idtempPet = 0;
 
 function OpenDeleteConfirmPetModal(idPet) {
-    id = idPet;
-    $('#deletePetModal').modal('show');   
+    idtempPet = idPet;
+    $('#deletePetModal').modal('show');
 }
 
 function DeletePet() {
     $.ajax({
         type: "DELETE",
-        url: "../Pet/DeletePet?idPet=" + id,
+        url: "../Pet/DeletePet?idPet=" + idtempPet,
         dataType: "json",
         success: function (res) {
-
             if (res == 1) {
-                $('#deletePetModal').modal('hide');
-                alert("Eliminado correctamente");
-                location.reload();
+                Swal.fire({
+                    title: '',
+                    icon: 'success',
+                    text: 'Mascota eliminada correctamente.',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result['isConfirmed']) {
+                        location.reload();
+                    }
+                })
                 return;
             }
-            alert("Ha ocurrido un error");
-
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Lo sentimos ha ocurrido un error.',
+            });
         }
     });
 }
 
+function validateInputs() {
+    let petName = $("#petNameModal").val();
+    let petSpecies = $("#petSpeciesModal").val();
+    let IdClient = $("#IdClientModal").val();
 
-// Agrega un evento para escuchar cuando se selecciona un archivo
-input.addEventListener('change', function () {
-    const file = input.files[0];
+    let petNameMessage = $("#petNameModalMessage");
+    let petSpeciesMessage = $("#petSpeciesModalMessage");
+    let IdClientMessage = $("#IdClientModalMessage");
 
-    // Crea un objeto FileReader
-    const reader = new FileReader();
+    petNameMessage.text("");
+    petSpeciesMessage.text("");
+    IdClientMessage.text("");
 
-    // Define la funciÛn de devoluciÛn de llamada que se ejecutar· cuando se cargue el archivo
+    if (petName.trim().length === 0) {
+        petNameMessage.text("Nombre de la mascota no puede ir vac√≠o.");
+        return false;
+    }
+    if (petSpecies.trim().length === 0) {
+        petSpeciesMessage.text("Especie de la mascota no puede ir vac√≠o.");
+        return false;
+    }
 
-    // Lee el archivo como una URL de datos (Base64)
-    reader.readAsDataURL(file);
-});
+    if (IdClient.trim().length === 0) {
+        IdClientMessage.text("Id del cliente no puede ir vac√≠o.");
+        return false;
+    }
 
+
+    return true;
+}

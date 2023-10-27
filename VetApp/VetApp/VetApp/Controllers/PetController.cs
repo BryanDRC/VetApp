@@ -1,25 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using VetApp.Entities;
 using VetApp.Models;
-using System.Drawing;
-using System.Text;
-using System.IO;
+using System.Linq;
 
 namespace VetApp.Controllers
 {
     public class PetController : Controller
     {
         private readonly PetModel _petModel;
-        public List<PetObj> _petObject;
+        public List<PetObj> _petsList;
+
         public PetController()
         {
             _petModel = new PetModel();
-            _petObject = _petModel.GetPets();
-
+            _petsList = _petModel.GetPets();
         }
-        public IActionResult Index()
+
+        public IActionResult Pet()
         {
+            ViewBag.Pets = _petsList;
             return View();
         }
 
@@ -28,9 +27,8 @@ namespace VetApp.Controllers
             return View();
         }
 
-        public IActionResult Pet()
+        public IActionResult Mascota()
         {
-            ViewBag.Pets = _petObject;
             return View();
         }
 
@@ -42,13 +40,6 @@ namespace VetApp.Controllers
         [HttpPost]
         public JsonResult CreatePet(PetObj petObj)
         {
-
-            if (String.IsNullOrEmpty(petObj.petName))
-            {
-                petObj.petName = "";
-
-            }         
-
             var createPet = _petModel.CreatePet(petObj);
             return Json(createPet);
         }
@@ -56,36 +47,22 @@ namespace VetApp.Controllers
         [HttpGet]
         public JsonResult GetPet(int idPet)
         {
-            var pet = _petObject.Where(data => data.IdPet == idPet).FirstOrDefault();
+            var pet = _petsList.Where(data => data.IdPet == idPet).FirstOrDefault();
             return Json(pet);
         }
 
         [HttpPut]
         public JsonResult UpdatePet(PetObj petObj)
         {
-            if (String.IsNullOrEmpty(petObj.petName))
-            {
-                petObj.petName = "";
-
-            }
-
-            if (String.IsNullOrEmpty(petObj.petSpecies))
-            {
-                petObj.petSpecies = "";
-
-            }
-
-            var createPet = _petModel.UpdatePet(petObj);
-            return Json(createPet);
+            var updatePet = _petModel.UpdatePet(petObj);
+            return Json(updatePet);
         }
 
         [HttpDelete]
         public JsonResult DeletePet(int idPet)
         {
-            var pet = _petModel.DeletePet(idPet);
-            return Json(pet);
+            var deletePet = _petModel.DeletePet(idPet);
+            return Json(deletePet);
         }
-
-
     }
 }
