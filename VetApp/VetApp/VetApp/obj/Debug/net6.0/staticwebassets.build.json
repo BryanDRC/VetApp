@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lIVLrlx+jKb4lH6h/dDafhCLCuBlJpkhSm1vP9u7Wl0=",
+  "Hash": "BvLvoN/FuOsPPa8l4AChj1HlP5BWOJ0GhoH56QNBC/k=",
   "Source": "VetApp",
   "BasePath": "_content/VetApp",
   "Mode": "Default",
@@ -3704,6 +3704,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Pet\\Pet.min.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Product.js",
+      "SourceId": "VetApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
+      "BasePath": "_content/VetApp",
+      "RelativePath": "js/Supplier/Product.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Supplier\\Product.js"
     },
     {
       "Identity": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Supplier.js",
