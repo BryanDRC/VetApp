@@ -119,7 +119,7 @@ function UpdateClient() {
     let clientName = $("#clientNameModal").val();
     let clientFirstLastName = $("#clientFirstLastNameModal").val();
     let clientSecondLastName = $("#clientSecondLastNameModal").val();
-    let clientIdCard = $("#clientPasswordModal").val();
+    let clientIdCard = $("#clientIdCardModal").val();
     let clientphoneNumber = $("#clientphoneNumberModal").val();
 
 
