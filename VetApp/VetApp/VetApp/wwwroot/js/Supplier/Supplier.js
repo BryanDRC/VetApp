@@ -147,17 +147,17 @@ function UpdateSupplier() {
 
 }
 
-let idtempProduct = 0;
+let idtempSupplier= 0;
 
 function OpenDeleteConfirmSupplierModal(idSupplier) {
-    id = idSupplier;
+    idtempSupplier = idSupplier;
     $('#deleteSupplierModal').modal('show');
 }
 
 function DeleteSupplier() {
     $.ajax({
         type: "DELETE",
-        url: "../Supplier/DeleteSupplier?idSupplier=" + idtempProduct,
+        url: "../Supplier/DeleteSupplier?idSupplier=" + idtempSupplier,
         dataType: "json",
         success: function (res) {
 
@@ -177,7 +177,7 @@ function DeleteSupplier() {
 
             Swal.fire({
                 icon: 'error',
-                title: 'Erorr',
+                title: 'Error',
                 text: 'Lo sentimos ha ocurrido un error.',
             });
 
