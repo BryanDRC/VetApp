@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj": {}
+    "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj": {
+    "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
+        "projectUniqueName": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
         "projectName": "VetApp",
-        "projectPath": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
-        "packagesPath": "C:\\Users\\bdroj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\obj\\",
+        "projectPath": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
+        "packagesPath": "C:\\Users\\Duant\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetApp\\VetApp\\VetApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bdroj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Duant\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

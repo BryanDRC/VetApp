@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\VetApp",
+    "\\VetApp\\VetApp",
+    "\\VetApp\\VetApp\\VetApp",
+    "\\VetApp\\VetApp\\VetApp\\wwwroot",
+    "\\VetApp\\VetApp\\VetApp\\wwwroot\\js",
+    "\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Administration"
   ],
-  "SelectedNode": "\\VetApp.sln",
+  "SelectedNode": "\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Administration\\Administration.js",
   "PreviewInSolutionExplorer": false
 }
