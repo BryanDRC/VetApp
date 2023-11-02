@@ -104,67 +104,68 @@
 										<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#clientsModal" id="btnAddClient">Agregar Cliente</button>
 									</div>
 								</div><!-- end col-->
-								<div class="col-md-8">
-									<form class="d-flex flex-wrap align-items-center justify-content-sm-end">
-										<label for="status-select" class="me-2">Buscar Por</label>
-										<div class="me-sm-2">
-											<select class="form-select my-1 my-md-0" id="status-select">
-												<option selected="">Todo</option>
-												<option value="1">Nombre</option>
-												<option value="3">Cédula</option>
-												<option value="4">Número Telefónico</option>
-											</select>
+							</div> <!-- end row -->
+
+							<div class="row">
+								<div class="col-12">
+									<div class="card">
+										<div class="card-body">
+
+											<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+												<thead>
+													<tr>
+														<th>Id</th>
+														<th>Cédula</th>
+														<th>Nombre</th>
+														<th>Primer Apellido</th>
+														<th>Segundo Apellido</th>
+														<th>Teléfono</th>
+														<th>Opciones</th>
+													</tr>
+												</thead>
+
+
+												<tbody>
+													@foreach (var client in ViewBag.Clients){
+
+													<tr>
+															<td>@client.idClient</td>
+															<td>@client.clientIdCard</td>
+															<td>@client.clientName</td>
+															<td>@client.clientFirstLastName</td>
+															<td>@client.clientSecondLastName</td>
+															<td>@client.clientphoneNumber</td>
+															<td>
+																<div class="dropdown d-flex justify-content-between">
+
+																	<a href="@Url.Action("Pet","Pet")">
+																		<i class="dripicons-folder-open" style="color: black"></i>
+																	</a>
+
+																	<div class="dropdown">
+																		<a href="#" class="dropdown-toggle arrow-none card-drop" style="color: black"  data-bs-toggle="dropdown" aria-expanded="false">
+																			<i class="mdi mdi-dots-vertical"></i>
+																		</a>
+																		<div class="dropdown-menu dropdown-menu-end">
+																			<!-- item-->
+																			<a onclick="OpenUpdateClientModal(@client.idClient)" class="dropdown-item">Editar</a>
+																			<!-- item-->
+																			<a onclick="OpenDeleteConfirmClientModal(@client.idClient)" class="dropdown-item">Eliminar</a>
+																		</div>
+																	</div>
+																</div>
+															</td>
+
+													</tr>
+													}
+												</tbody>
+											</table>
 										</div>
-										<label for="inputPassword2" class="visually-hidden">Buscar</label>
-										<div>
-											<input type="search" class="form-control my-1 my-md-0" id="inputPassword2" placeholder="Buscar...">
-										</div>
-									</form>
+									</div>
+
 								</div>
 							</div> <!-- end row -->
 
-							<div class="table-responsive">
-
-								<table class="table table-centered mb-0">
-									<thead>
-										<tr>
-											<th>Id</th>
-											<th>Cédula</th>
-											<th>Nombre</th>
-											<th>Apellidos</th>
-											<th></th>
-											<th>Número Telefónico</th>
-										</tr>
-									</thead>
-
-									<tbody>
-										@foreach (var client in ViewBag.Clients)
-										{
-											<tr>
-												<td>@client.idClient</td>
-												<td>@client.clientIdCard</td>
-												<td>@client.clientName</td>
-												<td>@client.clientFirstLastName</td>
-												<td>@client.clientSecondLastName</td>
-												<td>@client.clientphoneNumber</td>
-												<td>
-													<div class="dropdown float-end">
-														<a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-															<i class="mdi mdi-dots-vertical"></i>
-														</a>
-														<div class="dropdown-menu dropdown-menu-end">
-															<!-- item-->
-															<a onclick="OpenUpdateClientModal(@client.idClient)" class="dropdown-item">Editar</a>
-															<!-- item-->
-															<a onclick="OpenDeleteConfirmClientModal(@client.idClient)" class="dropdown-item">Eliminar</a>
-														</div>
-													</div>
-												</td>
-											</tr>
-										}
-									</tbody>
-								</table>
-							</div> <!-- end .table-responsive-->
 						</div> <!-- end card-body -->
 					</div> <!-- end card -->
 				</div> <!-- end col -->
@@ -183,3 +184,6 @@
 <script src="~/libs/jquery/jquery.min.js"></script>
 <script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
 <script src="~/js/Client/Client.js"></script>
+<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>
