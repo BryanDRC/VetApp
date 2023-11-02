@@ -757,6 +757,14 @@
       "PackagePath": "staticwebassets\\js\\Pet\\Pet.min.js.map"
     },
     {
+      "Id": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Service\\Service.js",
+      "PackagePath": "staticwebassets\\js\\Service\\Service.js"
+    },
+    {
+      "Id": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Product.js",
+      "PackagePath": "staticwebassets\\js\\Supplier\\Product.js"
+    },
+    {
       "Id": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Supplier.js",
       "PackagePath": "staticwebassets\\js\\Supplier\\Supplier.js"
     },
