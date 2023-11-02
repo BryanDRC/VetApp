@@ -1,22 +1,21 @@
 $(document).on("click", "#btnAddProduct", function () {
 
-    $("#idProduct").prop("readonly", false);
-    $("#idSupplier").prop("readonly", false);
-    $("#product").prop("readonly", false);
-    $("#productBuyCost").prop("readonly", false);
-    $("#productSellCost").prop("readonly", false);
+    $("#productModal").prop("readonly", false);
+    $("#idSupplierModal").prop("readonly", false);
+    $("#productBuyCostModal").prop("readonly", false);
+    $("#productSellCostModal").prop("readonly", false);
 
-    $("#idProduct").val('');
-    $("#idSupplier").val('');
-    $("#product").val('');
-    $("#productBuyCost").val('');
-    $("#productSellCost").val('');
+    $("#idProductModal").val('');
+    $("#productModal").val('');
+    $("#idSupplierModal").val('');
+    $("#productBuyCostModal").val('');
+    $("#productSellCostModal").val('');
+
+
 
     $('#productsModal').modal('show');
 
 });
-
-
 
 function SavaChangesProductModal() {
 
@@ -39,18 +38,19 @@ function SavaChangesProductModal() {
 }
 
 function CreateProduct() {
-    let idSupplier = $("#idSupplierModal").val();
     let product = $("#productModal").val();
+    let idSupplier = $("#idSupplierModal").val();
     let productBuyCost = $("#productBuyCostModal").val();
     let productSellCost = $("#productSellCostModal").val();
+
 
     $.ajax({
         type: "POST",
         url: "../Product/CreateProduct",
         dataType: "json",
         data: {
-            "idSupplier": idSupplier,
             "product": product,
+            "idSupplier": idSupplier,
             "productBuyCost": productBuyCost,
             "productSellCost": productSellCost,
         },
@@ -89,17 +89,19 @@ function OpenUpdateProductModal(idProduct) {
         dataType: "json",
         success: function (res) {
 
-            $("#idSupplierModal").prop("readonly", true);
             $("#productModal").prop("readonly", false);
+            $("#idSupplierModal").prop("readonly", true);
             $("#productBuyCostModal").prop("readonly", false);
             $("#productSellCostModal").prop("readonly", false);
 
 
             $("#idProductModal").val(res.idProduct);
-            $("#idSupplierModal").val(res.productName);
-            $("#productModal").val(res.productPhoneNumber);
-            $("#productBuyCostModal").val(res.productIdCard);
-            $("#productSellCostModal").val(res.productIdCard);
+            $("#productModal").val(res.product);
+            $("#idSupplierModal").val(res.idSupplier);
+            $("#productBuyCostModal").val(res.productBuyCost);
+            $("#productSellCostModal").val(res.productSellCost);
+
+
 
             $('#productsModal').modal('show');
 
@@ -110,10 +112,12 @@ function OpenUpdateProductModal(idProduct) {
 function UpdateProduct() {
 
     let idProduct = $("#idProductModal").val();
-    let idSupplier = $("#idSupplierModal").val();
     let product = $("#productModal").val();
+    let idSupplier = $("#idSupplierModal").val();
     let productBuyCost = $("#productBuyCostModal").val();
     let productSellCost = $("#productSellCostModal").val();
+
+
 
     $.ajax({
         type: "PUT",
@@ -121,10 +125,10 @@ function UpdateProduct() {
         dataType: "json",
         data: {
             "idProduct": idProduct,
-            "idSupplier": idSupplier,
             "product": product,
+            "idSupplier": idSupplier,
             "productBuyCost": productBuyCost,
-            "productSellCost": productSellCost
+            "productSellCost": productSellCost,
         },
         success: function (res) {
 
@@ -155,17 +159,17 @@ function UpdateProduct() {
 
 }
 
-let id = 0;
+let idtempProduct = 0;
 
 function OpenDeleteConfirmProductModal(idProduct) {
-    id = idProduct;
+    idtempProduct = idProduct;
     $('#deleteProductModal').modal('show');
 }
 
 function DeleteProduct() {
     $.ajax({
         type: "DELETE",
-        url: "../Product/DeleteProduct?idProduct=" + id,
+        url: "../Product/DeleteProduct?idProduct=" + idtempProduct,
         dataType: "json",
         success: function (res) {
 
@@ -192,42 +196,44 @@ function DeleteProduct() {
         }
     });
 }
-
 function validateInputs() {
 
-    let idSupplier = $("#idSupplierModal").val();
     let product = $("#productModal").val();
-    let productBuyCost = $("#productBuyCostModal").val()
-    let productSellCost = $("#productSellCostModal").val()
-
-    let idSupplierMessage = $("#idSupplierMessage");
-    let productMessage = $("#productMessage");
-    let productBuyCostrMessage = $("#productBuyCostMessage");
-    let productSellCostMessage = $("#productSellCostMessage");
+    let idSupplier = $("#idSupplierModal").val();
+    let productBuyCost = $("#productBuyCostModal").val();
+    let productSellCost = $("#productSellCostModal").val();
 
 
-    idSupplierMessage.text("");
+    let productMessage = $("#productModalMessage");
+    let idSupplierMessage = $("#idSupplierModalMessage");
+    let productBuyCostMessage = $("#productBuyCostModalMessage");
+    let productSellCostMessage = $("#productSellCostModalMessage");
+
+
+
     productMessage.text("");
-    productBuyCostrMessage.text("");
+    idSupplierMessage.text("");
+    productBuyCostMessage.text("");
     productSellCostMessage.text("");
 
-    if (idSupplier.trim().length === 0) {
-        idSupplierMessage.text("Id no puede ir vac\u00EDo.");
+
+    if (product.trim().length === 0) {
+        productMessage.text("Nombre del producto no puede ir vac\u00EDo.");
         return false;
     }
 
-    if (product.trim().length === 0) {
-        productMessage.text("Producto fiscal no puede ir vac\u00EDo.");
+    if (idSupplier.trim().length === 0) {
+        idSupplierMessage.text("Id del proveedor no puede ir vac\u00EDo.");
         return false;
     }
 
     if (productBuyCost.trim().length === 0) {
-        productBuyCostrMessage.text("Precio de compra no puede ir vac\u00EDo.");
+        productBuyCostMessage.text("Pr\u00E9cio no puede ir vac\u00EDo.");
         return false;
     }
 
-    if (productSellCost.trim().length < 8) {
-        productSellCostMessage.text("Precio de venta no puede ir vac\u00EDo.");
+    if (productSellCost.trim().length === 0) {
+        productSellCostMessage.text("Pr\u00E9cio no puede ir vac\u00EDo.");
         return false;
     }
 

@@ -1,0 +1,14 @@
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.csproj.AssemblyReference.cache
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.GeneratedMSBuildEditorConfig.editorconfig
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.AssemblyInfoInputs.cache
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.AssemblyInfo.cs
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.csproj.CoreCompileInputs.cache
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.MvcApplicationPartsAssemblyInfo.cache
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.RazorAssemblyInfo.cache
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.RazorAssemblyInfo.cs
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.TagHelpers.input.cache
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.TagHelpers.output.cache
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.RazorCoreGenerate.cache
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.dll
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\refint\VetApp.dll
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net7.0\VetApp.pdb

@@ -2,7 +2,7 @@ $(document).on("click", "#btnAddSupplier", function () {
 
     $("#idSupplierModal").prop("readonly", false);
     $("#supplierNameModal").prop("readonly", false);
-    $("#supplierFirstLastNameModal").prop("readonly", false);
+    $("#supplierPhoneNumberModal").prop("readonly", false);
     $("#supplierIdCardModal").prop("readonly", false);
 
     $("#idSupplierModal").val('');
@@ -147,7 +147,7 @@ function UpdateSupplier() {
 
 }
 
-let id = 0;
+let idtempProduct = 0;
 
 function OpenDeleteConfirmSupplierModal(idSupplier) {
     id = idSupplier;
@@ -157,7 +157,7 @@ function OpenDeleteConfirmSupplierModal(idSupplier) {
 function DeleteSupplier() {
     $.ajax({
         type: "DELETE",
-        url: "../Supplier/DeleteSupplier?idSupplier=" + id,
+        url: "../Supplier/DeleteSupplier?idSupplier=" + idtempProduct,
         dataType: "json",
         success: function (res) {
 
@@ -216,7 +216,7 @@ function validateInputs() {
     }
 
     if (supplierPhoneNumber.trim().length < 8) {
-        supplierPhoneNumberrMessage.text("Debe tener m\u00EDnimo 8 n\u00FAmeros.");
+        supplierPhoneNumberMessage.text("Debe tener m\u00EDnimo 8 n\u00FAmeros.");
         return false;
     }
 

@@ -10,18 +10,17 @@
 				<div class="row">
 					<input type="hidden" id="idProductModal" />
 					<div class=" col-md-6">
-						<label for="inputZip" class="form-label">idSupplier</label>
+						<label for="inputZip" class="form-label">Nombre Producto</label>
+						<input type="text" class="form-control" id="productModal" />
+						<label id="productModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
+					<div class=" col-md-6">
+						<label for="inputZip" class="form-label">Id Proveedor</label>
 						<input type="text" class="form-control" id="idSupplierModal" />
 						<label id="idSupplierModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
-					<div class=" col-md-6">
-						<label for="inputZip" class="form-label">Producto</label>
-						<input type="text" class="form-control" id="productModal"/>
-						<label id="productModalMessage" class="form-label" style="color:red;"></label>
-					</div> <!-- end col -->
 				</div> <!-- end row -->
 				<br>
-
 				<div class="row">
 					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Precio de Compra</label>
@@ -31,14 +30,13 @@
 					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Precio de Venta</label>
 						<input type="text" class="form-control" id="productSellCostModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-						<label id="productBuySellModalMessage" class="form-label" style="color:red;"></label>
-					</div>
+						<label id="productSellCostModalMessage" class="form-label" style="color:red;"></label>
+					</div> <!-- end col -->
 				</div> <!-- end row -->
-				<br>
 				<div class="row">
 					<div class="modal-footer">
 						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-						<button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="SavaChangesProductModal()">Guardar Cambios</button>
+						<button type="button" class="btn btn-primary" id="btnGuardarModal"  onclick="SavaChangesProductModal()">Guardar Cambios</button>
 					</div>
 				</div>
 
@@ -75,8 +73,6 @@
 <!-- ============================================================== -->
 
 
-
-
 <div class="content-page">
 	<div class="content">
 
@@ -109,11 +105,11 @@
 											<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
 												<thead>
 													<tr>
-														<th>Id</th>
-														<th>Proveedor</th>
-														<th>Producto</th>
-														<th>Precio Compra</th>
-														<th>Precio Venta</th>
+														<th>Id Producto</th>
+														<th>Nombre</th>
+														<th>Id Proveedor</th>
+														<th>Precio de Compra</th>
+														<th>Precio de Venta</th>
 														<th>Opciones</th>
 													</tr>
 												</thead>
@@ -125,16 +121,12 @@
 
 														<tr>
 															<td>@product.idProduct</td>
-															<td>@product.idSupplier</td>
 															<td>@product.product</td>
+															<td>@product.idSupplier</td>
 															<td>@product.productBuyCost</td>
 															<td>@product.productSellCost</td>
 															<td>
 																<div class="dropdown d-flex justify-content-between">
-
-																	<a href="@Url.Action("Pet","Pet")">
-																		<i class="dripicons-folder-open" style="color: black"></i>
-																	</a>
 
 																	<div class="dropdown">
 																		<a href="#" class="dropdown-toggle arrow-none card-drop" style="color: black" data-bs-toggle="dropdown" aria-expanded="false">
@@ -142,13 +134,14 @@
 																		</a>
 																		<div class="dropdown-menu dropdown-menu-end">
 																			<!-- item-->
-																			<a onclick="OpenUpdateClientModal(@product.idProduct)" class="dropdown-item">Editar</a>
+																			<a onclick="OpenUpdateProductModal(@product.idProduct)" class="dropdown-item">Editar</a>
 																			<!-- item-->
-																			<a onclick="OpenDeleteConfirmClientModal(@product.idProduct)" class="dropdown-item">Eliminar</a>
+																			<a onclick="OpenDeleteConfirmProductModal(@product.idProduct)" class="dropdown-item">Eliminar</a>
 																		</div>
 																	</div>
 																</div>
 															</td>
+
 														</tr>
 													}
 												</tbody>
@@ -171,11 +164,12 @@
 
 </div>
 
-
 <!-- ============================================================== -->
 <!-- End Page content -->
 <!-- ============================================================== -->
 <script src="~/libs/jquery/jquery.min.js"></script>
 <script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
 <script src="~/js/supplier/product.js"></script>
-<script>new DataTable('');</script>
+<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>
