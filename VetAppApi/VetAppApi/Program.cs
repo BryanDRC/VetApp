@@ -14,7 +14,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<AuthModel>();
 builder.Services.AddScoped<UserModel>();
 builder.Services.AddScoped<PetModel>();
-builder.Services.AddScoped <ClientModel>();
+builder.Services.AddScoped<ClientModel>();
+builder.Services.AddScoped<ProductModel>();
 builder.Services.AddScoped<SupplierModel>();
 builder.Services.AddScoped<EmailSend>();
 
