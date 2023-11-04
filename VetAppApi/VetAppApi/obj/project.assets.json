@@ -929,19 +929,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Duant\\.nuget\\packages\\": {}
+    "C:\\Users\\bdroj\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+      "projectUniqueName": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
       "projectName": "VetAppApi",
-      "projectPath": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
-      "packagesPath": "C:\\Users\\Duant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetAppApi\\VetAppApi\\obj\\",
+      "projectPath": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+      "packagesPath": "C:\\Users\\bdroj\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetAppApi\\VetAppApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Duant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bdroj\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -999,7 +999,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -69,7 +69,7 @@ function CreateSupplier() {
             }
             Swal.fire({
                 icon: 'error',
-                title: 'Erorr',
+                title: 'Error',
                 text: 'Lo sentimos ha ocurrido un error.',
             });
 
