@@ -11,7 +11,7 @@ namespace VetApp.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(petObj);
-                string url = "https://localhost:7032/api/Pet/CreatePet";
+                string url = "http://localhost:7032/VetAppApi/api/Pet/CreatePet";
                 HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -25,7 +25,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/Pet/GetPets";
+                string url = "http://localhost:7032/VetAppApi/api/Pet/GetPets";
 
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
@@ -41,7 +41,7 @@ namespace VetApp.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(petObj);
-                string url = "https://localhost:7032/api/Pet/UpdatePet";
+                string url = "http://localhost:7032/VetAppApi/api/Pet/UpdatePet";
                 HttpResponseMessage response = client.PutAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -55,7 +55,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/Pet/DeletePet?idPet=" + idPet;
+                string url = "http://localhost:7032/VetAppApi/api/Pet/DeletePet?idPet=" + idPet;
                 HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)

@@ -5,10 +5,13 @@ using VetApp.Models;
 using System.Drawing;
 using System.Text;
 using System.IO;
+using VetApp.Services;
 
 namespace VetApp.Controllers
 {
-    public class ClientController : Controller
+	[FilterSecurity]
+	[ResponseCache(NoStore = true, Duration = 0)]
+	public class ClientController : Controller
     {
         private readonly ClientModel _client;
         public List<ClientObj> _clientsObject;

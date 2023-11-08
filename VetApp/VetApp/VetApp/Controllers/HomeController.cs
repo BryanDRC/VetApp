@@ -3,10 +3,12 @@ using NuGet.Protocol.Plugins;
 using System.Diagnostics;
 using VetApp.Entities;
 using VetApp.Models;
+using VetApp.Services;
 
 namespace VetApp.Controllers
 {
-    public class HomeController : Controller
+	[ResponseCache(NoStore = true, Duration = 0)]
+	public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         readonly AuthModel _authModel = new();
@@ -30,7 +32,11 @@ namespace VetApp.Controllers
                 var result = _authModel.Login(userObj);
                 if (result != null)
                 {
-                    return RedirectToAction("Planilla", "Planilla");
+					HttpContext.Session.SetString("UserNickName", result.UserNickName);
+					HttpContext.Session.SetString("RolName", result.RolName);
+					HttpContext.Session.SetString("UserPicture", result.UserPicture);
+
+					return RedirectToAction("Planilla", "Planilla");
                 }
                 else
                 {
@@ -60,6 +66,14 @@ namespace VetApp.Controllers
 		{
             var sendEmail = _authModel.RequestNewPasswordEmailSend(userObj);
 			return Json(sendEmail);
+		}
+
+		[HttpGet]
+		[FilterSecurity]
+		public IActionResult CloseSession()
+		{
+			HttpContext.Session.Clear();
+			return RedirectToAction("Index", "Home");
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

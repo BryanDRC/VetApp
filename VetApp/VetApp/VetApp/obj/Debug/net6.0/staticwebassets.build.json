@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RN7KHVqq6vlmSqWYKb11AknT48X/jwLKI9J5GkN9b2E=",
+  "Hash": "KP3vjoQJx1wY9TMiY032gtarYLDHEkNpdCWyUk8sjQI=",
   "Source": "VetApp",
   "BasePath": "_content/VetApp",
   "Mode": "Default",
@@ -41004,6 +41004,23 @@
       "OriginalItemSpec": "wwwroot\\UsersPictures\\123456789.jpg"
     },
     {
+      "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\UsersPictures\\20825609.jpg",
+      "SourceId": "VetApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
+      "BasePath": "_content/VetApp",
+      "RelativePath": "UsersPictures/20825609.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UsersPictures\\20825609.jpg"
+    },
+    {
       "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\UsersPictures\\305090835.jpg",
       "SourceId": "VetApp",
       "SourceType": "Discovered",
@@ -41104,6 +41121,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\UsersPictures\\34324342.jpg"
+    },
+    {
+      "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\UsersPictures\\34343234.jpg",
+      "SourceId": "VetApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
+      "BasePath": "_content/VetApp",
+      "RelativePath": "UsersPictures/34343234.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\UsersPictures\\34343234.jpg"
     },
     {
       "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\UsersPictures\\46544356.jpg",

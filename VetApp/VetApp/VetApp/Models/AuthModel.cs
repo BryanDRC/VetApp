@@ -10,7 +10,7 @@ namespace VetApp.Models
         {
             using (var access = new HttpClient())
             {
-                string urlApi = "https://localhost:7032/api/Auth/Login";
+                string urlApi = "http://localhost:7032/VetAppApi/api/Auth/Login";
                 JsonContent content = JsonContent.Create(userObj);
                 HttpResponseMessage response = access.PostAsync(urlApi, content).GetAwaiter().GetResult();
                 return (response.IsSuccessStatusCode) ? response.Content.ReadFromJsonAsync<UserObj>().Result : null;
@@ -22,7 +22,7 @@ namespace VetApp.Models
 			using (var client = new HttpClient())
 			{
 				JsonContent body = JsonContent.Create(userObj);
-				string url = "https://localhost:7032/api/Auth/RequestNewPasswordEmailSend";
+				string url = "http://localhost:7032/VetAppApi/api/Auth/RequestNewPasswordEmailSend";
 				HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
 
 				if (response.IsSuccessStatusCode)

@@ -12,7 +12,7 @@ namespace VetApp.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(productObj);
-                string url = "https://localhost:7032/api/Product/CreateProduct";
+                string url = "http://localhost:7032/VetAppApi/api/Product/CreateProduct";
                 HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -26,7 +26,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/Product/GetProducts";
+                string url = "http://localhost:7032/VetAppApi/api/Product/GetProducts";
 
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
@@ -43,7 +43,7 @@ namespace VetApp.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(productObj);
-                string url = "https://localhost:7032/api/Product/UpdateProduct";
+                string url = "http://localhost:7032/VetAppApi/api/Product/UpdateProduct";
                 HttpResponseMessage response = client.PutAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -57,7 +57,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/Product/DeleteProduct?idProduct=" + idProduct;
+                string url = "http://localhost:7032/VetAppApi/api/Product/DeleteProduct?idProduct=" + idProduct;
                 HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)

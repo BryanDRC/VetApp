@@ -39,17 +39,25 @@
 
                 <li class="dropdown notification-list topbar-dropdown">
                     <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="~/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+                        @if (!String.IsNullOrEmpty(Context.Session.GetString("UserPicture")))
+                        {
+                            <img src="~/@Context.Session.GetString("UserPicture")" alt="user-image" class="rounded-circle">
+                        }
+                        else
+                        {
+                            <img src="~/UsersPictures/NonProfile/NonProfile.png" alt="user-image" class="rounded-circle">
+                        }
+
                     </a>
                     <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                         <!-- item-->
-                        <a href="contacts-profile.html" class="dropdown-item notify-item">
+                        @* <a href="contacts-profile.html" class="dropdown-item notify-item">
                             <i class="fe-user"></i>
                             <span>Cambiar Contraseña</span>
-                        </a>
+                        </a> *@
 
                         <!-- item-->
-                        <a href="auth-lock-screen.html" class="dropdown-item notify-item">
+                        <a href="@Url.Action("CloseSession","Home")" class="dropdown-item notify-item">
                             <i class="fe-lock"></i>
                             <span>Cerrar Sesión</span>
                         </a>
@@ -101,14 +109,21 @@
 
                 <!-- User box -->
                 <div class="user-box text-center">
-
-                    <img src="~/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+                    @if (!String.IsNullOrEmpty(Context.Session.GetString("UserPicture")))
+                    {
+                        <img src="~/@Context.Session.GetString("UserPicture")" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+                    }
+                    else
+                    {
+                        <img src="~/UsersPictures/NonProfile/NonProfile.png" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+                    }
+                    
                     <div class="dropdown">
-                        <a class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">*Usuario*</a>
+                        <a class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">@Context.Session.GetString("UserNickName")</a>
 
                     </div>
 
-                    <p class="text-muted left-user-info">*Rol*</p>
+                    <p class="text-muted left-user-info">@Context.Session.GetString("RolName")</p>
 
                 </div>
 

@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using VetApp.Services;
 
 namespace VetApp.Controllers
 {
-    public class InventarioController : Controller
+	[FilterSecurity]
+	[ResponseCache(NoStore = true, Duration = 0)]
+	public class InventarioController : Controller
     {
         public IActionResult Index()
         {
