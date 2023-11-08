@@ -74,10 +74,13 @@ namespace VetApp.Controllers
             return Json(supplier);
         }
 
-		[HttpGet("Supplier/Supplier/{idSupplier}")]
-		public async Task<IActionResult> Supplier(int idSupplier)
+		[HttpGet("Supplier/Product/{idSupplier}")]
+		public IActionResult Product(int idSupplier)
 		{
-			return View(await _productModel.GetProductsBySupplier(idSupplier));
+            var products = _productModel.GetProductsBySupplier(idSupplier);
+			ViewBag.Products = products;
+            ViewBag.IdSupplier = idSupplier;
+			return View();
 		}
 
 	}

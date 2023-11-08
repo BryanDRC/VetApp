@@ -67,13 +67,17 @@ namespace VetApp.Models
             }
         }
 
-		public async Task<List<ProductObj>> GetProductsBySupplier(int idSupplier)
+		public List<ProductObj> GetProductsBySupplier(int idSupplier)
 		{
 			using (var access = new HttpClient())
 			{
-				HttpResponseMessage response = await access.GetAsync($"https://localhost:7216/api/Product/GetProductsBySupplier/{idSupplier}");
-				string resultStr = await response.Content.ReadAsStringAsync();
-				return JsonConvert.DeserializeObject<List<ProductObj>>(resultStr) ?? new List<ProductObj>();
+				HttpResponseMessage response =  access.GetAsync($"https://localhost:7032/api/Product/GetProductsBySupplier/{idSupplier}").GetAwaiter().GetResult();
+				
+                if (response.IsSuccessStatusCode)
+					return response.Content.ReadFromJsonAsync<List<ProductObj>>().Result;
+
+				return new List<ProductObj>();
+
 			}
 		}
 

@@ -20,11 +20,11 @@ namespace VetApp.Controllers
         }
 
 
-        public IActionResult Product()
-        {
-            ViewBag.Products = _productsObject;
-            return View();
-        }
+        //public IActionResult Product()
+        //{
+        //    ViewBag.Products = _productsObject;
+        //    return View();
+        //}
 
 
         [HttpPost]
@@ -38,8 +38,8 @@ namespace VetApp.Controllers
         [HttpGet]
         public JsonResult GetProduct(int idProduct)
         {
-            var user = _productsObject.Where(data => data.idProduct == idProduct).FirstOrDefault();
-            return Json(user);
+            var list = _productsObject.Where(data => data.idProduct == idProduct).FirstOrDefault();
+            return Json(list);
         }
 
         [HttpPut]
