@@ -6,14 +6,19 @@ using VetApp.Models;
 
 namespace VetApp.Controllers
 {
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        readonly AuthModel _authModel = new();
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ILogger<HomeController> _logger;
+		private readonly IConfiguration _configuration;
+        private readonly AuthModel _authModel; 
+
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
+            _authModel = new AuthModel(configuration);
         }
 
         [HttpGet]

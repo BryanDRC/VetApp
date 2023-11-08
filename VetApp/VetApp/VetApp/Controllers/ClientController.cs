@@ -12,9 +12,11 @@ namespace VetApp.Controllers
     {
         private readonly ClientModel _client;
         public List<ClientObj> _clientsObject;
-        public ClientController()
+		private readonly IConfiguration _configuration;
+		public ClientController(IConfiguration configuration)
         {
-            _client = new ClientModel();
+			_configuration = configuration;
+			_client = new ClientModel(configuration);
             _clientsObject = _client.GetClients();
 
         }

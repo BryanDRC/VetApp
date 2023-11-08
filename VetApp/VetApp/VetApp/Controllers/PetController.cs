@@ -7,12 +7,14 @@ namespace VetApp.Controllers
 {
     public class PetController : Controller
     {
-        private readonly PetModel _petModel;
+		private readonly IConfiguration _configuration;
+		private readonly PetModel _petModel;
         public List<PetObj> _petsList;
 
-        public PetController()
+		public PetController(IConfiguration configuration)
         {
-            _petModel = new PetModel();
+            _configuration = configuration;
+            _petModel = new PetModel(configuration);
             _petsList = _petModel.GetPets();
         }
 

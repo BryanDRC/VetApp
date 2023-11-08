@@ -10,11 +10,13 @@ namespace VetApp.Controllers
 {
     public class ServiceController : Controller
     {
-        private readonly ServiceModel _service;
+		private readonly IConfiguration _configuration;
+		private readonly ServiceModel _service;
         public List<ServiceObj> _servicesObject;
-        public ServiceController()
+        public ServiceController(IConfiguration configuration)
         {
-            _service = new ServiceModel();
+            _configuration = configuration;
+            _service = new ServiceModel(configuration);
             _servicesObject = _service.GetServices();
 
         }

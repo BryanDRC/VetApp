@@ -10,12 +10,15 @@ namespace VetApp.Controllers
 {
     public class SupplierController : Controller
     {
-        private readonly SupplierModel _supplier;
+		private readonly IConfiguration _configuration;
+		private readonly SupplierModel _supplier;
         public List<SupplierObj> _suppliersObject;
-		ProductModel _productModel = new();
-		public SupplierController()
+		ProductModel _productModel ;
+		public SupplierController(IConfiguration configuration)
         {
-            _supplier = new SupplierModel();
+            _configuration = configuration;
+            _supplier = new SupplierModel(configuration);
+            _productModel = new ProductModel(configuration);
             _suppliersObject = _supplier.GetSuppliers();
 
 			

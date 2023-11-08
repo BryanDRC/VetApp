@@ -1,3 +1,14 @@
+let userNameMessage = $("#userNameModalMessage");
+let userFirstLastNameMessage = $("#userFirstLastNameModalMessage");
+let userSecondLastNameMessage = $("#userSecondLastNameModalMessage");
+let userIdCardMessage = $("#userIdCardModalMessage");
+let userPhoneNumberMessage = $("#userPhoneNumberModalMessage");
+let userMailMessage = $("#userMailModalMessage");
+let userNickNameMessage = $("#userNickNameModalMessage");
+let idRolMessage = $("#idRolModalMessage");
+let userPasswordModalMessage = $("#userPasswordModalMessage");
+let userPassworConfirmModalMessage = $("#userPassworConfirmModalMessage");
+
 $(document).on("click", "#btnAddEmployee", function () {
 
     $("#userNameModal").prop("readonly", false);
@@ -14,6 +25,15 @@ $(document).on("click", "#btnAddEmployee", function () {
     $("#userPhoneNumberModal").val('');
     $("#userIdCardModal").val('');
 
+    userNameMessage.text("");
+    userFirstLastNameMessage.text("");
+    userSecondLastNameMessage.text("");
+    userIdCardMessage.text("");
+    userPhoneNumberMessage.text("");
+    userMailMessage.text("");
+    userNickNameMessage.text("");
+    idRolMessage.text("");
+
     $('#usersModal').modal('show');
 
 });
@@ -27,8 +47,10 @@ function SavaChangesUserModal() {
     let validateInput = validateInputs();
     let validateEmailMessage = validateEmail();
     let validatePasswordMessage = validatePassword();
+    let validatePhoneNumberMessage = validatePhoneNumber();
+    let validateUserIdCardMessage = validateUserIdCard();
 
-    if (validateInput && validateEmailMessage) {
+    if (validateInput && validateEmailMessage && validatePhoneNumberMessage && validateUserIdCardMessage) {
 
         if (idUser.trim().length === 0) {
             if (validatePasswordMessage) {
@@ -218,6 +240,46 @@ function DeleteUser() {
     });
 }
 
+//$(document).ready(function () {
+//    $("#myInput").on("keyup", function () {
+
+//    });
+//});
+
+//$('#search').keyup(function () {
+//    $('.col-xl-4').removeClass('d-none');
+//    var filter = $(this).val(); // get the value of the input, which we filter on
+//    $('.col-xl-4').find('.card .card-body .text-start h4:not(:contains("' + filter + '"))').parent().parent().addClass('d-none');
+//})
+
+function ValidateAliasExist() {
+
+    let userNickName = $("#userNickNameModal").val()
+
+    const button = document.getElementById("btnGuardarModal");
+
+    // Disable the button
+    button.disabled = true;
+    userNickNameMessage.text("");
+
+    $.ajax({
+        type: "GET",
+        url: "../Administration/ValidateAliasExist?userNickName=" + userNickName,
+        dataType: "json",
+        success: function (res) {
+
+            if (res === null) {
+                button.disabled = false;
+
+            } else {
+                userNickNameMessage.text("El alias ingresado ya existe en el sistema.");
+                button.disabled = true;
+            }
+
+        }
+    });
+}
+
 // Selecciona el elemento de entrada de archivo (input type="file") en tu HTML
 const input = document.getElementById('userPictureModal');
 
@@ -242,7 +304,6 @@ input.addEventListener('change', function () {
 function validateEmail() {
 
     let userMail = $("#userMailModal").val();
-    let userMailMessage = $("#userMailModalMessage");
 
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -259,9 +320,7 @@ function validateEmail() {
 function validatePassword() {
 
     let userPassword = $("#userPasswordModal").val()
-    let userPasswordModalMessage = $("#userPasswordModalMessage");
     let userPassworConfirm = $("#userPassworConfirmModal").val()
-    let userPassworConfirmModalMessage = $("#userPassworConfirmModalMessage");
 
     userPasswordModalMessage.text("");
     userPassworConfirmModalMessage.text("");
@@ -304,6 +363,65 @@ function validatePassword() {
     return true;
 }
 
+function validatePhoneNumber() {
+
+    let userPhoneNumber = $("#userPhoneNumberModal").val();
+    userPhoneNumberMessage.text("");
+
+    if (userPhoneNumber.trim().length < 8) {
+        userPhoneNumberMessage.text("Tel\u00E9fono tiene que ser de ocho d\u00EDgitos.");
+        return false;
+    }
+
+    if (userPhoneNumber.trim().length > 8) {
+        userPhoneNumberMessage.text("Tel\u00E9fono no puede tener m\u00E1s de ocho d\u00EDgitos.");
+        return false;
+    }
+
+    return true;
+}
+
+function validateUserIdCard() {
+
+    let userIdCard = $("#userIdCardModal").val();
+    let selectUserIdCard = $("#selectUserIdCardModal").val();
+
+    userIdCardMessage.text("");
+
+    if (selectUserIdCard === '1') {
+
+        if (userIdCard.trim().length < 8) {
+            userIdCardMessage.text("C\u00E9dula no puede ser menor a 8 d\u00EDgitos."); 
+        }
+
+        if (userIdCard.trim().length > 8) {
+            userIdCardMessage.text("C\u00E9dula no puede ser mayor a 8 d\u00EDgitos.");
+        }
+
+        return false;
+    }
+
+    if (selectUserIdCard === '2') {
+
+        if (userIdCard.trim().length < 12) {
+            userIdCardMessage.text("DIMEX no puede ser menor a 12 d\u00EDgitos.");
+        }
+
+        if (userIdCard.trim().length > 12) {
+            userIdCardMessage.text("DIMEX no puede ser mayor a 12 d\u00EDgitos.");
+        }
+
+        return false;
+    }
+
+    return true;
+}
+
+$('#selectUserIdCardModal').on('change', function () {
+    //alert(this.value);
+    userIdCardMessage.text("");
+});
+
 function validateInputs() {
 
     let userName = $("#userNameModal").val();
@@ -314,15 +432,6 @@ function validateInputs() {
     let userMail = $("#userMailModal").val();
     let userNickName = $("#userNickNameModal").val();
     let idRol = $("#idRolModal").val();
-
-    let userNameMessage = $("#userNameModalMessage");
-    let userFirstLastNameMessage = $("#userFirstLastNameModalMessage");
-    let userSecondLastNameMessage = $("#userSecondLastNameModalMessage");
-    let userIdCardMessage = $("#userIdCardModalMessage");
-    let userPhoneNumberMessage = $("#userPhoneNumberModalMessage");
-    let userMailMessage = $("#userMailModalMessage");
-    let userNickNameMessage = $("#userNickNameModalMessage");
-    let idRolMessage = $("#idRolModalMessage");
 
     userNameMessage.text("");
     userFirstLastNameMessage.text("");

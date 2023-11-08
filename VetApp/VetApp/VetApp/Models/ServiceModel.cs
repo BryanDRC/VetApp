@@ -4,14 +4,20 @@ namespace VetApp.Models
 {
     public class ServiceModel
     {
-        public ServiceModel() { }
+		private readonly IConfiguration _configuration;
+		private string _urlApi;
+		public ServiceModel(IConfiguration configuration) 
+        {
+			_configuration = configuration;
+			_urlApi = _configuration.GetSection("Claves:VetAppApiUrl").Value;
+		}
 
         public int CreateService(ServiceObj serviceObj)
         {
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(serviceObj);
-                string url = "https://localhost:7032/api/Service/CreateService";
+                string url = _urlApi + "api/Service/CreateService";
                 HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -25,7 +31,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/Service/GetServices";
+                string url = _urlApi + "api/Service/GetServices";
 
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
@@ -42,7 +48,7 @@ namespace VetApp.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(serviceObj);
-                string url = "https://localhost:7032/api/Service/UpdateService";
+                string url = _urlApi + "api/Service/UpdateService";
                 HttpResponseMessage response = client.PutAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -56,7 +62,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/Service/DeleteService?idService=" + idService;
+                string url = _urlApi +"api/Service/DeleteService?idService=" + idService;
                 HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)

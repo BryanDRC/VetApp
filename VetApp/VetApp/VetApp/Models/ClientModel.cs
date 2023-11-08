@@ -4,14 +4,20 @@ namespace VetApp.Models
 {
     public class ClientModel
     {
-        public ClientModel() { }
+		private readonly IConfiguration _configuration;
+		private string _urlApi;
+		public ClientModel(IConfiguration configuration) 
+        {
+			_configuration = configuration;
+			_urlApi = _configuration.GetSection("Claves:VetAppApiUrl").Value;
+		}
 
         public int CreateClient(ClientObj clientObj)
         {
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(clientObj);
-                string url = "https://localhost:7032/api/Client/CreateClient";
+                string url = _urlApi + "api/Client/CreateClient";
                 HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -25,7 +31,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/Client/GetClients";
+                string url = _urlApi + "api/Client/GetClients";
 
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
@@ -42,7 +48,7 @@ namespace VetApp.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(clientObj);
-                string url = "https://localhost:7032/api/Client/UpdateClient";
+                string url = _urlApi + "api/Client/UpdateClient";
                 HttpResponseMessage response = client.PutAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -56,7 +62,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/Client/DeleteClient?idClient=" + idClient;
+                string url = _urlApi + "api/Client/DeleteClient?idClient=" + idClient;
                 HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)

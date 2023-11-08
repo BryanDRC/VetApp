@@ -10,21 +10,18 @@ namespace VetApp.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductModel _product;
+		private readonly IConfiguration _configuration;
+		private readonly ProductModel _product;
         public List<ProductObj> _productsObject;
-        public ProductController()
+        public ProductController(IConfiguration configuration)
         {
-            _product = new ProductModel();
+            _configuration = configuration;
+            _product = new ProductModel(configuration);
             _productsObject = _product.GetProducts();
 
         }
 
 
-        //public IActionResult Product()
-        //{
-        //    ViewBag.Products = _productsObject;
-        //    return View();
-        //}
 
 
         [HttpPost]

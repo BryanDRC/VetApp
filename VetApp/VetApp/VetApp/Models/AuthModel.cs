@@ -4,13 +4,22 @@ namespace VetApp.Models
 {
     public class AuthModel
     {
-        public string? lblmsj { get; set; }
 
-        public UserObj? Login(UserObj userObj)
+		private readonly IConfiguration _configuration;
+		private string _urlApi;
+		public string? lblmsj { get; set; }
+
+		public AuthModel(IConfiguration configuration)
+		{
+			_configuration = configuration;
+			_urlApi = _configuration.GetSection("Claves:VetAppApiUrl").Value;
+		}
+
+		public UserObj? Login(UserObj userObj)
         {
             using (var access = new HttpClient())
             {
-                string urlApi = "https://localhost:7032/api/Auth/Login";
+                string urlApi = _urlApi + "api/Auth/Login";
                 JsonContent content = JsonContent.Create(userObj);
                 HttpResponseMessage response = access.PostAsync(urlApi, content).GetAwaiter().GetResult();
                 return (response.IsSuccessStatusCode) ? response.Content.ReadFromJsonAsync<UserObj>().Result : null;
@@ -22,7 +31,7 @@ namespace VetApp.Models
 			using (var client = new HttpClient())
 			{
 				JsonContent body = JsonContent.Create(userObj);
-				string url = "https://localhost:7032/api/Auth/RequestNewPasswordEmailSend";
+				string url = _urlApi + "api/Auth/RequestNewPasswordEmailSend";
 				HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
 
 				if (response.IsSuccessStatusCode)
