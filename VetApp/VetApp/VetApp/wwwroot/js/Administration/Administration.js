@@ -15,6 +15,7 @@ $(document).on("click", "#btnAddEmployee", function () {
     $("#userFirstLastNameModal").prop("readonly", false);
     $("#userSecondLastNameModal").prop("readonly", false);
     $("#userIdCardModal").prop("readonly", false);
+    $("#userNickNameModal").prop("readonly", false);
 
     $("#idUserModal").val('');
     $("#userNameModal").val('');
@@ -33,6 +34,8 @@ $(document).on("click", "#btnAddEmployee", function () {
     userMailMessage.text("");
     userNickNameMessage.text("");
     idRolMessage.text("");
+    userPasswordModalMessage.text("");
+    userPassworConfirmModalMessage.text("");
 
     $('#usersModal').modal('show');
 
@@ -131,7 +134,9 @@ function OpenUpdateUserModal(idUser){
             $("#userFirstLastNameModal").prop("readonly", true);
             $("#userSecondLastNameModal").prop("readonly", true);
             $("#userIdCardModal").prop("readonly", true);
-            $("#userPasswordModal").val('')
+            $("#userNickNameModal").prop("readonly", true);
+            $("#userPasswordModal").val('');
+            $("#userPassworConfirmModal").val('');
 
             $("#idUserModal").val(res.idUser);
             $("#userNameModal").val(res.userName);
@@ -391,27 +396,31 @@ function validateUserIdCard() {
     if (selectUserIdCard === '1') {
 
         if (userIdCard.trim().length < 8) {
-            userIdCardMessage.text("C\u00E9dula no puede ser menor a 8 d\u00EDgitos."); 
+            userIdCardMessage.text("C\u00E9dula no puede ser menor a 8 d\u00EDgitos.");
+            return false;
         }
 
         if (userIdCard.trim().length > 8) {
             userIdCardMessage.text("C\u00E9dula no puede ser mayor a 8 d\u00EDgitos.");
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     if (selectUserIdCard === '2') {
 
         if (userIdCard.trim().length < 12) {
             userIdCardMessage.text("DIMEX no puede ser menor a 12 d\u00EDgitos.");
+            return false;
         }
 
         if (userIdCard.trim().length > 12) {
             userIdCardMessage.text("DIMEX no puede ser mayor a 12 d\u00EDgitos.");
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     return true;
