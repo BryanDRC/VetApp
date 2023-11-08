@@ -4,14 +4,19 @@ namespace VetApp.Models
 {
     public class EmployeeModel
     {
-        public EmployeeModel() { }
+        private readonly IConfiguration _configuration;
+        private string _urlApi; 
+        public EmployeeModel(IConfiguration configuration) {
+            _configuration = configuration;
+            _urlApi = _configuration.GetSection("Claves:VetAppApiUrl").Value;
+        }
 
         public int CreateUser(UserObj userObj)
         {
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(userObj);
-                string url = "https://localhost:7032/api/User/CreateUser";
+                string url = _urlApi + "api/User/CreateUser";
                 HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -25,7 +30,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/User/GetUsers";
+                string url = _urlApi + "api/User/GetUsers";
 
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
@@ -41,7 +46,7 @@ namespace VetApp.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(userObj);
-                string url = "https://localhost:7032/api/User/UpdateUser";
+                string url = _urlApi + "api/User/UpdateUser";
                 HttpResponseMessage response = client.PutAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -55,7 +60,7 @@ namespace VetApp.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:7032/api/User/DeleteUser?idUser=" + idUser;
+                string url = _urlApi + "api/User/DeleteUser?idUser=" + idUser;
                 HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -69,7 +74,7 @@ namespace VetApp.Models
 		{
 			using (var client = new HttpClient())
 			{
-				string url = "https://localhost:7032/api/User/ValidateUserMailExist?email="+userMail;
+				string url = _urlApi + "api/User/ValidateUserMailExist?email=" +userMail;
 
 				HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
@@ -85,7 +90,7 @@ namespace VetApp.Models
 			using (var client = new HttpClient())
 			{
 				JsonContent body = JsonContent.Create(userObj);
-				string url = "https://localhost:7032/api/User/UpdateUserPassword";
+				string url = _urlApi + "api/User/UpdateUserPassword";
 				HttpResponseMessage response = client.PutAsync(url, body).GetAwaiter().GetResult();
 
 				if (response.IsSuccessStatusCode)

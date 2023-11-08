@@ -8,13 +8,15 @@ using System.IO;
 
 namespace VetApp.Controllers
 {
-    public class AdministrationController : Controller
-    {
-        private readonly EmployeeModel _employee;
-        public List<UserObj> _usersObject;
-        public AdministrationController()
+	public class AdministrationController : Controller
+	{
+		private readonly EmployeeModel _employee;
+		public List<UserObj> _usersObject;
+		private readonly IConfiguration _configuration;
+        public AdministrationController(IConfiguration configuration)
         {
-            _employee = new EmployeeModel();
+			_configuration = configuration;
+            _employee = new EmployeeModel(_configuration);
             _usersObject = _employee.GetUsers();
 
 		}
@@ -115,6 +117,13 @@ namespace VetApp.Controllers
 		{
 			var updateUserPassword = _employee.UpdateUserPassword(userObj);
 			return Json(updateUserPassword);
+		}
+
+		[HttpGet]
+		public JsonResult ValidateAliasExist(string userNickName)
+		{
+			var user = _usersObject.Where(data => data.UserNickName == userNickName).FirstOrDefault();
+			return Json(user);
 		}
 	}
 }
