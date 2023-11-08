@@ -12,14 +12,16 @@ namespace VetApp.Controllers
     {
 		private readonly IConfiguration _configuration;
 		private readonly SupplierModel _supplier;
-        public List<SupplierObj> _suppliersObject;
+		private readonly ProductModel _product;
+		public List<SupplierObj> _suppliersObject;
 		ProductModel _productModel ;
 		public SupplierController(IConfiguration configuration)
         {
             _configuration = configuration;
             _supplier = new SupplierModel(configuration);
             _productModel = new ProductModel(configuration);
-            _suppliersObject = _supplier.GetSuppliers();
+			_product = new ProductModel(configuration);
+			_suppliersObject = _supplier.GetSuppliers();
 
 			
 
@@ -84,6 +86,15 @@ namespace VetApp.Controllers
 			ViewBag.Products = products;
             ViewBag.IdSupplier = idSupplier;
 			return View();
+		}
+
+
+		[HttpPost]
+		public JsonResult CreateProduct(ProductObj productObj)
+		{
+
+			var createProduct = _product.CreateProduct(productObj);
+			return Json(createProduct);
 		}
 
 	}

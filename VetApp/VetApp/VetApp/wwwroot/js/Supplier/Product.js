@@ -1,13 +1,11 @@
 $(document).on("click", "#btnAddProduct", function () {
 
     $("#productModal").prop("readonly", false);
-    $("#idSupplierModal").prop("readonly", false);
     $("#productBuyCostModal").prop("readonly", false);
     $("#productSellCostModal").prop("readonly", false);
 
     $("#idProductModal").val('');
     $("#productModal").val('');
-    $("#idSupplierModal").val('');
     $("#productBuyCostModal").val('');
     $("#productSellCostModal").val('');
 
@@ -43,10 +41,9 @@ function CreateProduct() {
     let productBuyCost = $("#productBuyCostModal").val();
     let productSellCost = $("#productSellCostModal").val();
 
-
     $.ajax({
         type: "POST",
-        url: "../Product/CreateProduct",
+        url: "../Supplier/CreateProduct",
         dataType: "json",
         data: {
             "product": product,
@@ -90,7 +87,6 @@ function OpenUpdateProductModal(idProduct) {
         success: function (res) {
 
             $("#productModal").prop("readonly", false);
-            $("#idSupplierModal").prop("readonly", true);
             $("#productBuyCostModal").prop("readonly", false);
             $("#productSellCostModal").prop("readonly", false);
 
@@ -199,31 +195,23 @@ function DeleteProduct() {
 function validateInputs() {
 
     let product = $("#productModal").val();
-    let idSupplier = $("#idSupplierModal").val();
     let productBuyCost = $("#productBuyCostModal").val();
     let productSellCost = $("#productSellCostModal").val();
 
 
     let productMessage = $("#productModalMessage");
-    let idSupplierMessage = $("#idSupplierModalMessage");
     let productBuyCostMessage = $("#productBuyCostModalMessage");
     let productSellCostMessage = $("#productSellCostModalMessage");
 
 
 
     productMessage.text("");
-    idSupplierMessage.text("");
     productBuyCostMessage.text("");
     productSellCostMessage.text("");
 
 
     if (product.trim().length === 0) {
         productMessage.text("Nombre del producto no puede ir vac\u00EDo.");
-        return false;
-    }
-
-    if (idSupplier.trim().length === 0) {
-        idSupplierMessage.text("Id del proveedor no puede ir vac\u00EDo.");
         return false;
     }
 

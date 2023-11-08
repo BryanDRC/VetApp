@@ -8,7 +8,8 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">
-					<input type="hidden" id="idProductModal" value="@ViewBag.IdSupplier" />
+					<input type="hidden" id="idProductModal"/>
+					<input type="hidden" id="idSupplierModal" value="@ViewBag.IdSupplier" />
 					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Nombre Producto</label>
 						<input type="text" class="form-control" id="productModal" />
@@ -34,7 +35,7 @@
 						<button type="button" class="btn btn-primary" id="btnGuardarModal"  onclick="SavaChangesProductModal()">Guardar Cambios</button>
 					</div>
 				</div>
-
+				
 
 			</div>
 		</div><!-- /.modal-content -->
@@ -161,8 +162,8 @@
 <!-- End Page content -->
 <!-- ============================================================== -->
 <script src="~/libs/jquery/jquery.min.js"></script>
-<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
-<script src="~/js/supplier/product.js"></script>
-<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+@*<script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>*@
+<script src="~/js/supplier/Product.js"></script>
+@*<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-<script src="~/js/pages/datatables.init.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>*@
