@@ -38,8 +38,10 @@ namespace VetAppApi.Services
 		public string SetEmailTemplate(string email) {
 			string filePath = Path.Combine(_hostingEnvironment.ContentRootPath, "EmailTemplate\\PasswordRequest.html");
 			string htmlTemplate = System.IO.File.ReadAllText(filePath);
-			htmlTemplate = htmlTemplate.Replace("@@UserEmail", email);
-			htmlTemplate = htmlTemplate.Replace("@@Link", "https://localhost:7012/Administration/UpdateUserPassword?email=" + email);
+            string siteVetAppUrl = _configuration.GetSection("Claves:siteVetAppUrl").Value;
+
+            htmlTemplate = htmlTemplate.Replace("@@UserEmail", email);
+			htmlTemplate = htmlTemplate.Replace("@@Link", siteVetAppUrl + "Administration/UpdateUserPassword?email=" + email);
 
 			return htmlTemplate;
 		}

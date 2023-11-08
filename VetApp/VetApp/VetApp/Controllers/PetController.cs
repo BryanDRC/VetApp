@@ -2,10 +2,13 @@
 using VetApp.Entities;
 using VetApp.Models;
 using System.Linq;
+using VetApp.Services;
 
 namespace VetApp.Controllers
 {
-    public class PetController : Controller
+	[FilterSecurity]
+	[ResponseCache(NoStore = true, Duration = 0)]
+	public class PetController : Controller
     {
 		private readonly IConfiguration _configuration;
 		private readonly PetModel _petModel;

@@ -5,10 +5,13 @@ using VetApp.Models;
 using System.Drawing;
 using System.Text;
 using System.IO;
+using VetApp.Services;
 
 namespace VetApp.Controllers
 {
-    public class SupplierController : Controller
+	[FilterSecurity]
+	[ResponseCache(NoStore = true, Duration = 0)]
+	public class SupplierController : Controller
     {
 		private readonly IConfiguration _configuration;
 		private readonly SupplierModel _supplier;

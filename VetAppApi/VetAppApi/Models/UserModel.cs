@@ -72,6 +72,14 @@ namespace VetAppApi.Models
         {
             try
             {
+                string userPassword = String.Empty;
+
+                if (!String.IsNullOrEmpty(userObj.UserPassword))
+                {
+                    userPassword = PasswordHash.EncryptPassword(userObj.UserPassword);
+                }
+                
+
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
                     var datos = connection.Execute("SP_UpdateUser",
@@ -85,7 +93,7 @@ namespace VetAppApi.Models
                         ,
                             userObj.UserNickName
                         ,
-                            userObj.UserPassword
+                            userPassword
                         ,
                             userObj.UserPhoneNumber
                         ,

@@ -5,9 +5,12 @@ using VetApp.Models;
 using System.Drawing;
 using System.Text;
 using System.IO;
+using VetApp.Services;
 
 namespace VetApp.Controllers
 {
+	//[FilterSecurity]
+	//[ResponseCache(NoStore = true, Duration = 0)]
 	public class AdministrationController : Controller
 	{
 		private readonly EmployeeModel _employee;
@@ -32,7 +35,8 @@ namespace VetApp.Controllers
             return View();
         }
 
-        public IActionResult Employee()
+		[FilterSecurity]
+		public IActionResult Employee()
         {
             ViewBag.Users = _usersObject;
             return View();
@@ -44,7 +48,8 @@ namespace VetApp.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateUser(UserObj userObj)
+		[FilterSecurity]
+		public JsonResult CreateUser(UserObj userObj)
         {
 
 			if (String.IsNullOrEmpty(userObj.UserPicture))
@@ -62,6 +67,7 @@ namespace VetApp.Controllers
         }
 
 		[HttpGet]
+		[FilterSecurity]
 		public JsonResult GetUser(int idUser)
 		{
 			var user = _usersObject.Where(data => data.IdUser == idUser).FirstOrDefault();
@@ -69,6 +75,7 @@ namespace VetApp.Controllers
 		}
 
 		[HttpPut]
+		[FilterSecurity]
 		public JsonResult UpdateUser(UserObj userObj)
 		{
 			if (String.IsNullOrEmpty(userObj.UserPassword))
@@ -92,6 +99,7 @@ namespace VetApp.Controllers
 		}
 
 		[HttpDelete]
+		[FilterSecurity]
 		public JsonResult DeleteUser(int idUser)
 		{
 			var user = _employee.DeleteUser(idUser);
@@ -120,6 +128,7 @@ namespace VetApp.Controllers
 		}
 
 		[HttpGet]
+		[FilterSecurity]
 		public JsonResult ValidateAliasExist(string userNickName)
 		{
 			var user = _usersObject.Where(data => data.UserNickName == userNickName).FirstOrDefault();
