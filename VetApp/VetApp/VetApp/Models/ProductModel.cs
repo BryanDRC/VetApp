@@ -1,4 +1,5 @@
-﻿using VetApp.Entities;
+﻿using Newtonsoft.Json;
+using VetApp.Entities;
 
 namespace VetApp.Models
 {
@@ -65,5 +66,16 @@ namespace VetApp.Models
                 return 0;
             }
         }
-    }
+
+		public async Task<List<ProductObj>> GetProductsBySupplier(int idSupplier)
+		{
+			using (var access = new HttpClient())
+			{
+				HttpResponseMessage response = await access.GetAsync($"https://localhost:7216/api/Product/GetProductsBySupplier/{idSupplier}");
+				string resultStr = await response.Content.ReadAsStringAsync();
+				return JsonConvert.DeserializeObject<List<ProductObj>>(resultStr) ?? new List<ProductObj>();
+			}
+		}
+
+	}
 }

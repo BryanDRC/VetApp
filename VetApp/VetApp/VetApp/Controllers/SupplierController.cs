@@ -12,12 +12,15 @@ namespace VetApp.Controllers
     {
         private readonly SupplierModel _supplier;
         public List<SupplierObj> _suppliersObject;
-        public SupplierController()
+		ProductModel _productModel = new();
+		public SupplierController()
         {
             _supplier = new SupplierModel();
             _suppliersObject = _supplier.GetSuppliers();
 
-        }
+			
+
+		}
 
 
         public IActionResult Supplier()
@@ -71,5 +74,11 @@ namespace VetApp.Controllers
             return Json(supplier);
         }
 
-    }
+		[HttpGet("Supplier/Supplier/{idSupplier}")]
+		public async Task<IActionResult> Supplier(int idSupplier)
+		{
+			return View(await _productModel.GetProductsBySupplier(idSupplier));
+		}
+
+	}
 }

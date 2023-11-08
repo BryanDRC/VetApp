@@ -44,5 +44,19 @@ namespace VetAppApi.Controllers
         {
             return _productModel.DeleteProduct(idProduct);
         }
-    }
+
+		[HttpGet("GetProductsBySupplier/{idSupplier}")]
+		public ActionResult<List<ProductObj>> GetProductsBySupplier(int idSupplier)
+		{
+			try
+			{
+				var products = _productModel.GetProductsBySupplier(idSupplier);
+				return products != null ? products : NotFound();
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, "An error occurred while fetching reviews." + ex.Message);
+			}
+		}
+	}
 }

@@ -120,6 +120,15 @@ namespace VetAppApi.Models
             return 0;
         }
 
+                public List<ProductObj> GetProductsBySupplier(int idSupplier)
+        {
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+            {
+                connection.Open();
+                return connection.Query<ProductObj>("SP_GetProductsBySupplier", new { idSupplier = idSupplier}, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
+
 
 
 
