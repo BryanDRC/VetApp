@@ -110,5 +110,13 @@ namespace VetAppApi.Models
 
             return 0;
         }
-    }
+
+		public List<PetObj> GetPetsByClient(int idClient)
+		{
+			using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+			{
+				return connection.Query<PetObj>("SP_GetPetsByClient", new { idClient = idClient }, commandType: CommandType.StoredProcedure).ToList();
+			}
+		}
+	}
 }

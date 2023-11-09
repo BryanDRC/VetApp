@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="appsettings.json~RF4cef94f8.TMP" />
     <None Remove="Controllers\InventarioController.cs~RF298602d6.TMP" />
     <None Remove="Controllers\ReportesController.cs~RF29414adb.TMP" />
   </ItemGroup>

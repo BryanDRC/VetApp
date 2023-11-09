@@ -9,8 +9,6 @@ using VetApp.Services;
 
 namespace VetApp.Controllers
 {
-	//[FilterSecurity]
-	//[ResponseCache(NoStore = true, Duration = 0)]
 	public class AdministrationController : Controller
 	{
 		private readonly EmployeeModel _employee;

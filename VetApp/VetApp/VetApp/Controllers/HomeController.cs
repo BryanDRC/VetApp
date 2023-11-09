@@ -3,6 +3,7 @@ using NuGet.Protocol.Plugins;
 using System.Diagnostics;
 using VetApp.Entities;
 using VetApp.Models;
+using VetApp.Services;
 
 namespace VetApp.Controllers
 {
@@ -35,7 +36,10 @@ namespace VetApp.Controllers
                 var result = _authModel.Login(userObj);
                 if (result != null)
                 {
-                    return RedirectToAction("Planilla", "Planilla");
+					HttpContext.Session.SetString("UserNickName", result.UserNickName);
+					HttpContext.Session.SetString("RolName", result.RolName);
+					HttpContext.Session.SetString("UserPicture", result.UserPicture);
+					return RedirectToAction("Planilla", "Planilla");
                 }
                 else
                 {
@@ -49,7 +53,15 @@ namespace VetApp.Controllers
             }
         }
 
-        public IActionResult Privacy()
+		[HttpGet]
+		[FilterSecurity]
+		public IActionResult CloseSession()
+		{
+			HttpContext.Session.Clear();
+			return RedirectToAction("Index", "Home");
+		}
+
+		public IActionResult Privacy()
         {
             return View();
         }

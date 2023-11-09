@@ -21,9 +21,21 @@ namespace VetApp.Controllers
             _petsList = _petModel.GetPets();
         }
 
-        public IActionResult Pet()
+        public IActionResult Pet(int idClient = 0)
         {
-            ViewBag.Pets = _petsList;
+            if(idClient == 0)
+            {
+				//ViewBag.Pets = _petsList;
+
+                return RedirectToAction("Client","Client");
+            }
+            else
+            {
+                ViewBag.Pets = _petModel.GetPetsByClient(idClient);
+                ViewBag.IdClient = idClient;
+
+			}
+            
             return View();
         }
 

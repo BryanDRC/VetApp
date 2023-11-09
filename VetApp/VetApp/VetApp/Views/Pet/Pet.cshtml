@@ -9,6 +9,7 @@
             <div class="modal-body">
                 <div class="row">
                     <input type="hidden" id="idPetModal" />
+                    <input type="hidden" id="idClientModal" value="@ViewBag.IdClient" />
                     <div class=" col-md-4">
                         <label class="form-label">Nombre de la Mascota</label>
                         <input type="text" class="form-control" id="petNameModal" />
@@ -20,11 +21,11 @@
                         <label id="petSpeciesModalMessage" class="form-label" style="color:red;"></label>
                     </div>
                    
-                    <div class=" col-md-4">
+                    @* <div class=" col-md-4">
                         <label class="form-label">Id del Cliente</label>
                         <input type="text" class="form-control" id="idClientModal" readonly />
                         <label id="idClientModalMessage" class="form-label" style="color:red;"></label>
-                    </div>
+                    </div> *@
                 </div>
                 <div class="row">
                     <div class="modal-footer">
@@ -75,7 +76,7 @@
 
                             <div class="row">
                                 <div class="col-12">
-                                    <table id="datatablePets" class="table table-bordered dt-responsive table-responsive nowrap">
+                                    <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
                                         <thead>
                                             <tr>
                                                 <th>Id</th>

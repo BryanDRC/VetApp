@@ -43,5 +43,19 @@ namespace VetAppApi.Controllers
         {
             return _petModel.DeletePet(idPet);
         }
-    }
+
+		[HttpGet("GetPetsByClient/{idClient}")]
+		public ActionResult<List<PetObj>> GetPetsByClient(int idClient)
+		{
+			try
+			{
+				var pets = _petModel.GetPetsByClient(idClient);
+				return pets != null ? pets : NotFound();
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, "An error occurred while fetching reviews." + ex.Message);
+			}
+		}
+	}
 }

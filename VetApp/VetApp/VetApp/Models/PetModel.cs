@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using VetApp.Entities;
 
 namespace VetApp.Models
@@ -17,7 +18,7 @@ namespace VetApp.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(petObj);
-                string url = "api/Pet/CreatePet";
+                string url = _urlApi + "api/Pet/CreatePet";
                 HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
@@ -70,5 +71,28 @@ namespace VetApp.Models
                 return 0;
             }
         }
-    }
+
+		public List<PetObj> GetPetsByClient(int idClient)
+		{
+
+			using (var client = new HttpClient())
+			{
+				string url = _urlApi + "api/Pet/GetPetsByClient/"+idClient;
+
+				HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+
+				if (response.IsSuccessStatusCode)
+					return response.Content.ReadFromJsonAsync<List<PetObj>>().Result;
+
+				return new List<PetObj>();
+			}
+
+			//using (var access = new HttpClient())
+			//{
+			//	HttpResponseMessage response = await access.GetAsync($"https://localhost:7032/api/Pet/GetPetsByClient/{idClient}");
+			//	string resultStr = await response.Content.ReadAsStringAsync();
+			//	return JsonConvert.DeserializeObject<List<PetObj>>(resultStr) ?? new List<PetObj>();
+			//}
+		}
+	}
 }
