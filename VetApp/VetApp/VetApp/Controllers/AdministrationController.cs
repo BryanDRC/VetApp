@@ -132,5 +132,13 @@ namespace VetApp.Controllers
 			var user = _usersObject.Where(data => data.UserNickName == userNickName).FirstOrDefault();
 			return Json(user);
 		}
+
+		[HttpGet]
+		[FilterSecurity]
+		public JsonResult ValidateUserIdCardExist(string userIdCard)
+		{
+			var user = _usersObject.Where(data => data.UserIdCard == userIdCard).FirstOrDefault();
+			return Json(user);
+		}
 	}
 }

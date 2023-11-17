@@ -37,6 +37,11 @@ $(document).on("click", "#btnAddEmployee", function () {
     userPasswordModalMessage.text("");
     userPassworConfirmModalMessage.text("");
 
+    const button = document.getElementById("btnGuardarModal");
+
+    // Disable the button
+    button.disabled = false;
+
     $('#usersModal').modal('show');
 
 });
@@ -285,6 +290,40 @@ function ValidateAliasExist() {
     });
 }
 
+function ValidateUserIdCardExist() {
+
+    let idUser = $("#idUserModal").val();
+
+    if (idUser.trim().length === 0) {
+
+        let userIdCard = $("#userIdCardModal").val()
+
+        const button = document.getElementById("btnGuardarModal");
+
+        // Disable the button
+        button.disabled = true;
+        userIdCardMessage.text("");
+
+        $.ajax({
+            type: "GET",
+            url: "../Administration/ValidateUserIdCardExist?userIdCard=" + userIdCard,
+            dataType: "json",
+            success: function (res) {
+
+                if (res === null) {
+                    button.disabled = false;
+
+                } else {
+                    userIdCardMessage.text("La c\u00E9dula ingresada ya existe en el sistema.");
+                    button.disabled = true;
+                }
+
+            }
+        });
+    }
+    
+}
+
 // Selecciona el elemento de entrada de archivo (input type="file") en tu HTML
 const input = document.getElementById('userPictureModal');
 
@@ -393,15 +432,16 @@ function validateUserIdCard() {
 
     userIdCardMessage.text("");
 
+
     if (selectUserIdCard === '1') {
 
-        if (userIdCard.trim().length < 8) {
-            userIdCardMessage.text("C\u00E9dula no puede ser menor a 8 d\u00EDgitos.");
+        if (userIdCard.trim().length < 9) {
+            userIdCardMessage.text("C\u00E9dula no puede ser menor a 9 d\u00EDgitos.");
             return false;
         }
 
-        if (userIdCard.trim().length > 8) {
-            userIdCardMessage.text("C\u00E9dula no puede ser mayor a 8 d\u00EDgitos.");
+        if (userIdCard.trim().length > 9) {
+            userIdCardMessage.text("C\u00E9dula no puede ser mayor a 9 d\u00EDgitos.");
             return false;
         }
 
