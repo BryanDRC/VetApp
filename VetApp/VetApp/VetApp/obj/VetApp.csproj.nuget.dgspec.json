@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Duant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
+        "projectName": "VetApp",
+        "projectPath": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
+        "packagesPath": "C:\\Users\\bdroj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bdroj\\OneDrive\\Escritorio\\VetApp\\VetApp\\VetApp\\VetApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\bdroj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> b309f88ed50686121c60614567181e7afbdea481
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
