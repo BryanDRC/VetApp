@@ -32,8 +32,24 @@ function CreateService() {
             "serviceCost": serviceCost
         },
         success: function (res) {
-            // Manejar la respuesta del servidor
-            // Similar a la función CreatePet
+            if (res == 1) {
+                Swal.fire({
+                    title: '',
+                    icon: 'success',
+                    text: 'Servicio registrado correctamente.',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result['isConfirmed']) {
+                        location.reload();
+                    }
+                })
+                return;
+            }
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Lo sentimos ha ocurrido un error.',
+            });
         }
     });
 }
@@ -44,8 +60,17 @@ function OpenUpdateServiceModal(idService) {
         url: "../Service/GetService?idService=" + idService,
         dataType: "json",
         success: function (res) {
-            // Rellenar los campos del modal con la información del servicio
-            // Similar a la función OpenUpdatePetModal
+            $("#serviceNameModal").prop("readonly", false);
+            $("#serviceCostModal").prop("readonly", false);
+            $("#idServiceModal").prop("readonly", false);
+
+
+            $("#idServiceModal").val(res.idPet);
+            $("#serviceNameModal").val(res.petName);
+            $("#serviceCostModal").val(res.petSpecies);        
+
+            $('#servicesModal').modal('show');
+        }
         }
     });
 }
@@ -65,8 +90,24 @@ function UpdateService() {
             "serviceCost": serviceCost
         },
         success: function (res) {
-            // Manejar la respuesta del servidor
-            // Similar a la función UpdatePet
+            if (res == 1) {
+                Swal.fire({
+                    title: '',
+                    icon: 'success',
+                    text: 'Servicio actualizado correctamente.',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result['isConfirmed']) {
+                        location.reload();
+                    }
+                })
+                return;
+            }
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Lo sentimos ha ocurrido un error.',
+            });
         }
     });
 }
@@ -84,8 +125,24 @@ function DeleteService() {
         url: "../Service/DeleteService?idService=" + idTempService,
         dataType: "json",
         success: function (res) {
-            // Manejar la respuesta del servidor
-            // Similar a la función DeletePet
+            if (res == 1) {
+                Swal.fire({
+                    title: '',
+                    icon: 'success',
+                    text: 'Servicio eliminado correctamente.',
+                    confirmButtonText: 'Ok'
+                }).then((result) => {
+                    if (result['isConfirmed']) {
+                        location.reload();
+                    }
+                })
+                return;
+            }
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Lo sentimos ha ocurrido un error.',
+            });
         }
     });
 }
