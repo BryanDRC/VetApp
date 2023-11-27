@@ -2,9 +2,11 @@
 
     $("#petNameModal").prop("readonly", false);
     $("#petSpeciesModal").prop("readonly", false);
+    $("#birthDateModal").prop("readonly", false);
 
     $("#petNameModal").val('');
     $("#petSpeciesModal").val('');
+    $("#birthDateModal").val('');
 
 
     $('#petsModal').modal('show');
@@ -28,6 +30,7 @@ function CreatePet() {
     let petName = $("#petNameModal").val();
     let petSpecies = $("#petSpeciesModal").val();
     let idClient = $("#idClientModal").val();
+    let birthDate = $("#birthDateModal").val();
 
     $.ajax({
         type: "POST",
@@ -36,7 +39,8 @@ function CreatePet() {
         data: {
             "petName": petName,
             "petSpecies": petSpecies,
-            "idClient": idClient
+            "idClient": idClient,
+            "birthDate": birthDate
         },
         success: function (res) {
             if (res == 1) {
@@ -69,12 +73,14 @@ function OpenUpdatePetModal(idPet) {
         success: function (res) {
             $("#petNameModal").prop("readonly", false);
             $("#petSpeciesModal").prop("readonly", false);
+            $("#birthDateModal").prop("readonly", false);
 
 
             $("#idPetModal").val(res.idPet);
             $("#petNameModal").val(res.petName);
             $("#petSpeciesModal").val(res.petSpecies);
             $("#idClientModal").val(res.idClient);
+            $("#birthDateModal").val(res.birthDate);
 
             $('#petsModal').modal('show');
         }
@@ -86,6 +92,7 @@ function UpdatePet() {
     let petName = $("#petNameModal").val();
     let petSpecies = $("#petSpeciesModal").val();
     let idClient = $("#idClientModal").val();
+    let birthDate = $("#birthDateModal").val();
 
     $.ajax({
         type: "PUT",
@@ -95,7 +102,8 @@ function UpdatePet() {
             "IdPet": idPet,
             "petName": petName,
             "petSpecies": petSpecies,
-            "idClient": idClient
+            "idClient": idClient,
+            "birthDate": birthDate
         },
         success: function (res) {
             if (res == 1) {
@@ -158,11 +166,12 @@ function DeletePet() {
 function validatePetInputs() {
     let petName = $("#petNameModal").val();
     let petSpecies = $("#petSpeciesModal").val();
+    let birthDate = $("#birthDateModal").val();
 
 
     let petNameMessage = $("#petNameModalMessage");
     let petSpeciesMessage = $("#petSpeciesModalMessage");
-
+    let birthDateMessage = $("#birthDateModalMessage");
 
     petNameMessage.text("");
     petSpeciesMessage.text("");
@@ -173,6 +182,11 @@ function validatePetInputs() {
     }
     if (petSpecies.trim().length === 0) {
         petSpeciesMessage.text("Especie de la mascota no puede ir vacío.");
+        return false;
+    }
+
+    if (birthDate.trim().length === 0) {
+        birthDateMessage.text("Fecha de nacimiento de la mascota no puede ir vacío.");
         return false;
     }
 

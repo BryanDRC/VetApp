@@ -21,11 +21,11 @@
                         <label id="petSpeciesModalMessage" class="form-label" style="color:red;"></label>
                     </div>
                    
-                    @* <div class=" col-md-4">
-                        <label class="form-label">Id del Cliente</label>
-                        <input type="text" class="form-control" id="idClientModal" readonly />
-                        <label id="idClientModalMessage" class="form-label" style="color:red;"></label>
-                    </div> *@
+                     <div class=" col-md-4">
+                        <label class="form-label">Fecha de Nacimiento de la Mascota</label>
+                        <input type="date" class="form-control" id="birthDateModal" readonly />
+                        <label id="birthDateModalMessage" class="form-label" style="color:red;"></label>
+                    </div> 
                 </div>
                 <div class="row">
                     <div class="modal-footer">
@@ -83,6 +83,7 @@
                                                 <th>Nombre</th>
                                                 <th>Especie</th>                                               
                                                 <th>ID del Cliente</th>
+                                                <th>Fecha de Nacimiento</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
@@ -94,6 +95,7 @@
                                                     <td>@pet.petName</td>
                                                     <td>@pet.petSpecies</td>                                                   
                                                     <td>@pet.idClient</td>
+                                                    <td>@pet.birthDate</td>
                                                     <td>
                                                         <div class="dropdown d-flex justify-content-between">
                                                             <a href="#" onclick="OpenUpdatePetModal(@pet.IdPet)">

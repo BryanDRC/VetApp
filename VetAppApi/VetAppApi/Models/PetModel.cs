@@ -25,7 +25,8 @@ namespace VetAppApi.Models
                         {
                             petObj.petName,
                             petObj.petSpecies,
-                            petObj.IdClient },
+                            petObj.IdClient,
+                            petObj.birthDate },
                         commandType: CommandType.StoredProcedure);
 
                     return datos;
@@ -72,7 +73,8 @@ namespace VetAppApi.Models
                             petObj.IdPet,
                             petObj.petName,
                             petObj.petSpecies,
-                            petObj.IdClient
+                            petObj.IdClient,
+                            petObj.birthDate
                         },
                         commandType: CommandType.StoredProcedure);
 

@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {}
+    "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {}
   },
   "projects": {
-    "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {
+    "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+        "projectUniqueName": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
         "projectName": "VetAppApi",
-        "projectPath": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
-        "packagesPath": "C:\\Users\\Yohan Alvarado\\.nuget\\packages\\",
-        "outputPath": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\obj\\",
+        "projectPath": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+        "packagesPath": "C:\\Users\\Duant\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Duant\\OneDrive\\Documentos\\clonado\\VetApp\\VetAppApi\\VetAppApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Yohan Alvarado\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Duant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -76,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
