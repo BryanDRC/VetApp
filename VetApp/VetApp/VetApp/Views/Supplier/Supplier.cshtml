@@ -125,7 +125,7 @@
 															<td>
 																<div class="dropdown d-flex justify-content-between">
 
-																	<a asp-action="Product" asp-controller="Supplier" asp-route-ID="@supplier.idSupplier" data-bs-toggle="tooltip" data-bs-placement="top" title="Aquí podrás manejar la información de los productos">
+																	<a href="@Url.Action("Product","Product",new { idSupplier = @supplier.idSupplier})" data-bs-toggle="tooltip" data-bs-placement="top" title="Aquí podrás manejar la información de los productos">
 																		<i class="dripicons-folder-open" style="color: black"></i>
 																	</a>
 																		
@@ -171,4 +171,6 @@
 <script src="~/libs/jquery/jquery.min.js"></script>
 <script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
 <script src="~/js/Supplier/Supplier.js"></script>
-<script>new DataTable('');</script>
+<script src="~/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="~/js/pages/datatables.init.js"></script>
