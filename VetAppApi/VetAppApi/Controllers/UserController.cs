@@ -56,5 +56,12 @@ namespace VetAppApi.Controllers
 		{
 			return _userModel.UpdateUserPassword(userObj);
 		}
-	}
+
+        [HttpGet]
+        [Route("GetDoctors")]
+        public ActionResult<IEnumerable<UserObj>> GetDoctors()
+        {
+            return _userModel.GetDoctors().ToList();
+        }
+    }
 }

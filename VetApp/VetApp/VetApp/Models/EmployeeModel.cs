@@ -99,5 +99,20 @@ namespace VetApp.Models
 				return 0;
 			}
 		}
-	}
+
+        public List<UserObj>? GetDoctors()
+        {
+            using (var client = new HttpClient())
+            {
+                string url = _urlApi + "api/User/GetDoctors";
+
+                HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadFromJsonAsync<List<UserObj>>().Result;
+
+                return new List<UserObj>();
+            }
+        }
+    }
 }

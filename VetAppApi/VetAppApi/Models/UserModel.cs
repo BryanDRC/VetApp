@@ -192,5 +192,26 @@ namespace VetAppApi.Models
 
 			return 0;
 		}
-	}
+
+        public IEnumerable<UserObj> GetDoctors()
+        {
+
+            try
+            {
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+                {
+                    var datos = connection.Query<UserObj>("SP_GetDoctors", null,
+                        commandType: CommandType.StoredProcedure).ToList();
+
+                    return datos;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return new List<UserObj>();
+        }
+    }
 }

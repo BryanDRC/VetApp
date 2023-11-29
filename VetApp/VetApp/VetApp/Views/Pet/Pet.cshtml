@@ -98,6 +98,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach (var pet in ViewBag.Pets)
                                             {
                                                 <tr>
                                                     <td>@pet.IdPet</td>
