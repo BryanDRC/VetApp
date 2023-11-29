@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "VetAppApi/1.0.0": {
         "dependencies": {
-          "Dapper": "2.1.15",
+          "Dapper": "2.1.21",
           "Swashbuckle.AspNetCore": "6.5.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -16,11 +16,11 @@
           "VetAppApi.dll": {}
         }
       },
-      "Dapper/2.1.15": {
+      "Dapper/2.1.21": {
         "runtime": {
           "lib/net5.0/Dapper.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.1.15.52653"
+            "fileVersion": "2.1.21.38011"
           }
         }
       },
@@ -154,12 +154,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Dapper/2.1.15": {
+    "Dapper/2.1.21": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1aWSAosZymEM+mRwfrXteRIN74/JTUjqj9B/KqEbanH6vfUKy9D9cemRN0q1ZOEfSB7d1PpFTpVOCbf2Uv70Og==",
-      "path": "dapper/2.1.15",
-      "hashPath": "dapper.2.1.15.nupkg.sha512"
+      "sha512": "sha512-EaTXNZX60/k9snRsLxFhD2XmoSKubc+VOeL3hBM6/R8j2MT8/81xOc2V8EEhwr8Mu3Sf951PJPxjlXN4FznH0w==",
+      "path": "dapper/2.1.21",
+      "hashPath": "dapper.2.1.21.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
       "type": "package",

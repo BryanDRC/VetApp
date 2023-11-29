@@ -1,3 +1,4 @@
+using VetAppApi.Controllers;
 using VetAppApi.Models;
 using VetAppApi.Services;
 
@@ -18,6 +19,7 @@ builder.Services.AddScoped<ClientModel>();
 builder.Services.AddScoped<ProductModel>();
 builder.Services.AddScoped<ServiceModel>();
 builder.Services.AddScoped<SupplierModel>();
+builder.Services.AddScoped<FormsModel>();
 builder.Services.AddScoped<EmailSend>();
 
 var app = builder.Build();

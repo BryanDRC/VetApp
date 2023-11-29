@@ -97,18 +97,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach (var pets in ViewBag.Pets)
                                             {
                                                 <tr>
-                                                    <td>@pet.IdPet</td>
-                                                    <td>@pet.petName</td>
-                                                    <td>@pet.petSpecies</td>                                                   
-                                                    <td>@pet.idClient</td>
+                                                <td>@pets.IdPet</td>
+                                                <td>@pets.petName</td>
+                                                <td>@pets.petSpecies</td>
+                                                <td>@pets.idClient</td>
                                                     <td>
                                                         <div class="dropdown d-flex justify-content-between">
-                                                            <a href="#" data-bs-placement="top" title="Editar Mascota" onclick="OpenUpdatePetModal(@pet.IdPet)">
+                                                            <a href="#" data-bs-placement="top" title="Editar Mascota" onclick="OpenUpdatePetModal(@pets.IdPet)">
                                                                 <i data-bs-placement="top" title="Editar Mascota" class="fas fa-pen text-info"></i>
                                                             </a>
-                                                            <a href="#" data-bs-placement="top" title="Eliminar Mascota" onclick="OpenDeleteConfirmPetModal(@pet.IdPet)">
+                                                            <a href="#" data-bs-placement="top" title="Eliminar Mascota" onclick="OpenDeleteConfirmPetModal(@pets.IdPet)">
                                                                 <i data-bs-placement="top" title="Eliminar Mascota" class="fas fa-trash text-danger"></i>
                                                             </a>
                                                         </div>

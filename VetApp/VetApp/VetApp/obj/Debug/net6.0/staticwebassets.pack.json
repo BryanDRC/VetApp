@@ -757,6 +757,10 @@
       "PackagePath": "staticwebassets\\js\\Client\\Client.js"
     },
     {
+      "Id": "C:\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Forms\\Forms.js",
+      "PackagePath": "staticwebassets\\js\\Forms\\Forms.js"
+    },
+    {
       "Id": "C:\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Pet\\Pet.js",
       "PackagePath": "staticwebassets\\js\\Pet\\Pet.js"
     },

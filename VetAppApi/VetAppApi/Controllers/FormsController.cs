@@ -5,8 +5,8 @@ using VetAppApi.Models;
 
 namespace VetAppApi.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class FormsController : ControllerBase
     {
         private FormsModel _formsModel;

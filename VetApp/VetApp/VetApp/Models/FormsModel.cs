@@ -28,11 +28,11 @@ namespace VetApp.Models
             }
         }
 
-        public List<FormsObj> GetFormss()
+        public List<FormsObj> GetForms()
         {
             using (var client = new HttpClient())
             {
-                string url = _urlApi + "api/Forms/GetFormss";
+                string url = _urlApi + "api/Forms/GetForms";
 
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
