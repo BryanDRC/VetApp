@@ -26,7 +26,7 @@ namespace VetAppApi.Models
                             petObj.petName,
                             petObj.petSpecies,
                             petObj.IdClient,
-                            petObj.birthDate },
+                            petObj.birthDate},
                         commandType: CommandType.StoredProcedure);
 
                     return datos;

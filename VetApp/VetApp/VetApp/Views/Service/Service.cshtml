@@ -1,9 +1,9 @@
 ﻿<!--  Modal content for the Large example -->
-<div class="modal fade" id="servicesModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade" id="servicesModal" tabindex="-1" role="dialog" aria-labelledby="myServiceModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title" id="myLargeModalLabel">Formulario Servicios</h4>
+				<h4 class="modal-title" id="myServiceModalLabel">Formulario Servicios</h4>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
@@ -16,7 +16,7 @@
 					</div> <!-- end col -->
 					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Precio</label>
-						<input type="text" class="form-control" id="serviceCostModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+						<input type="text" class="form-control" id="serviceCostModal"/>
 						<label id="serviceCostModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
 				</div> <!-- end row -->
@@ -24,7 +24,7 @@
 				<div class="row">
 					<div class="modal-footer">
 						<button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
-						<button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="SavaChangesServiceModal()">Guardar Cambios</button>
+						<button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="SaveChangesServiceModal()">Guardar Cambios</button>
 					</div>
 				</div>
 
@@ -113,18 +113,12 @@
 															<td>@services.serviceCost</td>
 															<td>
 																<div class="dropdown d-flex justify-content-between">
-
-																	<div class="dropdown">
-																		<a href="#" class="dropdown-toggle arrow-none card-drop" style="color: black" data-bs-toggle="dropdown" aria-expanded="false">
-																			<i class="mdi mdi-dots-vertical"></i>
-																		</a>
-																		<div class="dropdown-menu dropdown-menu-end">
-																			<!-- item-->
-																			<a onclick="OpenUpdateServiceModal(@services.idService)" class="dropdown-item">Editar</a>
-																			<!-- item-->
-																			<a onclick="OpenDeleteConfirmServiceModal(@services.idService)" class="dropdown-item">Eliminar</a>
-																		</div>
-																	</div>
+																	<a href="#" data-bs-placement="top" title="Editar Servicio" onclick="OpenUpdateServiceModal(@services.idService)">
+																		<i data-bs-placement="top" title="Editar Servicio" class="fas fa-pen text-info"></i>
+																	</a>
+																	<a href="#" data-bs-placement="top" title="Eliminar Servicio" onclick="OpenDeleteConfirmServiceModal(@services.idService)">
+																		<i data-bs-placement="top" title="Eliminar Servicio" class="fas fa-trash text-danger"></i>
+																	</a>
 																</div>
 															</td>
 														</tr>

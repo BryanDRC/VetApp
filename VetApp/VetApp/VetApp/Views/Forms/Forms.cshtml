@@ -1,0 +1,224 @@
+﻿<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+<!--  Modal content for the Large example -->
+<div class="modal fade" id="formsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">Formulario Informe</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div style="margin-left: 25%;" class="row">
+                    <input type="hidden" id="idFormsModal" />
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">Médico Encargado</label>
+                       @* <input type="text" class="form-control" id="useNameModal">*@
+                        
+                        <select id="useIdModal" class="selectize-drop-header" placeholder="Select a language...">
+                            @foreach (var user in ViewBag.userM)
+                               {
+                                <option value="@user.IdUser">@user.UserName</option>
+
+                            }
+                        </select>
+                        
+
+                    </div> <!-- end col -->
+                    <div class=" col-md-4">
+                        <label for="inputZip" class="form-label">Nombre Paciente</label>
+                        <input type="text" class="form-control" id="petNameModal">
+                        </select>
+                    </div> <!-- end col -->
+
+                </div> <!-- end row -->
+                <br>
+                <div style="margin-left: 25%;" class="row">
+                    <div class=" col-md-4">
+                        <label for="inputZip" class="form-label">Especie</label>
+                        <input type="text" class="form-control" id="speciesNameModal">
+                        </select>
+                    </div> <!-- end col -->
+                    <div class=" col-md-4">
+                        <label for="inputZip" class="form-label">Cédula</label>
+                        <input type="text" class="form-control" id="cardClientModal">
+                        </select>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+                <br>
+                <div style="margin-left: 25%;" class="row">
+                    <div class=" col-md-4">
+                        <label for="inputZip" class="form-label">Motivo Consulta</label>
+                        <input type="text" class="form-control" id="motiveFormsModal">
+                        </select>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+                <br>
+                <div style="margin-left: 25%;" class="row">
+
+                    <div class=" col-md-4">
+                        <label for="inputZip" class="form-label">Hora Llegada</label>
+                        <input type="text" class="form-control" id="arrivalFormsModal">
+                        </select>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+                <br>
+                <div style="margin-left: 25%;" class="row">
+                    <div class=" col-md-4">
+                        <label for="inputZip" class="form-label">Hora Salida</label>
+                        <input type="text" class="form-control" id="attentionFormsModal">
+                        </select>
+                    </div> <!-- end col -->
+                    <div class=" col-md-4">
+                        <label for="inputZip" class="form-label">Laboratorio</label>
+                       @* <input type="text" class="form-control" id="productNameModal">*@
+                        <select id="productIdModal" class="selectize-drop-header" placeholder="Select a language...">
+                            @foreach (var product in ViewBag.productM)
+                            {
+                                <option value="@product.idProduct">@product.product</option>
+
+                            }
+                        </select>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+                <br>
+                <div style="margin-left: 25%;" class="row">
+                    <div class=" col-md-4">
+                        <label for="inputZip" class="form-label">Consulta Externa</label>
+                        @*<input type="text" class="form-control" id="servicNameModal">*@
+                        <select id="servicIdModal" class="selectize-drop-header" placeholder="Select a language...">
+                            @foreach (var service in ViewBag.serviceM)
+                            {
+                                <option value="@service.idService">@service.serviceName</option>
+
+                            }
+                        </select>
+                    </div> <!-- end col -->
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">Estado</label>
+                        <select id="inputState" class="form-select">
+                            <option>Pago</option>
+                            <option>Sin Cobrar </option>
+                        </select>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+                <br>
+                <div class="row">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="btnGuardarModal" onclick="SavaChangesClientModal()">Guardar Cambios</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+
+
+                            <div style="margin-bottom: -40px;" class="mt-3 mt-md-0">
+                                <!-- Large modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formsModal" id="btnAddForms">Agregar Informe</button>
+                            </div>
+
+
+
+                            <div class="table-responsive">
+                                <div class="card-body">
+                                    <!-- Standard modal content -->
+
+                                </div> <!-- end card-->
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Expediente Médico</th>
+                                            <th>Médico</th>
+                                            <th>Paciente</th>
+                                            <th>Especie</th>
+                                            <th>Cedula</th>
+                                            <th>Consulta</th>
+                                            <th>Hora Llegada</th>
+                                            <th>Hora Atención</th>
+                                            <th>Laboratorio</th>
+                                            <th>Consulta Externa</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var forms in ViewBag.Forms)
+                                        {
+                                        <tr>
+                                                <td>@forms.IdMedicalRecord</td>
+                                                <td>@forms.idUser</td>
+                                                <td>@forms.petName</td>
+                                                <td>@forms.petSpecies</td>
+                                                <td>@forms.clientIdCard</td>
+                                                <td>@forms.motive</td>
+                                                <td>@forms.arrival</td>
+                                                <td>@forms.attention</td>
+                                                <td>@forms.idProduct</td>
+                                                <th>@forms.idService</th>
+                                            <td><span class="badge bg-secondary">Sin Cobrar</span></td>
+
+                                            <td class="white-space: nowrap; width: 1%;">
+
+                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+
+                                                    <div class="btn-group btn-group-sm" style="float: none;">
+
+                                                        <button type="button" class="tabledit-edit-button btn btn-success" style="float: none; margin-right:5px">
+
+                                                            <span class="mdi mdi-pencil"></span>
+
+                                                        </button>
+
+                                                        <button type="button" class="tabledit-edit-button btn btn-danger" style="float: none;">
+
+                                                            <span class="mdi mdi-close"></span>
+
+                                                        </button>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div> <!-- end .table-responsive-->
+                        </div> <!-- end card-body -->
+                    </div> <!-- end card -->
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+
+</div>
+
+
+<script src="~/js/Forms/Forms.js"></script>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->

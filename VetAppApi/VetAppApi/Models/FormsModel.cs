@@ -20,18 +20,18 @@ namespace VetAppApi.Models
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Execute("SP_CreateForms",
+                    var datos = connection.Execute("SP_InsertFormData",
                         new
                         {
-                            formsObj.IdUser,
-                            formsObj.IdPet,
-                            formsObj.IdClient,
-                            formsObj.Motive,
-                            formsObj.Appointment,
-                            formsObj.Arrival,
-                            formsObj.Attention,
-                            formsObj.IdProduct,
-                            formsObj.IdService
+                            formsObj.idUser,
+                            formsObj.petName,
+                            formsObj.petSpecies,
+                            formsObj.clientIdCard,
+                            formsObj.motive,
+                            formsObj.arrival,
+                            formsObj.attention,
+                            formsObj.idProduct,
+                            formsObj.idService
                         },
                         commandType: CommandType.StoredProcedure);
 
@@ -53,7 +53,7 @@ namespace VetAppApi.Models
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Query<FormsObj>("SP_GetForms", null,
+                    var datos = connection.Query<FormsObj>("SP_GetFormsForCurrentDay", null,
                         commandType: CommandType.StoredProcedure).ToList();
 
                     return datos;
@@ -77,15 +77,14 @@ namespace VetAppApi.Models
                         new
                         {
                             formsObj.IdMedicalRecord,
-                            formsObj.IdUser,
-                            formsObj.IdPet,
-                            formsObj.IdClient,
-                            formsObj.Motive,
-                            formsObj.Appointment,
-                            formsObj.Arrival,
-                            formsObj.Attention,
-                            formsObj.IdProduct,
-                            formsObj.IdService
+                            formsObj.idUser,
+                            formsObj.petName,
+                            formsObj.clientIdCard,
+                            formsObj.motive,
+                            formsObj.arrival,
+                            formsObj.attention,
+                            formsObj.idProduct,
+                            formsObj.idService
                         },
                         commandType: CommandType.StoredProcedure);
 

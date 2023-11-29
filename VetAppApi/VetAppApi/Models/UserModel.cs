@@ -33,7 +33,8 @@ namespace VetAppApi.Models
                         , userObj.UserNickName
                         , userPassword
 						, userObj.UserPhoneNumber
-                        , userObj.UserPicture},
+                        , userObj.UserPicture}
+                        ,
                         commandType: CommandType.StoredProcedure);
 
                     return datos;

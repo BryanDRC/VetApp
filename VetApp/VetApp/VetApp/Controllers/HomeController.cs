@@ -39,7 +39,7 @@ namespace VetApp.Controllers
 					HttpContext.Session.SetString("UserNickName", result.UserNickName);
 					HttpContext.Session.SetString("RolName", result.RolName);
 					HttpContext.Session.SetString("UserPicture", result.UserPicture);
-					return RedirectToAction("Planilla", "Planilla");
+					return RedirectToAction("Forms", "Forms");
                 }
                 else
                 {

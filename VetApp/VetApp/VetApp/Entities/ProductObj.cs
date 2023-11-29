@@ -1,17 +1,14 @@
 ﻿namespace VetApp.Entities
 {
-    public class FormsObj
+    public class ProductObj
     {
-        public int IdMedicalRecord { get; set; } = 0;
-        public int IdUser { get; set; } = 0;
-        public int IdPet { get; set; } = 0;
-        public int IdClient { get; set; } = 0;
-        public string Motive { get; set; } = string.Empty;
-        public DateTime Appointment { get; set; } = DateTime.MinValue;
-        public DateTime Arrival { get; set; } = DateTime.MinValue;
-        public DateTime Attention { get; set; } = DateTime.MinValue;
-        public int IdProduct { get; set; } = 0;
-        public int IdService { get; set; } = 0;
+
+        public int idProduct { get; set; } = 0;
+        public int idSupplier { get; set; } = 0;
+        public string product { get; set; } = string.Empty;
+        public double productBuyCost { get; set; } = 0;
+        public double productSellCost { get; set; } = 0;
+
     }
 }
 

@@ -4,6 +4,7 @@
     $("#petSpeciesModal").prop("readonly", false);
     $("#birthDateModal").prop("readonly", false);
 
+
     $("#petNameModal").val('');
     $("#petSpeciesModal").val('');
     $("#birthDateModal").val('');
@@ -75,10 +76,10 @@ function OpenUpdatePetModal(idPet) {
             $("#petSpeciesModal").prop("readonly", false);
             $("#birthDateModal").prop("readonly", false);
 
-
             $("#idPetModal").val(res.idPet);
             $("#petNameModal").val(res.petName);
             $("#petSpeciesModal").val(res.petSpecies);
+            $("#birthDateModal").val(res.birthDate);
             $("#idClientModal").val(res.idClient);
             $("#birthDateModal").val(res.birthDate);
 
@@ -102,8 +103,8 @@ function UpdatePet() {
             "IdPet": idPet,
             "petName": petName,
             "petSpecies": petSpecies,
-            "idClient": idClient,
-            "birthDate": birthDate
+            "birthDate": birthDate,
+            "idClient": idClient
         },
         success: function (res) {
             if (res == 1) {
@@ -163,6 +164,7 @@ function DeletePet() {
     });
 }
 
+
 function validatePetInputs() {
     let petName = $("#petNameModal").val();
     let petSpecies = $("#petSpeciesModal").val();
@@ -175,6 +177,7 @@ function validatePetInputs() {
 
     petNameMessage.text("");
     petSpeciesMessage.text("");
+    birthDateMessage.text("");
 
     if (petName.trim().length === 0) {
         petNameMessage.text("Nombre de la mascota no puede ir vacío.");
@@ -182,6 +185,10 @@ function validatePetInputs() {
     }
     if (petSpecies.trim().length === 0) {
         petSpeciesMessage.text("Especie de la mascota no puede ir vacío.");
+        return false;
+    }
+    if (birthDate.trim().length === 0) {
+        birthDateMessage.text("Fecha de Nacimiento no puede ir vacio.");
         return false;
     }
 

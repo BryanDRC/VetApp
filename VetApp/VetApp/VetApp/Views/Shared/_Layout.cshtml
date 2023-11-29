@@ -33,77 +33,43 @@
     <div id="wrapper">
 
         <!-- Topbar Start -->
-        <div class="navbar-custom">
+        <div class="navbar-custom" style="background-color: #38BEEF;">
             <ul class="list-unstyled topnav-menu float-end mb-0">
-
 
                 <li class="dropdown notification-list topbar-dropdown">
                     <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        @if (!String.IsNullOrEmpty(Context.Session.GetString("UserPicture")))
-                        {
-                            <img src="~/@Context.Session.GetString("UserPicture")" alt="user-image" class="rounded-circle">
-                        }
-                        else
-                        {
-                            <img src="~/UsersPictures/NonProfile/NonProfile.png" alt="user-image" class="rounded-circle">
-                        }
-
+                        <i class="dripicons-gear" style="font-size: 20px; color: black;"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                        <!-- item-->
-                        @* <a href="contacts-profile.html" class="dropdown-item notify-item">
-                            <i class="fe-user"></i>
-                            <span>Cambiar Contraseña</span>
-                        </a> *@
-
-                        <!-- item-->
+                    <div class="dropdown-menu dropdown-menu-end profile-dropdown">
                         <a href="@Url.Action("CloseSession","Home")" class="dropdown-item notify-item">
                             <i class="fe-lock"></i>
                             <span>Cerrar Sesión</span>
                         </a>
-
                     </div>
                 </li>
+
 
 
 
             </ul>
 
             <!-- LOGO -->
-            <div class="logo-box">
-                <a href="index.html" class="logo logo-light text-center">
-                    <span class="logo-sm">
-                        <img src="~/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="~/images/logo-light.png" alt="" height="16">
-                    </span>
-                </a>
-                <a href="index.html" class="logo logo-dark text-center">
-                    <span class="logo-sm">
-                        <img src="~/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="~/images/logo-dark.png" alt="" height="16">
+            <div class="logo-box" style="background-color: #38BEEF; position: relative;">
+                <a href="Forms.html" class="logo logo-dark text-center">
+                    <span class="logo-lg" style="position: relative; top: -65px;">
+                        <img src="~/images/companies/logo.png" alt="" width="220" height="190">
                     </span>
                 </a>
             </div>
 
-            <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                <li>
-                    <button class="button-menu-mobile disable-btn waves-effect">
-                        <i class="fe-menu"></i>
-                    </button>
-                </li>
 
-            </ul>
 
             <div class="clearfix"></div>
 
         </div>
         <!-- end Topbar -->
         <!-- ========== Left Sidebar Start ========== -->
-        <div class="left-side-menu">
+        <div class="left-side-menu" >
 
             <div class="h-100" data-simplebar>
 
@@ -135,7 +101,7 @@
                         <li class="menu-title">Utilidades</li>
 
                         <li>
-                            <a href="@Url.Action("Planilla","Planilla")">
+                            <a href="@Url.Action("Forms","Forms")">
                                 <i class="fas fa-book"></i>
                                 <span> Planilla </span>
                             </a>
@@ -153,6 +119,14 @@
                             <a href="@Url.Action("Employee","Administration")">
                                 <i class="ti-user"></i>.
                                 <span> Empleado </span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="@Url.Action("Citas","Citas")">
+                                <i class="ti-calendar"></i>.
+                                <span> Citas </span>
                             </a>
                         </li>
 

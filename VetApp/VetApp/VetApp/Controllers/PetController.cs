@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VetApp.Entities;
 using VetApp.Models;
-using System.Linq;
 using VetApp.Services;
 
 namespace VetApp.Controllers

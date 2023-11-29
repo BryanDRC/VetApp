@@ -1,7 +1,12 @@
 $(document).on("click", "#btnAddService", function () {
+
+    $("#serviceNameModal").prop("readonly", false);
+    $("#serviceCostModal").prop("readonly", false);
+
+
     $("#serviceNameModal").val('');
     $("#serviceCostModal").val('');
-    $("#idServiceModal").val('');
+    
 
     $('#servicesModal').modal('show');
 });
@@ -61,17 +66,16 @@ function OpenUpdateServiceModal(idService) {
         dataType: "json",
         success: function (res) {
             $("#serviceNameModal").prop("readonly", false);
-            $("#serviceCostModal").prop("readonly", false);
-            $("#idServiceModal").prop("readonly", false);
+            $("#serviceCostModal").prop("readonly", false);           
 
 
-            $("#idServiceModal").val(res.idPet);
-            $("#serviceNameModal").val(res.petName);
-            $("#serviceCostModal").val(res.petSpecies);        
+            $("#idServiceModal").val(res.idService);
+            $("#serviceNameModal").val(res.serviceName);
+            $("#serviceCostModal").val(res.serviceCost);
 
             $('#servicesModal').modal('show');
         }
-        }
+    
     });
 }
 
@@ -158,11 +162,11 @@ function validateServiceInputs() {
     serviceCostMessage.text("");
 
     if (serviceName.trim().length === 0) {
-        serviceNameMessage.text("El nombre del servicio no puede estar vacío.");
+        serviceNameMessage.text("El nombre del servicio no puede estar vacï¿½o.");
         return false;
     }
     if (serviceCost.trim().length === 0 || isNaN(serviceCost)) {
-        serviceCostMessage.text("El costo del servicio debe ser un número válido.");
+        serviceCostMessage.text("El costo del servicio debe ser un nï¿½mero vï¿½lido.");
         return false;
     }
 

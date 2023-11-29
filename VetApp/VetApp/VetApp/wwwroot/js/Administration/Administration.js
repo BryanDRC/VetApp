@@ -1,4 +1,4 @@
-let userNameMessage = $("#userNameModalMessage");
+    let userNameMessage = $("#userNameModalMessage");
 let userFirstLastNameMessage = $("#userFirstLastNameModalMessage");
 let userSecondLastNameMessage = $("#userSecondLastNameModalMessage");
 let userIdCardMessage = $("#userIdCardModalMessage");
@@ -8,6 +8,8 @@ let userNickNameMessage = $("#userNickNameModalMessage");
 let idRolMessage = $("#idRolModalMessage");
 let userPasswordModalMessage = $("#userPasswordModalMessage");
 let userPassworConfirmModalMessage = $("#userPassworConfirmModalMessage");
+
+
 
 $(document).on("click", "#btnAddEmployee", function () {
 

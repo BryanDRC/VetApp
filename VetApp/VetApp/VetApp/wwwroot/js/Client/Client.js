@@ -1,3 +1,9 @@
+let clientNameMessage = $("#clientNameModalMessage");
+let clientFirstLastNameMessage = $("#clientFirstLastNameModalMessage");
+let clientSecondLastNameMessage = $("#clientSecondLastNameModalMessage");
+let clientIdCardMessage = $("#clientIdCardModalMessage");
+let clientphoneNumberMessage = $("#clientphoneNumberModalMessage");
+
 $(document).on("click", "#btnAddClient", function () {
 
     $("#clientNameModal").prop("readonly", false);
@@ -13,6 +19,17 @@ $(document).on("click", "#btnAddClient", function () {
     $("#clientIdCardModal").val('');
     $("#clientphoneNumberModal").val('');
 
+    clientNameMessage.text("");
+    clientFirstLastNameMessage.text("");
+    clientSecondLastNameMessage.text("");
+    clientIdCardMessage.text("");
+    clientphoneNumberMessage.text("");
+
+    const button = document.getElementById("btnGuardarModal");
+
+    // Disable the button
+    button.disabled = false;
+
 
     $('#clientsModal').modal('show');
 
@@ -23,9 +40,10 @@ function SavaChangesClientModal() {
     let idClient = $("#idClientModal").val();
 
     let validateInput = validateInputs();
+    let validateClientIdCardMessage = validateClientIdCard();
 
 
-    if (validateInput) {
+    if (validateInput && validateClientIdCardMessage) {
 
         if (idClient.trim().length === 0) {
             CreateClient();
@@ -201,6 +219,53 @@ function DeleteClient() {
         }
     });
 }
+
+
+function validateClientIdCard() {
+
+    let clientIdCard = $("#clientIdCardModal").val();
+    let selectClientIdCard = $("#selectClientIdCardModal").val();
+
+    clientIdCardMessage.text("");
+
+
+    if (selectClientIdCard === '1') {
+
+        if (clientIdCard.trim().length < 9) {
+            clientIdCardMessage.text("C\u00E9dula no puede ser menor a 9 d\u00EDgitos.");
+            return false;
+        }
+
+        if (clientIdCard.trim().length > 9) {
+            clientIdCardMessage.text("C\u00E9dula no puede ser mayor a 9 d\u00EDgitos.");
+            return false;
+        }
+
+        return true;
+    }
+
+    if (selectClientIdCard === '2') {
+
+        if (clientIdCard.trim().length < 12) {
+            clientIdCardMessage.text("DIMEX no puede ser menor a 12 d\u00EDgitos.");
+            return false;
+        }
+
+        if (clientIdCard.trim().length > 12) {
+            clientIdCardMessage.text("DIMEX no puede ser mayor a 12 d\u00EDgitos.");
+            return false;
+        }
+
+        return true;
+    }
+
+    return true;
+}
+
+$('#selectClientIdCardModal').on('change', function () {
+    //alert(this.value);
+    clientIdCardMessage.text("");
+});
 function validateInputs() {
 
     let clientName = $("#clientNameModal").val();
