@@ -1,39 +1,27 @@
 $(document).on("click", "#btnAddService", function () {
 
-    $("#idServiceModal").prop("readonly", false);
     $("#serviceNameModal").prop("readonly", false);
     $("#serviceCostModal").prop("readonly", false);
 
 
-    $("#idServiceModal").val('');
     $("#serviceNameModal").val('');
     $("#serviceCostModal").val('');
-
+    
 
     $('#servicesModal').modal('show');
-
 });
 
-
-
-function SavaChangesServiceModal() {
-
+function SaveChangesServiceModal() {
     let idService = $("#idServiceModal").val();
-
-    let validateInput = validateInputs();
-
+    let validateInput = validateServiceInputs();
 
     if (validateInput) {
-
         if (idService.trim().length === 0) {
             CreateService();
         } else {
             UpdateService();
         }
-
     }
-
-
 }
 
 function CreateService() {
@@ -49,9 +37,7 @@ function CreateService() {
             "serviceCost": serviceCost
         },
         success: function (res) {
-
             if (res == 1) {
-
                 Swal.fire({
                     title: '',
                     icon: 'success',
@@ -62,18 +48,15 @@ function CreateService() {
                         location.reload();
                     }
                 })
-
                 return;
             }
             Swal.fire({
                 icon: 'error',
-                title: 'Erorr',
+                title: 'Error',
                 text: 'Lo sentimos ha ocurrido un error.',
             });
-
         }
     });
-
 }
 
 function OpenUpdateServiceModal(idService) {
@@ -82,42 +65,36 @@ function OpenUpdateServiceModal(idService) {
         url: "../Service/GetService?idService=" + idService,
         dataType: "json",
         success: function (res) {
-
             $("#serviceNameModal").prop("readonly", false);
-            $("#serviceCostModal").prop("readonly", false);
-
+            $("#serviceCostModal").prop("readonly", false);           
 
 
             $("#idServiceModal").val(res.idService);
             $("#serviceNameModal").val(res.serviceName);
             $("#serviceCostModal").val(res.serviceCost);
 
-
             $('#servicesModal').modal('show');
-
         }
+    
     });
 }
 
 function UpdateService() {
-
     let idService = $("#idServiceModal").val();
     let serviceName = $("#serviceNameModal").val();
-    let serviceCost = $("#serviceCostModal").val();
+    let serviceCost = parseFloat($("#serviceCostModal").val());
 
     $.ajax({
         type: "PUT",
         url: "../Service/UpdateService",
         dataType: "json",
         data: {
-            "idService": idService,
+            "IdService": idService,
             "serviceName": serviceName,
             "serviceCost": serviceCost
         },
         success: function (res) {
-
             if (res == 1) {
-
                 Swal.fire({
                     title: '',
                     icon: 'success',
@@ -128,35 +105,30 @@ function UpdateService() {
                         location.reload();
                     }
                 })
-
                 return;
             }
-
             Swal.fire({
                 icon: 'error',
-                title: 'Erorr',
+                title: 'Error',
                 text: 'Lo sentimos ha ocurrido un error.',
             });
-
         }
     });
-
 }
 
-let idtempService= 0;
+let idTempService = 0;
 
 function OpenDeleteConfirmServiceModal(idService) {
-    id = idService;
+    idTempService = idService;
     $('#deleteServiceModal').modal('show');
 }
 
 function DeleteService() {
     $.ajax({
         type: "DELETE",
-        url: "../Service/DeleteService?idService=" + idtempService,
+        url: "../Service/DeleteService?idService=" + idTempService,
         dataType: "json",
         success: function (res) {
-
             if (res == 1) {
                 Swal.fire({
                     title: '',
@@ -170,39 +142,33 @@ function DeleteService() {
                 })
                 return;
             }
-
             Swal.fire({
                 icon: 'error',
-                title: 'Erorr',
+                title: 'Error',
                 text: 'Lo sentimos ha ocurrido un error.',
             });
-
         }
     });
 }
 
-function validateInputs() {
-
+function validateServiceInputs() {
     let serviceName = $("#serviceNameModal").val();
-    let serviceCost = $("#serviceCostModal").val()
+    let serviceCost = $("#serviceCostModal").val();
 
     let serviceNameMessage = $("#serviceNameModalMessage");
     let serviceCostMessage = $("#serviceCostModalMessage");
-
 
     serviceNameMessage.text("");
     serviceCostMessage.text("");
 
     if (serviceName.trim().length === 0) {
-        serviceNameMessage.text("Nombre del servicio no puede ir vac\u00EDo.");
+        serviceNameMessage.text("El nombre del servicio no puede estar vacío.");
         return false;
     }
-
-    if (serviceCost.trim().length === 0) {
-        serviceCostMessage.text("El precio no puede ir vac\u00EDo.");
+    if (serviceCost.trim().length === 0 || isNaN(serviceCost)) {
+        serviceCostMessage.text("El costo del servicio debe ser un número válido.");
         return false;
     }
-
 
     return true;
 }

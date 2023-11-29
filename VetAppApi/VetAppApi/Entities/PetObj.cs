@@ -6,6 +6,7 @@ namespace VetAppApi.Entities
         public string petName { get; set; } = string.Empty;
         public string petSpecies { get; set; } = string.Empty;
         public int IdClient { get; set; } = 0;
+        public DateTime birthDate { get; set; }
 
     }
 }

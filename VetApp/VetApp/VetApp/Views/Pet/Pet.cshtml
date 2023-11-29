@@ -20,12 +20,12 @@
                         <input type="text" class="form-control" id="petSpeciesModal" />
                         <label id="petSpeciesModalMessage" class="form-label" style="color:red;"></label>
                     </div>
-                   
-                    @* <div class=" col-md-4">
-                        <label class="form-label">Id del Cliente</label>
-                        <input type="text" class="form-control" id="idClientModal" readonly />
-                        <label id="idClientModalMessage" class="form-label" style="color:red;"></label>
-                    </div> *@
+
+                    <div class=" col-md-4">
+                        <label class="form-label">Fecha de Nacimiento de la Mascota</label>
+                        <input type="date" class="form-control" id="birthDateModal" readonly />
+                        <label id="birthDateModalMessage" class="form-label" style="color:red;"></label>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="modal-footer">
@@ -92,24 +92,25 @@
                                                 <th>Id</th>
                                                 <th>Nombre</th>
                                                 <th>Especie</th>                                               
-                                                <th>ID del Cliente</th>
+                                                <th>Fecha de Nacimiento</th>
                                                 <th>Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (var pets in ViewBag.Pets)
+
+                                            @foreach (var pet in ViewBag.Pets)
                                             {
                                                 <tr>
-                                                <td>@pets.IdPet</td>
-                                                <td>@pets.petName</td>
-                                                <td>@pets.petSpecies</td>
-                                                <td>@pets.idClient</td>
+                                                    <td>@pet.IdPet</td>
+                                                    <td>@pet.petName</td>
+                                                    <td>@pet.petSpecies</td>                                                                           
+                                                    <td>@pet.birthDate</td>
                                                     <td>
                                                         <div class="dropdown d-flex justify-content-between">
-                                                            <a href="#" data-bs-placement="top" title="Editar Mascota" onclick="OpenUpdatePetModal(@pets.IdPet)">
+                                                            <a href="#" data-bs-placement="top" title="Editar Mascota" onclick="OpenUpdatePetModal(@pet.IdPet)">
                                                                 <i data-bs-placement="top" title="Editar Mascota" class="fas fa-pen text-info"></i>
                                                             </a>
-                                                            <a href="#" data-bs-placement="top" title="Eliminar Mascota" onclick="OpenDeleteConfirmPetModal(@pets.IdPet)">
+                                                            <a href="#" data-bs-placement="top" title="Eliminar Mascota" onclick="OpenDeleteConfirmPetModal(@pet.IdPet)">
                                                                 <i data-bs-placement="top" title="Eliminar Mascota" class="fas fa-trash text-danger"></i>
                                                             </a>
                                                         </div>

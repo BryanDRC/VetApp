@@ -2,9 +2,12 @@
 
     $("#petNameModal").prop("readonly", false);
     $("#petSpeciesModal").prop("readonly", false);
+    $("#birthDateModal").prop("readonly", false);
+
 
     $("#petNameModal").val('');
     $("#petSpeciesModal").val('');
+    $("#birthDateModal").val('');
 
 
     $('#petsModal').modal('show');
@@ -27,6 +30,7 @@ function SavaChangesPetModal() {
 function CreatePet() {
     let petName = $("#petNameModal").val();
     let petSpecies = $("#petSpeciesModal").val();
+    let birthDate = $("#birthDateModal").val();
     let idClient = $("#idClientModal").val();
 
     $.ajax({
@@ -36,7 +40,9 @@ function CreatePet() {
         data: {
             "petName": petName,
             "petSpecies": petSpecies,
+            "birthDate": birthDate,
             "idClient": idClient
+            
         },
         success: function (res) {
             if (res == 1) {
@@ -69,11 +75,12 @@ function OpenUpdatePetModal(idPet) {
         success: function (res) {
             $("#petNameModal").prop("readonly", false);
             $("#petSpeciesModal").prop("readonly", false);
-
+            $("#birthDateModal").prop("readonly", false);
 
             $("#idPetModal").val(res.idPet);
             $("#petNameModal").val(res.petName);
             $("#petSpeciesModal").val(res.petSpecies);
+            $("#birthDateModal").val(res.birthDate);
             $("#idClientModal").val(res.idClient);
 
             $('#petsModal').modal('show');
@@ -85,6 +92,7 @@ function UpdatePet() {
     let idPet = $("#idPetModal").val();
     let petName = $("#petNameModal").val();
     let petSpecies = $("#petSpeciesModal").val();
+    let birthDate = $("#birthDateModal").val();
     let idClient = $("#idClientModal").val();
 
     $.ajax({
@@ -95,6 +103,7 @@ function UpdatePet() {
             "IdPet": idPet,
             "petName": petName,
             "petSpecies": petSpecies,
+            "birthDate": birthDate,
             "idClient": idClient
         },
         success: function (res) {
@@ -155,17 +164,21 @@ function DeletePet() {
     });
 }
 
+
 function validatePetInputs() {
     let petName = $("#petNameModal").val();
     let petSpecies = $("#petSpeciesModal").val();
+    let birthDate = $("#birthDateModal").val();
 
 
     let petNameMessage = $("#petNameModalMessage");
     let petSpeciesMessage = $("#petSpeciesModalMessage");
+    let birthDateMessage = $("#birthDateModalMessage");
 
 
     petNameMessage.text("");
     petSpeciesMessage.text("");
+    birthDateMessage.text("");
 
     if (petName.trim().length === 0) {
         petNameMessage.text("Nombre de la mascota no puede ir vacío.");
@@ -173,6 +186,10 @@ function validatePetInputs() {
     }
     if (petSpecies.trim().length === 0) {
         petSpeciesMessage.text("Especie de la mascota no puede ir vacío.");
+        return false;
+    }
+    if (birthDate.trim().length === 0) {
+        birthDateMessage.text("Fecha de Nacimiento no puede ir vacio.");
         return false;
     }
 
