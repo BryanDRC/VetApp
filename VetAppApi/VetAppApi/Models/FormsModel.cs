@@ -73,12 +73,13 @@ namespace VetAppApi.Models
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Execute("SP_UpdateForms",
+                    var datos = connection.Execute("SP_UpdateFormData",
                         new
                         {
-                            formsObj.IdMedicalRecord,
+                            formsObj.idMedicalRecord,
                             formsObj.idUser,
                             formsObj.petName,
+                            formsObj.petSpecies,
                             formsObj.clientIdCard,
                             formsObj.motive,
                             formsObj.arrival,
@@ -99,7 +100,7 @@ namespace VetAppApi.Models
             return 0;
         }
 
-        public int DeleteForms(int idForms)
+        public int DeleteForms(int IdMedicalRecord)
         {
             try
             {
@@ -108,7 +109,7 @@ namespace VetAppApi.Models
                     var datos = connection.Execute("SP_DeleteForms",
                         new
                         {
-                            idForms
+                            IdMedicalRecord
                         },
                         commandType: CommandType.StoredProcedure);
 

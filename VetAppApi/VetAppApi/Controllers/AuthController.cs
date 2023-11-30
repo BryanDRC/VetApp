@@ -26,7 +26,7 @@ namespace VetAppApi.Controllers
         {
             try
             {
-                var data = _authModel.Login(userObj);
+                var data = _authModel?.Login(userObj);
                 return data != null ? Ok(data) : BadRequest();
             }
             catch (Exception ex)

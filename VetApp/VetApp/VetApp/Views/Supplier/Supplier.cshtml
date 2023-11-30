@@ -15,8 +15,15 @@
 						<label id="supplierNameModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
 					<div class=" col-md-6">
-						<label for="inputZip" class="form-label">Cédula</label>
-						<input type="text" class="form-control" id="supplierIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+
+						<label for="inputZip" class="form-label">Tipo de cédula</label>
+						<div style="display:flex;">
+							<select id="selectsupplierIdCardModal" class="form-select">
+								<option value="1">Cédula de identidad</option>
+								<option value="2">Documento de identificación de migración y extranjería (DIMEX)</option>
+							</select>
+							<input type="text" class="form-control" id="supplierIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' oninput="ValidateSupplierIdCard();" onblur="ValidatesupplierIdCardExist()" />
+						</div>
 						<label id="supplierIdCardModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
 				</div> <!-- end row -->
@@ -25,7 +32,7 @@
 				<div class="row">
 					<div class=" col-md-6">
 						<label for="inputZip" class="form-label">Número de Teléfono</label>
-						<input type="text" class="form-control" id="supplierPhoneNumberModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+						<input type="text" class="form-control" id="supplierPhoneNumberModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' oninput="validateSupplierPhoneNumber();" />
 						<label id="supplierPhoneNumberModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->
 				</div> <!-- end row -->

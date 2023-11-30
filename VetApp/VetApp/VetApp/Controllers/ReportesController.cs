@@ -45,12 +45,29 @@ namespace VetApp.Controllers
 			return View();
 		}
 
+		[HttpGet]
 		public IActionResult ReportePlanilla()
         {
             return View();
         }
 
-        public IActionResult ReporteTransacciones()
+
+		[HttpPost]
+		public IActionResult ReportePlanilla(string startDate, string endDate)
+		{
+
+			if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+			{
+				ViewBag.Message = "Debe de seleccionar la fecha de inicio y la fecha de fin del reporte.";
+				return View();
+			}
+
+			ViewBag.FormReport = _reportsModel.FormsReport(startDate, endDate);
+
+			return View();
+		}
+
+		public IActionResult ReporteTransacciones()
         {
             return View();
         }

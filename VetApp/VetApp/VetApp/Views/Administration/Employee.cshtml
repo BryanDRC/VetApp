@@ -67,10 +67,10 @@
 					<div class="col-md-6">
 						<label for="inputState" class="form-label">Rol</label>
 						<select id="idRolModal" class="form-select">
-							<option value="1">Admin</option>
-							<option value="2">Insumos</option>
-							<option value="3">Recepcionista</option>
-							<option value="4">Doctor</option>
+							@foreach (var role in ViewBag.Roles)
+							{
+								<option value="@role.IdRol">@role.RolName</option>
+							}
 						</select>
 						<label id="idRolModalMessage" class="form-label" style="color:red;"></label>
 					</div> <!-- end col -->

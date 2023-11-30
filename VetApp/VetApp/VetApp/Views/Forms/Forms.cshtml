@@ -11,25 +11,26 @@
             </div>
             <div class="modal-body">
                 <div style="margin-left: 25%;" class="row">
-                    <input type="hidden" id="idFormsModal" />
+                    <input type="hidden" id="idMedicalRecordModal" />
                     <div class="col-md-4">
+
                         <label for="inputState" class="form-label">Médico Encargado</label>
-                       @* <input type="text" class="form-control" id="useNameModal">*@
-                        
-                        <select id="useIdModal" class="selectize-drop-header" placeholder="Select a language...">
+                        <select id="userIdModal" class="form-select">
                             @foreach (var user in ViewBag.userM)
-                               {
+                            {
                                 <option value="@user.IdUser">@user.UserName</option>
 
                             }
+
                         </select>
-                        
 
                     </div> <!-- end col -->
+
                     <div class=" col-md-4">
                         <label for="inputZip" class="form-label">Nombre Paciente</label>
                         <input type="text" class="form-control" id="petNameModal">
                         </select>
+
                     </div> <!-- end col -->
 
                 </div> <!-- end row -->
@@ -41,9 +42,16 @@
                         </select>
                     </div> <!-- end col -->
                     <div class=" col-md-4">
-                        <label for="inputZip" class="form-label">Cédula</label>
-                        <input type="text" class="form-control" id="cardClientModal">
-                        </select>
+                        <label for="inputZip" class="form-label">Tipo de cédula</label>
+                        <div style="display:flex;">
+                            <select id="selectUserIdCardModal" class="form-select">
+                                <option value="1">Cédula de identidad</option>
+                                <option value="2">Documento de identificación de migración y extranjería (DIMEX)</option>
+                            </select>
+                            <input type="text" class="form-control" id="userIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' oninput="validateUserIdCard();" onblur="ValidateUserIdCardExist()" />
+                        </div>
+
+                        <label id="userIdCardModalMessage" class="form-label" style="color:red;"></label>
                     </div> <!-- end col -->
                 </div> <!-- end row -->
                 <br>
@@ -71,29 +79,31 @@
                         </select>
                     </div> <!-- end col -->
                     <div class=" col-md-4">
-                        <label for="inputZip" class="form-label">Laboratorio</label>
-                       @* <input type="text" class="form-control" id="productNameModal">*@
-                        <select id="productIdModal" class="selectize-drop-header" placeholder="Select a language...">
+                        <label for="inputState" class="form-label">Laboratorio</label>
+                        <select id="productIdModal" class="form-select">
                             @foreach (var product in ViewBag.productM)
                             {
                                 <option value="@product.idProduct">@product.product</option>
 
                             }
+
                         </select>
+
                     </div> <!-- end col -->
                 </div> <!-- end row -->
                 <br>
                 <div style="margin-left: 25%;" class="row">
                     <div class=" col-md-4">
-                        <label for="inputZip" class="form-label">Consulta Externa</label>
-                        @*<input type="text" class="form-control" id="servicNameModal">*@
-                        <select id="servicIdModal" class="selectize-drop-header" placeholder="Select a language...">
+                        <label for="inputState" class="form-label">Consulta Externao</label>
+                        <select id="servicIdModal" class="form-select">
                             @foreach (var service in ViewBag.serviceM)
                             {
                                 <option value="@service.idService">@service.serviceName</option>
 
                             }
+
                         </select>
+
                     </div> <!-- end col -->
                     <div class="col-md-4">
                         <label for="inputState" class="form-label">Estado</label>
@@ -116,6 +126,35 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<!--  deleteFormsModal -->
+<div class="modal fade" id="deleteFormsModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">Mensaje de Confirmación</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="deleteFormsModalId" />
+                <p>¿Está seguro que desea eliminar a esta Planilla?.</p>
+                <br>
+                <div class="row">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="btnDeleteModal" onclick="DeleteForms()">Aceptar</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+
 <div class="content-page">
     <div class="content">
 
@@ -162,43 +201,43 @@
                                     <tbody>
                                         @foreach (var forms in ViewBag.Forms)
                                         {
-                                        <tr>
-                                                <td>@forms.IdMedicalRecord</td>
-                                                <td>@forms.idUser</td>
+                                            <tr>
+                                                <td>@forms.idMedicalRecord</td>
+                                                <td>@forms.doctorName</td>
                                                 <td>@forms.petName</td>
                                                 <td>@forms.petSpecies</td>
                                                 <td>@forms.clientIdCard</td>
                                                 <td>@forms.motive</td>
                                                 <td>@forms.arrival</td>
                                                 <td>@forms.attention</td>
-                                                <td>@forms.idProduct</td>
-                                                <th>@forms.idService</th>
-                                            <td><span class="badge bg-secondary">Sin Cobrar</span></td>
+                                                <td>@forms.product</td>
+                                                <th>@forms.servicName</th>
+                                                <td><span class="badge bg-secondary">Sin Cobrar</span></td>
 
-                                            <td class="white-space: nowrap; width: 1%;">
+                                                <td class="white-space: nowrap; width: 1%;">
 
-                                                <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                                    <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
 
-                                                    <div class="btn-group btn-group-sm" style="float: none;">
+                                                        <div class="btn-group btn-group-sm" style="float: none;">
 
-                                                        <button type="button" class="tabledit-edit-button btn btn-success" style="float: none; margin-right:5px">
+                                                            <button type="button" class="tabledit-edit-button btn btn-success" style="float: none; margin-right:5px" onclick="OpenUpdateFormsModal(@forms.idMedicalRecord)">
 
-                                                            <span class="mdi mdi-pencil"></span>
+                                                                <span class="mdi mdi-pencil"></span>
 
-                                                        </button>
+                                                            </button>
 
-                                                        <button type="button" class="tabledit-edit-button btn btn-danger" style="float: none;">
+                                                            <button type="button" class="tabledit-edit-button btn btn-danger" style="float: none;" onclick="OpenDeleteConfirmFormsModal(@forms.idMedicalRecord)">
 
-                                                            <span class="mdi mdi-close"></span>
+                                                                <span class="mdi mdi-close"></span>
 
-                                                        </button>
+                                                            </button>
+
+                                                        </div>
 
                                                     </div>
 
-                                                </div>
-
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
                                         }
 
                                     </tbody>

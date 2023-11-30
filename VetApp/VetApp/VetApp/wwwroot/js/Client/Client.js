@@ -220,7 +220,39 @@ function DeleteClient() {
     });
 }
 
+function ValidateClientIdCardExist() {
 
+    let idClient = $("#idClientModal").val();
+
+    if (idClient.trim().length === 0) {
+
+        let clientIdCard = $("#clientIdCardModal").val()
+
+        const button = document.getElementById("btnGuardarModal");
+
+        // Disable the button
+        button.disabled = true;
+        clientIdCardMessage.text("");
+
+        $.ajax({
+            type: "GET",
+            url: "../Client/ValidateClientIdCardExist?clientIdCard=" + clientIdCard,
+            dataType: "json",
+            success: function (res) {
+
+                if (res === null) {
+                    button.disabled = false;
+
+                } else {
+                    clientIdCardMessage.text("La c\u00E9dula ingresada ya existe en el sistema.");
+                    button.disabled = true;
+                }
+
+            }
+        });
+    }
+
+}
 function validateClientIdCard() {
 
     let clientIdCard = $("#clientIdCardModal").val();

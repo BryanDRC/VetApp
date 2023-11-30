@@ -34,7 +34,7 @@
 								<option value="1">Cédula de identidad</option>
 								<option value="2">Documento de identificación de migración y extranjería (DIMEX)</option>
 							</select>
-							<input type="text" class="form-control" id="clientIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' oninput="validateClientIdCard();"  />
+							<input type="text" class="form-control" id="clientIdCardModal" onkeypress='return event.charCode >= 48 && event.charCode <= 57' oninput="validateClientIdCard();" onblur="ValidateClientIdCardExist()" />
 						</div>
 
 						<label id="clientIdCardModalMessage" class="form-label" style="color:red;"></label>
@@ -134,9 +134,10 @@
 
 
 												<tbody>
-													@foreach (var client in ViewBag.Clients){
+													@foreach (var client in ViewBag.Clients)
+													{
 
-													<tr>
+														<tr>
 															<td>@client.idClient</td>
 															<td>@client.clientIdCard</td>
 															<td>@client.clientName</td>
@@ -151,7 +152,7 @@
 																	</a>
 
 																	<div class="dropdown">
-																		<a href="#" class="dropdown-toggle arrow-none card-drop" style="color: black"  data-bs-toggle="dropdown" aria-expanded="false">
+																		<a href="#" class="dropdown-toggle arrow-none card-drop" style="color: black" data-bs-toggle="dropdown" aria-expanded="false">
 																			<i class="mdi mdi-dots-vertical"></i>
 																		</a>
 																		<div class="dropdown-menu dropdown-menu-end">
@@ -164,7 +165,7 @@
 																</div>
 															</td>
 
-													</tr>
+														</tr>
 													}
 												</tbody>
 											</table>

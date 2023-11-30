@@ -46,7 +46,7 @@
           "dependencies": {
             "Dapper": {
               "target": "Package",
-              "version": "[2.1.15, )"
+              "version": "[2.1.21, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

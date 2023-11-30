@@ -31,6 +31,8 @@ namespace VetApp.Controllers
             else
             {
                 ViewBag.Pets = _petModel.GetPetsByClient(idClient);
+                //_petsList.Where(data => data.idClient == idClient).ToList();
+                //
                 ViewBag.IdClient = idClient;
 
 			}

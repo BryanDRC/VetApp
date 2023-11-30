@@ -38,5 +38,30 @@ namespace VetAppApi.Models
 
 			return new List<AppointmentObj>();
 		}
+
+		public IEnumerable<FormsObj> FormsReport(string startDate, string endDate)
+		{
+
+			try
+			{
+				using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+				{
+					var datos = connection.Query<FormsObj>("SP_FormsReport", new
+					{
+						startDate,
+						endDate
+					},
+						commandType: CommandType.StoredProcedure).ToList();
+
+					return datos;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			return new List<FormsObj>();
+		}
 	}
 }

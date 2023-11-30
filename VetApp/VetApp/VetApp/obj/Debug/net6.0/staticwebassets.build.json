@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KPgVptN4X6jBr/fINJnLSZ+3PSsLx3ZDs5+a8HtiENk=",
+  "Hash": "lBSEhhNljJfKBsp/QUBdlbP5YS6HRv5W+CNcf5IT2ds=",
   "Source": "VetApp",
   "BasePath": "_content/VetApp",
   "Mode": "Default",
@@ -1938,6 +1938,23 @@
       "OriginalItemSpec": "wwwroot\\images\\companies\\google.png"
     },
     {
+      "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\images\\companies\\logo.png",
+      "SourceId": "VetApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
+      "BasePath": "_content/VetApp",
+      "RelativePath": "images/companies/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\companies\\logo.png"
+    },
+    {
       "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\images\\email\\1.png",
       "SourceId": "VetApp",
       "SourceType": "Discovered",
@@ -3060,6 +3077,23 @@
       "OriginalItemSpec": "wwwroot\\js\\Client\\Client.js"
     },
     {
+      "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Forms\\Forms.js",
+      "SourceId": "VetApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
+      "BasePath": "_content/VetApp",
+      "RelativePath": "js/Forms/Forms.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Forms\\Forms.js"
+    },
+    {
       "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\layout.js",
       "SourceId": "VetApp",
       "SourceType": "Discovered",
@@ -3757,6 +3791,23 @@
       "OriginalItemSpec": "wwwroot\\js\\Pet\\Pet.min.js.map"
     },
     {
+      "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Product\\Product.js",
+      "SourceId": "VetApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
+      "BasePath": "_content/VetApp",
+      "RelativePath": "js/Product/Product.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Product\\Product.js"
+    },
+    {
       "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Service\\Service.js",
       "SourceId": "VetApp",
       "SourceType": "Discovered",
@@ -3772,23 +3823,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Service\\Service.js"
-    },
-    {
-      "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Product.js",
-      "SourceId": "VetApp",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\",
-      "BasePath": "_content/VetApp",
-      "RelativePath": "js/Supplier/Product.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\Supplier\\Product.js"
     },
     {
       "Identity": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Supplier.js",

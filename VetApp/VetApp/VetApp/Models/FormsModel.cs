@@ -3,75 +3,75 @@ using VetApp.Entities;
 
 namespace VetApp.Models
 {
-    public class FormsModel
-    {
+	public class FormsModel
+	{
 		private readonly IConfiguration _configuration;
 		private string _urlApi;
-		public FormsModel(IConfiguration configuration) 
-        {
+		public FormsModel(IConfiguration configuration)
+		{
 			_configuration = configuration;
 			_urlApi = _configuration.GetSection("Claves:VetAppApiUrl").Value;
 		}
 
-        public int CreateForms(FormsObj formsObj)
-        {
-            using (var client = new HttpClient())
-            {
-                JsonContent body = JsonContent.Create(formsObj);
-                string url = _urlApi + "api/Forms/CreateForms";
-                HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
+		public int CreateForms(FormsObj formsObj)
+		{
+			using (var client = new HttpClient())
+			{
+				JsonContent body = JsonContent.Create(formsObj);
+				string url = _urlApi + "api/Forms/CreateForms";
+				HttpResponseMessage response = client.PostAsync(url, body).GetAwaiter().GetResult();
 
-                if (response.IsSuccessStatusCode)
-                    return response.Content.ReadFromJsonAsync<int>().Result;
+				if (response.IsSuccessStatusCode)
+					return response.Content.ReadFromJsonAsync<int>().Result;
 
-                return 0;
-            }
-        }
+				return 0;
+			}
+		}
 
-        public List<FormsObj> GetForms()
-        {
-            using (var client = new HttpClient())
-            {
-                string url = _urlApi + "api/Forms/GetForms";
+		public List<FormsObj> GetForms()
+		{
+			using (var client = new HttpClient())
+			{
+				string url = _urlApi + "api/Forms/GetForms";
 
-                HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+				HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
-                if (response.IsSuccessStatusCode)
-                    return response.Content.ReadFromJsonAsync<List<FormsObj>>().Result;
+				if (response.IsSuccessStatusCode)
+					return response.Content.ReadFromJsonAsync<List<FormsObj>>().Result;
 
-                return new List<FormsObj>();
-            }
-        }
+				return new List<FormsObj>();
+			}
+		}
 
 
-        public int UpdateForms(FormsObj formsObj)
-        {
-            using (var client = new HttpClient())
-            {
-                JsonContent body = JsonContent.Create(formsObj);
-                string url = _urlApi + "api/Forms/UpdateForms";
-                HttpResponseMessage response = client.PutAsync(url, body).GetAwaiter().GetResult();
+		public int UpdateForms(FormsObj formsObj)
+		{
+			using (var client = new HttpClient())
+			{
+				JsonContent body = JsonContent.Create(formsObj);
+				string url = _urlApi + "api/Forms/UpdateForms";
+				HttpResponseMessage response = client.PutAsync(url, body).GetAwaiter().GetResult();
 
-                if (response.IsSuccessStatusCode)
-                    return response.Content.ReadFromJsonAsync<int>().Result;
+				if (response.IsSuccessStatusCode)
+					return response.Content.ReadFromJsonAsync<int>().Result;
 
-                return 0;
-            }
-        }
+				return 0;
+			}
+		}
 
-        public int DeleteForms(int idForms)
-        {
-            using (var client = new HttpClient())
-            {
-                string url = _urlApi + "api/Forms/DeleteForms?idForms=" + idForms;
-                HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
+		public int DeleteForms(int idMedicalRecord)
+		{
+			using (var client = new HttpClient())
+			{
+				string url = _urlApi + "api/Forms/DeleteForms?idForms=" + idMedicalRecord;
+				HttpResponseMessage response = client.DeleteAsync(url).GetAwaiter().GetResult();
 
-                if (response.IsSuccessStatusCode)
-                    return response.Content.ReadFromJsonAsync<int>().Result;
+				if (response.IsSuccessStatusCode)
+					return response.Content.ReadFromJsonAsync<int>().Result;
 
-                return 0;
-            }
-        }
+				return 0;
+			}
+		}
 
 
 

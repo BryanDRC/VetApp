@@ -521,6 +521,10 @@
       "PackagePath": "staticwebassets\\images\\companies\\google.png"
     },
     {
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\images\\companies\\logo.png",
+      "PackagePath": "staticwebassets\\images\\companies\\logo.png"
+    },
+    {
       "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\images\\email\\1.png",
       "PackagePath": "staticwebassets\\images\\email\\1.png"
     },
@@ -773,6 +777,10 @@
       "PackagePath": "staticwebassets\\js\\Client\\Client.js"
     },
     {
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Forms\\Forms.js",
+      "PackagePath": "staticwebassets\\js\\Forms\\Forms.js"
+    },
+    {
       "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Pet\\Pet.js",
       "PackagePath": "staticwebassets\\js\\Pet\\Pet.js"
     },
@@ -785,12 +793,12 @@
       "PackagePath": "staticwebassets\\js\\Pet\\Pet.min.js.map"
     },
     {
-      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Service\\Service.js",
-      "PackagePath": "staticwebassets\\js\\Service\\Service.js"
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Product\\Product.js",
+      "PackagePath": "staticwebassets\\js\\Product\\Product.js"
     },
     {
-      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Product.js",
-      "PackagePath": "staticwebassets\\js\\Supplier\\Product.js"
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Service\\Service.js",
+      "PackagePath": "staticwebassets\\js\\Service\\Service.js"
     },
     {
       "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Supplier.js",

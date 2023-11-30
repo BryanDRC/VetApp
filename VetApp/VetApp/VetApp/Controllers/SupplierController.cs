@@ -100,5 +100,11 @@ namespace VetApp.Controllers
 			return Json(createProduct);
 		}
 
+		[HttpGet]
+		public JsonResult ValidateSupplierIdCardExist(string supplierIdCard)
+		{
+			var user = _suppliersObject.Where(data => data.supplierIdCard == supplierIdCard).FirstOrDefault();
+			return Json(user);
+		}
 	}
 }

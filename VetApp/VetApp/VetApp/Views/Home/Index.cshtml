@@ -31,10 +31,9 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">Contraseña</label>
                                 <input asp-for="UserPassword" class="form-control" placeholder="Contraseña" type="password" id="password" nblur="validarCampos()" required />
+                                <label class="form-label" style="color:red;">@ViewBag.MsjError</label>
                             </div>
-
-                            <p class="text-muted mt-2 mb-4" style="color:red;">@ViewBag.MsjError</p>
-
+                            
                             <div class="mb-3 d-grid text-center">
                                 <button type="submit" class="btn btn-primary" id="login-button">Iniciar sesión</button>
                             </div>

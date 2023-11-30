@@ -22,5 +22,12 @@ namespace VetAppApi.Controllers
 		{
 			return _reportsModel.AppointmentsReport(startDate,endDate).ToList();
 		}
+
+		[HttpGet]
+		[Route("FormsReport")]
+		public ActionResult<IEnumerable<FormsObj>> FormsReport(string startDate, string endDate)
+		{
+			return _reportsModel.FormsReport(startDate, endDate).ToList();
+		}
 	}
 }

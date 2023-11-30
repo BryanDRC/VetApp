@@ -12,11 +12,13 @@ namespace VetApp.Controllers
 	public class AdministrationController : Controller
 	{
 		private readonly EmployeeModel _employee;
+		private readonly RoleModel _role;
 		public List<UserObj> _usersObject;
 		private readonly IConfiguration _configuration;
         public AdministrationController(IConfiguration configuration)
         {
 			_configuration = configuration;
+			_role = new RoleModel(_configuration);
             _employee = new EmployeeModel(_configuration);
             _usersObject = _employee.GetUsers();
 
@@ -37,6 +39,7 @@ namespace VetApp.Controllers
 		public IActionResult Employee()
         {
             ViewBag.Users = _usersObject;
+            ViewBag.Roles = _role.GetRoles();
             return View();
         }
 
