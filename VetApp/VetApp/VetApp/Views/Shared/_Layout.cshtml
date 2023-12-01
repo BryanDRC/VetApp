@@ -99,7 +99,7 @@
                     <ul id="side-menu">
 
                         <li class="menu-title">Utilidades</li>
-                        @if (Context.Session.GetString("UserIdRol") == "1" || Context.Session.GetString("UserIdRol") == "3")
+                        @if (Context.Session.GetInt32("UserIdRol") == 1 || Context.Session.GetInt32("UserIdRol") == 3)
                         {
                             <li>
                                 <a href="@Url.Action("Forms","Forms")">
@@ -117,7 +117,7 @@
                             </li>
                         }
                         
-                        @if (Context.Session.GetString("UserIdRol") == "1")
+                        @if (Context.Session.GetInt32("UserIdRol") == 1)
                         {
                             <li>
                                 <a href="@Url.Action("Employee","Administration")">
@@ -127,7 +127,7 @@
                             </li>
                         }
                         
-                        @if (Context.Session.GetString("UserIdRol") == "1" || Context.Session.GetString("UserIdRol") == "3")
+                        @if (Context.Session.GetInt32("UserIdRol") == 1 || Context.Session.GetInt32("UserIdRol") == 3)
                         {
                             <li>
                                 <a href="@Url.Action("Appointment","Appointment")">
@@ -162,7 +162,7 @@
                         }
 
                         
-                        @if (Context.Session.GetString("UserIdRol") == "1" || Context.Session.GetString("UserIdRol") == "2")
+                        @if (Context.Session.GetInt32("UserIdRol") == 1 || Context.Session.GetInt32("UserIdRol") == 2)
                         {
                             <li>
                                 <a href="#sidebarTasks" data-bs-toggle="collapse">
@@ -188,7 +188,7 @@
                                 </div>
                             </li>
                         }
-                        @if (Context.Session.GetString("UserIdRol") == "1")
+                        @if (Context.Session.GetInt32("UserIdRol") == 1)
                         {
                             <li>
                                 <a href="#reports" data-bs-toggle="collapse">

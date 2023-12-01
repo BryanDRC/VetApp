@@ -24,7 +24,7 @@
 									<option value="0">Seleccione un Cliente</option>
 									@foreach (var clients in ViewBag.Clients)
 									{
-										<option value="@clients.idClient">@clients.clientName</option>
+										<option value="@clients.idClient">@($"{@clients.clientName} {@clients.clientFirstLastName} {@clients.clientSecondLastName}")</option>
 									}
 								</select>
 								<label id="idClientMessage" class="form-label" style="color:red;"></label>
@@ -125,34 +125,75 @@
 							<br />
 							<div class="row">
 								<div class="col-12">
-									<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
-										<thead>
-											<tr>
-												<th>Doctor</th>
-												<th>Hora</th>
-												<th>Opciones</th>
-											</tr>
-										</thead>
-										<tbody>
-											@foreach (var appointment in ViewBag.Appointments)
-											{
+									@if (Context.Session.GetInt32("UserIdRol") == 1)
+									{
+										<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+											<thead>
 												<tr>
-													<td>@appointment.DoctorName</td>
-													<td>@appointment.DateHour</td>
-													<td>
-
-														<a data-bs-placement="top" title="Editar Cita" onclick="OpenUpdateAppointmentModal(@appointment.IdDate)">
-															<i data-bs-placement="top" title="Editar Cita" class="fas fa-pen text-info"></i>
-														</a>
-														<a data-bs-placement="top" title="Eliminar Cita" onclick="OpenDeleteConfirmAppointmentModal(@appointment.IdDate)">
-															<i data-bs-placement="top" title="Eliminar Cita" class="fas fa-trash text-danger"></i>
-														</a>
-
-													</td>
+													<th>Doctor</th>
+													<th>Fecha</th>
+													<th>Hora</th>
+													<th>Cliente</th>
+													<th>Motivo</th>
+													<th>Opciones</th>
 												</tr>
-											}
-										</tbody>
-									</table>
+											</thead>
+											<tbody>
+												@foreach (var appointment in ViewBag.Appointments)
+												{
+													<tr>
+														<td>@appointment.DoctorName</td>
+														<td>@appointment.DayDate</td>
+														<td>@appointment.DateHour</td>
+														<td>@appointment.ClientName</td>
+														<td>@appointment.DateReason</td>
+														<td>
+
+															<a data-bs-placement="top" title="Editar Cita" onclick="OpenUpdateAppointmentModal(@appointment.IdDate)">
+																<i data-bs-placement="top" title="Editar Cita" class="fas fa-pen text-info"></i>
+															</a>
+															<a data-bs-placement="top" title="Eliminar Cita" onclick="OpenDeleteConfirmAppointmentModal(@appointment.IdDate)">
+																<i data-bs-placement="top" title="Eliminar Cita" class="fas fa-trash text-danger"></i>
+															</a>
+
+														</td>
+													</tr>
+												}
+											</tbody>
+										</table>
+									}
+									else
+									{
+										<table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
+											<thead>
+												<tr>
+													<th>Doctor</th>
+													<th>Hora</th>
+													<th>Opciones</th>
+												</tr>
+											</thead>
+											<tbody>
+												@foreach (var appointment in ViewBag.Appointments)
+												{
+													<tr>
+														<td>@appointment.DoctorName</td>
+														<td>@appointment.DateHour</td>
+														<td>
+
+															<a data-bs-placement="top" title="Editar Cita" onclick="OpenUpdateAppointmentModal(@appointment.IdDate)">
+																<i data-bs-placement="top" title="Editar Cita" class="fas fa-pen text-info"></i>
+															</a>
+															<a data-bs-placement="top" title="Eliminar Cita" onclick="OpenDeleteConfirmAppointmentModal(@appointment.IdDate)">
+																<i data-bs-placement="top" title="Eliminar Cita" class="fas fa-trash text-danger"></i>
+															</a>
+
+														</td>
+													</tr>
+												}
+											</tbody>
+										</table>
+									}
+									
 								</div>
 							</div>
 						</div>

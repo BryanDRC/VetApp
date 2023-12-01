@@ -171,7 +171,7 @@
 											@foreach (var user in ViewBag.users)
 											{
 												<tr>
-													<td>@user.UserName</td>
+													<td>@($"{@user.UserName} {@user.UserFirstLastName} {@user.UserSecondLastName}")</td>
 													<td>@user.UserIdCard</td>
 													<td>@user.UserPhoneNumber</td>
 													<td>@user.UserMail</td>
