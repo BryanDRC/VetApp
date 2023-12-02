@@ -22,13 +22,13 @@
                                     <optgroup label="Productos">
                                         @foreach (var product in ViewBag.Products)
                                         {
-                                            <option value="@product.idProduct" data-precio="@product.productSellCost">@($"{@product.product} - ₡{@product.productSellCost}") </option>
+                                            <option value="@product.idProduct" data-precio="@product.productSellCost">@product.product </option>
                                         }
                                     </optgroup>
                                     <optgroup label="Servicios">
                                         @foreach (var service in ViewBag.Services)
                                         {
-                                            <option value="@service.idService" data-precio="@service.serviceCost">@($"{@service.serviceName} - ₡{@service.serviceCost}") </option>
+                                            <option value="@service.idService" data-precio="@service.serviceCost">@service.serviceName</option>
                                         }
                                     </optgroup>
                                 </select>
@@ -89,6 +89,7 @@
                                                 <th>Detalle</th>
                                                 <th>Cantidad</th>
                                                 <th>Precio</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -319,11 +320,6 @@
                 return;
             }
 
-            if (cantidad > 1 && descuentoInputVal > 0 && (isNaN(cantidadDescuento) || cantidadDescuento < 1)) {
-                $('#descuentoAlertaModal').modal('show');
-                return;
-            }
-
             var servicio = insumosInput.options[insumosInput.selectedIndex].text;
             var instrucciones = document.getElementById('instruccionesInput').value;
             var precioUnitario = parseFloat(insumosInput.options[insumosInput.selectedIndex].getAttribute('data-precio')) || 0;
@@ -333,14 +329,29 @@
             var precioTotal = precioTotalDescuento + precioTotalSinDescuento;
 
             var tabla = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
-            var nuevaFila = tabla.insertRow(tabla.rows.length);
+            var nuevaFila = tabla.insertRow();
             nuevaFila.insertCell(0).innerHTML = servicio;
             nuevaFila.insertCell(1).innerHTML = instrucciones;
             nuevaFila.insertCell(2).innerHTML = cantidad;
             nuevaFila.insertCell(3).innerHTML = precioTotal.toFixed(2);
 
+            // Crear botón de eliminar y añadir a la nueva fila
+            var btnEliminar = document.createElement('button');
+            btnEliminar.textContent = 'Eliminar';
+            btnEliminar.style.color = 'white';
+            btnEliminar.style.backgroundColor = 'red';
+            btnEliminar.style.border = '1px solid red';
+            btnEliminar.onclick = function () {
+                this.closest('tr').remove();
+                actualizarTotal();
+            };
+            var celdaEliminar = nuevaFila.insertCell();
+            celdaEliminar.appendChild(btnEliminar);
+
+
             actualizarTotal();
 
+            // Limpiar los campos de entrada
             document.getElementById('cantidadInput').value = '';
             document.getElementById('instruccionesInput').value = '';
             document.getElementById('descuentoInput').value = '';
@@ -350,8 +361,6 @@
 
         document.getElementById('ivaPInput').addEventListener('input', actualizarTotal);
         document.getElementById('ivaSInput').addEventListener('input', actualizarTotal);
-
-
 
         function actualizarTotal() {
             var total = 0;
@@ -365,19 +374,13 @@
 
             var ivaPInput = parseFloat(document.getElementById('ivaPInput').value) || 0;
             var totalIVAProducto = total * (ivaPInput / 100);
-
             var ivaSInput = parseFloat(document.getElementById('ivaSInput').value) || 0;
             var totalIVAServicio = total * (ivaSInput / 100);
-
             var totalFInput = total + totalIVAProducto + totalIVAServicio;
 
             document.getElementById('totalpagar').value = total.toFixed(2);
             document.getElementById('totalFInput').value = totalFInput.toFixed(2);
-
-            // Actualizar preciofinalInput con el mismo valor
-            document.getElementById('preciofinalInput').value = totalFInput.toFixed(2);
         }
-
 
         function obtenerDatosTabla() {
             var datos = [];
