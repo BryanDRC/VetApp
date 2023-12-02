@@ -20,18 +20,18 @@ namespace VetAppApi.Models
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Execute("SP_InsertFormData",
+                    var datos = connection.Execute("SP_CreateForms",
                         new
                         {
                             formsObj.idUser,
-                            formsObj.petName,
-                            formsObj.petSpecies,
-                            formsObj.clientIdCard,
+                            formsObj.idPet,
+                            formsObj.idClient,
                             formsObj.motive,
                             formsObj.arrival,
                             formsObj.attention,
                             formsObj.idProduct,
-                            formsObj.idService
+                            formsObj.idService,
+                            formsObj.statusP
                         },
                         commandType: CommandType.StoredProcedure);
 
@@ -46,14 +46,14 @@ namespace VetAppApi.Models
             return 0;
         }
 
-        public IEnumerable<FormsObj> GetForms()
+        public IEnumerable<FormsListObj> GetForms()
         {
 
             try
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Query<FormsObj>("SP_GetFormsForCurrentDay", null,
+                    var datos = connection.Query<FormsListObj>("SP_GetFormsForCurrentDay", null,
                         commandType: CommandType.StoredProcedure).ToList();
 
                     return datos;
@@ -64,7 +64,7 @@ namespace VetAppApi.Models
                 Console.WriteLine(ex.Message);
             }
 
-            return new List<FormsObj>();
+            return new List<FormsListObj>();
         }
 
         public int UpdateForms(FormsObj formsObj)
@@ -73,19 +73,19 @@ namespace VetAppApi.Models
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Execute("SP_UpdateFormData",
+                    var datos = connection.Execute("SP_UpdateForms",
                         new
                         {
                             formsObj.idMedicalRecord,
                             formsObj.idUser,
-                            formsObj.petName,
-                            formsObj.petSpecies,
-                            formsObj.clientIdCard,
+                            formsObj.idPet,
+                            formsObj.idClient,
                             formsObj.motive,
                             formsObj.arrival,
                             formsObj.attention,
                             formsObj.idProduct,
-                            formsObj.idService
+                            formsObj.idService,
+                            formsObj.statusP
                         },
                         commandType: CommandType.StoredProcedure);
 

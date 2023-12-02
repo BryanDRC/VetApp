@@ -13,10 +13,10 @@ namespace VetApp.Controllers
 		private readonly EmployeeModel _user;
 		private readonly ProductModel _product;
 		private readonly ServiceModel _service;
-		public List<FormsObj> _formsObject;
-		public List<UserObj> _userObject;
-		public List<ProductObj> _productObject;
-		public List<ServiceObj> _serviceObject;
+		private readonly PetModel _pet;
+		private readonly ClientModel _client;
+		public List<FormsListObj>? _formsObject;
+
 		private readonly IConfiguration _configuration;
 		public FormsController(IConfiguration configuration)
 		{
@@ -25,18 +25,19 @@ namespace VetApp.Controllers
 			_user = new EmployeeModel(configuration);
 			_product = new ProductModel(configuration);
 			_service = new ServiceModel(configuration);
+			_pet = new PetModel(configuration);
+			_client = new ClientModel(configuration);
 			_formsObject = _forms.GetForms();
-			_userObject = _user.GetUsers();
-			_productObject = _product.GetProducts();
-			_serviceObject = _service.GetServices();
 
 		}
 
 		public IActionResult Forms()
 		{
-			ViewBag.userM = _userObject;
-			ViewBag.productM = _productObject;
-			ViewBag.serviceM = _serviceObject;
+
+			ViewBag.Clients = _client.GetClients();
+			ViewBag.Doctors = _user.GetDoctors();
+			ViewBag.Products = _product.GetProducts();
+			ViewBag.Services = _service.GetServices();
 			ViewBag.Forms = _formsObject;
 			return View();
 		}
@@ -44,29 +45,69 @@ namespace VetApp.Controllers
 		[HttpGet]
 		public JsonResult GetForms(int idMedicalRecord)
 		{
-			var forms = _formsObject.Where(data => data.idMedicalRecord == idMedicalRecord).FirstOrDefault();
+			var forms = _formsObject?.Where(data => data.idMedicalRecord == idMedicalRecord).FirstOrDefault();
 			return Json(forms);
+		}
+
+		[HttpGet]
+		public JsonResult GetPetsByIdClient(int idClient) {
+			var pets = _pet.GetPetsByClient(idClient);
+			return Json(pets);
 		}
 
 		[HttpPost]
 		public JsonResult CreateForms(FormsObj formsObj)
 		{
-			var createForms = _forms.CreateForms(formsObj);
+			formsObj.arrival = DateTime.Now.Date.ToString("yyyy/MM/dd")+" "+formsObj.arrival;
+
+			if (String.IsNullOrEmpty(formsObj.motive))
+			{
+				formsObj.motive = "";
+			}
+
+            if (String.IsNullOrEmpty(formsObj.attention))
+            {
+				formsObj.attention = "";
+
+            }
+			else
+			{
+                formsObj.attention = DateTime.Now.Date.ToString("yyyy/MM/dd") + " " + formsObj.attention;
+            }
+
+            var createForms = _forms.CreateForms(formsObj);
 			return Json(createForms);
 		}
 
 		[HttpPut]
 		public JsonResult UpdateForms(FormsObj formsObj)
 		{
-			var createForms = _forms.UpdateForms(formsObj);
-			return Json(createForms);
+            formsObj.arrival = DateTime.Now.Date.ToString("yyyy/MM/dd") + " " + formsObj.arrival;
+
+            if (String.IsNullOrEmpty(formsObj.motive))
+            {
+                formsObj.motive = "";
+            }
+
+            if (String.IsNullOrEmpty(formsObj.attention))
+            {
+                formsObj.attention = "";
+
+            }
+            else
+            {
+                formsObj.attention = DateTime.Now.Date.ToString("yyyy/MM/dd") + " " + formsObj.attention;
+            }
+
+            var updateForms = _forms.UpdateForms(formsObj);
+			return Json(updateForms);
 		}
 
 		[HttpDelete]
-		public JsonResult DeleteClient(int idMedicalRecord)
+		public JsonResult DeleteForms(int idMedicalRecord)
 		{
-			var froms = _forms.DeleteForms(idMedicalRecord);
-			return Json(froms);
+			var deleteForm = _forms.DeleteForms(idMedicalRecord);
+			return Json(deleteForm);
 		}
 
 	}

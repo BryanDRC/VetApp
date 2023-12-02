@@ -148,14 +148,15 @@
 														<td>@appointment.ClientName</td>
 														<td>@appointment.DateReason</td>
 														<td>
+															<div class="dropdown d-flex justify-content-between">
 
-															<a data-bs-placement="top" title="Editar Cita" onclick="OpenUpdateAppointmentModal(@appointment.IdDate)">
-																<i data-bs-placement="top" title="Editar Cita" class="fas fa-pen text-info"></i>
-															</a>
-															<a data-bs-placement="top" title="Eliminar Cita" onclick="OpenDeleteConfirmAppointmentModal(@appointment.IdDate)">
-																<i data-bs-placement="top" title="Eliminar Cita" class="fas fa-trash text-danger"></i>
-															</a>
-
+																<a href="#" data-bs-placement="top" title="Editar Cita" onclick="OpenUpdateAppointmentModal(@appointment.IdDate)">
+																	<i data-bs-placement="top" title="Editar Cita" class="fas fa-pen text-info"></i>
+																</a>
+																<a href="#" data-bs-placement="top" title="Eliminar Cita" onclick="OpenDeleteConfirmAppointmentModal(@appointment.IdDate)">
+																	<i data-bs-placement="top" title="Eliminar Cita" class="fas fa-trash text-danger"></i>
+																</a>
+															</div>
 														</td>
 													</tr>
 												}
@@ -179,14 +180,15 @@
 														<td>@appointment.DoctorName</td>
 														<td>@appointment.DateHour</td>
 														<td>
+															<div class="dropdown d-flex justify-content-between">
 
-															<a data-bs-placement="top" title="Editar Cita" onclick="OpenUpdateAppointmentModal(@appointment.IdDate)">
-																<i data-bs-placement="top" title="Editar Cita" class="fas fa-pen text-info"></i>
-															</a>
-															<a data-bs-placement="top" title="Eliminar Cita" onclick="OpenDeleteConfirmAppointmentModal(@appointment.IdDate)">
-																<i data-bs-placement="top" title="Eliminar Cita" class="fas fa-trash text-danger"></i>
-															</a>
-
+																<a data-bs-placement="top" title="Editar Cita" onclick="OpenUpdateAppointmentModal(@appointment.IdDate)">
+																	<i data-bs-placement="top" title="Editar Cita" class="fas fa-pen text-info"></i>
+																</a>
+																<a data-bs-placement="top" title="Eliminar Cita" onclick="OpenDeleteConfirmAppointmentModal(@appointment.IdDate)">
+																	<i data-bs-placement="top" title="Eliminar Cita" class="fas fa-trash text-danger"></i>
+																</a>
+															</div>
 														</td>
 													</tr>
 												}

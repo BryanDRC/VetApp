@@ -25,7 +25,7 @@ namespace VetAppApi.Controllers
 
         [HttpGet]
         [Route("GetForms")]
-        public ActionResult<IEnumerable<FormsObj>> GetFormss()
+        public ActionResult<IEnumerable<FormsListObj>> GetFormss()
         {
             return _formsModel.GetForms().ToList();
         }
