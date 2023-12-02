@@ -28,7 +28,7 @@ namespace VetApp.Models
 			}
 		}
 
-		public List<FormsObj> GetForms()
+		public List<FormsListObj>? GetForms()
 		{
 			using (var client = new HttpClient())
 			{
@@ -37,9 +37,9 @@ namespace VetApp.Models
 				HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
 				if (response.IsSuccessStatusCode)
-					return response.Content.ReadFromJsonAsync<List<FormsObj>>().Result;
+					return response.Content.ReadFromJsonAsync<List<FormsListObj>>().Result;
 
-				return new List<FormsObj>();
+				return new List<FormsListObj>();
 			}
 		}
 

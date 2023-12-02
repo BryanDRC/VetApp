@@ -187,14 +187,14 @@
 														}
 													</td>
 													<td>
-
-														<a data-bs-placement="top" title="Editar Empleado" onclick="OpenUpdateUserModal(@user.IdUser)">
-															<i data-bs-placement="top" title="Editar Empleado" class="fas fa-pen text-info"></i>
-														</a>
-														<a data-bs-placement="top" title="Eliminar Empleado" onclick="OpenDeleteConfirmUserModal(@user.IdUser)">
-															<i data-bs-placement="top" title="Eliminar Empleado" class="fas fa-trash text-danger"></i>
-														</a>
-
+														<div class="dropdown d-flex justify-content-between">
+															<a href="#" data-bs-placement="top" title="Editar Empleado" onclick="OpenUpdateUserModal(@user.IdUser)">
+																<i data-bs-placement="top" title="Editar Empleado" class="fas fa-pen text-info"></i>
+															</a>
+															<a href="#" data-bs-placement="top" title="Eliminar Empleado" onclick="OpenDeleteConfirmUserModal(@user.IdUser)">
+																<i data-bs-placement="top" title="Eliminar Empleado" class="fas fa-trash text-danger"></i>
+															</a>
+														</div>
 													</td>
 												</tr>
 											}

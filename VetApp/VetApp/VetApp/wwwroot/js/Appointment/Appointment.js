@@ -5,6 +5,12 @@ let dayDateMessage = $("#dayDateMessage");
 let idDoctorMessage = $("#idDoctorMessage");
 
 
+$(document).ready(function () {
+    let minDate = new Date();
+    let minDateConversion = minDate.getFullYear() + '-' + validateMonth(minDate) + '-' + validateDay(minDate);
+    $("#dayDate").attr('min', minDateConversion);
+});
+
 $(document).on("click", "#btnAddAppointment", function () {
 
     $("#idDate").val('');
@@ -93,7 +99,7 @@ function OpenUpdateAppointmentModal(idDate) {
             $("#dateReason").val(res.dateReason);
             $("#idDoctor").val(res.idDoctor);
 
-            let date = new Date(res.dayDate);
+            let date = new Date(res.appointmentDate);
             let dateConversion = date.getFullYear() + '-' + validateMonth(date) + '-' + validateDay(date);
             let hour = validateHour(date) + ':' + validateMinutes(date);
 
