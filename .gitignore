@@ -39,3 +39,4 @@ VetAppApi/.vs/VetAppApi/FileContentIndex/d378e9b6-fd15-4430-bbe8-efea637e06f3.vs
 VetAppApi/.vs/VetAppApi/v17/.futdcache.v2
 VetAppApi/.vs/VetAppApi/v17/.suo
 VetApp/VetApp/VetApp/bin/Debug/net6.0/VetApp.staticwebassets.runtime.json
+*.vsidx
