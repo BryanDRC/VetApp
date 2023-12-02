@@ -1,0 +1,416 @@
+﻿
+<div class="content-page">
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 style="margin-left: 45%;" class="header-title">Formulario factura</h4>
+                        <br>
+                        <br>
+                        <div style="margin-left: 19%;" class="row">
+
+
+
+                            <div class="col-md-3">
+                                <p class="mb-1 fw-bold">Servicio a facturar</p>
+
+                                <select class="form-control" id="insumosInput" data-toggle="select2" data-width="100%">
+                                    <option value="">  </option>
+                                    <optgroup label="Productos">
+                                        @foreach (var product in ViewBag.Products)
+                                        {
+                                            <option value="@product.idProduct" data-precio="@product.productSellCost">@($"{@product.product} - ₡{@product.productSellCost}") </option>
+                                        }
+                                    </optgroup>
+                                    <optgroup label="Servicios">
+                                        @foreach (var service in ViewBag.Services)
+                                        {
+                                            <option value="@service.idService" data-precio="@service.serviceCost">@($"{@service.serviceName} - ₡{@service.serviceCost}") </option>
+                                        }
+                                    </optgroup>
+                                </select>
+
+                            </div> <!-- end col -->
+
+
+                            <div class=" col-md-3">
+
+                                <label for="inputZip" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="cantidadInput">
+
+                            </div> <!-- end col -->
+
+                            <div class="col-md-3">
+
+                                <label for="inputZip" class="form-label">Instrucciones</label>
+                                <input type="text" class="form-control" id="instruccionesInput">
+
+                            </div> <!-- end col -->
+
+
+
+
+                        </div> <!-- end row -->
+                        <br />
+
+                        <div style="margin-left: 19%;" class="row">
+
+                            <div class="col-md-3">
+
+                                <label for="inputZip" class="form-label">Descuento por producto</label>
+                                <input type="number" class="form-control" id="descuentoInput">
+                                <br>
+                            </div> <!-- end col -->
+
+                            <div class="col-md-3">
+                                <label for="inputZip" class="form-label">Productos con Descuento</label>
+                                <input type="number" class="form-control" id="productoDInput">
+                            </div> <!-- end col -->
+
+
+                        </div> <!-- end row -->
+
+                        <br>
+                        <button type="button" class="btn btn-primary waves-effect waves-light" id="botonAgregar">Agregar</button>
+
+                        <div><br></div>
+                        <hr class="my-2">
+
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0" id="miTabla">
+                                        <thead>
+                                            <tr>
+                                                <th>Servicio</th>
+                                                <th>Detalle</th>
+                                                <th>Cantidad</th>
+                                                <th>Precio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+           
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                            </div>
+
+                            <div style="margin-left: 50px;" class="col-md-4">
+                                <br>
+                                <label for="inputZip" class="form-label">Sub Total</label>
+                                <input type="text" class="form-control" id="totalpagar" readonly>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <br>
+                                        <label for="inputZip" class="form-label">IVA Productos</label>
+                                        <input type="number" class="form-control" id="ivaPInput">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <br>
+                                        <label for="inputZip" class="form-label">IVA Servicios</label>
+                                        <input type="number" class="form-control" id="ivaSInput">
+                                    </div>
+                                </div>
+                                <br>
+                                <label for="inputZip" class="form-label">Total a Pagar</label>
+                                <input type="text" class="form-control" id="totalFInput" readonly>
+                            </div>
+                        </div> <!-- end .table-responsive-->
+
+
+
+                        <br>
+                        <hr class="my-2">
+                        <br>
+
+                        <h4 style="margin-left: 45%;" class="header-title">Procesar factura</h4>
+                        <br>
+                        <br>
+
+
+                        <div style="margin-left: 19%;" class="row">
+                            <div class="col-md-3">
+                                <p class="mb-1 fw-bold ">Cliente</p>
+
+                                <select class="form-control" data-toggle="select2" id="clienteInput" data-width="100%">
+                                    @foreach (var client in ViewBag.Clients)
+                                    {
+                                        <option value="@client.idClient">@client.clientName</option>
+                                    }
+                                </select>
+                            </div> <!-- end col -->
+
+                            <div class="col-md-2">
+                                <label for="inputState" class="form-label">Moneda</label>
+                                <select id="monedaInput" class="form-select">
+                                    <option>Colón</option>
+                                    <option>Dolar</option>
+                                </select>
+                            </div> <!-- end col -->
+
+                            <div class="col-md-2">
+                                <label for="inputState" class="form-label">Tipo Factura</label>
+                                <select id="tipofacturaInput" class="form-select">
+                                    <option>Contado</option>
+                                    <option>Credito</option>
+                                </select>
+                            </div> <!-- end col -->
+
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">Fecha</label>
+                                <input type="date" class="form-control" id="fechaInput" placeholder="YY/MM/DD">
+                  
+                            </div> <!-- end col -->
+
+
+
+
+
+                        </div> <!-- end row -->
+                        <br />
+
+                        <div style="margin-left: 19%;" class="row">
+                            <div class="col-md-3">
+                                <label for="inputState" class="form-label">Tipo de Pago</label>
+                                <select id="tipopagoInput" class="form-select">
+                                    <option>Efectivo</option>
+                                    <option>Tarjeta</option>
+                                </select>
+                            </div> <!-- end col -->
+
+
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">Total</label>
+                                <input type="number" class="form-control" id="preciofinalInput" readonly>
+                            </div> <!-- end col -->
+
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">Cancela Con</label>
+                                <input type="number" class="form-control" id="canceladoInput" placeholder="₡₡₡">
+                            </div> <!-- end col -->
+
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">Vuelto</label>
+                                <input type="number" class="form-control" id="vueltoInput" placeholder="₡₡₡">
+                            </div> <!-- end col -->
+
+
+                        </div> <!-- end row -->
+                        <br>
+                        <div style="margin-left: 19%;" class="row">
+                            <div class="col-md-3">
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+                        <button style="margin-left: 570px;" type="button" id="btnProcesar"  class="btn btn-primary waves-effect waves-light">Procesar</button>
+                        <div><br></div>
+
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+        </div>
+        <!-- end row-->
+
+
+
+    </div> <!-- container -->
+
+
+
+</div> <!-- content -->
+<!-- Modal para la alerta -->
+<div class="modal fade" id="alertaModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Alerta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, selecciona un servicio o producto.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para la Alerta de Cantidad Vacia -->
+<div class="modal fade" id="cantidadVaciaModal" tabindex="-1" aria-labelledby="cantidadVaciaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cantidadVaciaModalLabel">Alerta de Cantidad</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, especifica la cantidad del producto a agregar.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal de Alerta para Descuento -->
+<div class="modal fade" id="descuentoAlertaModal" tabindex="-1" aria-labelledby="descuentoAlertaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="descuentoAlertaModalLabel">Alerta de Descuento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Debes especificar a cuántos productos se les aplicará el descuento.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para la Alerta de Cantidad Incorrecta -->
+<div class="modal fade" id="cantidadAlertaModal" tabindex="-1" aria-labelledby="cantidadIncorrectaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cantidadIncorrectaModalLabel">Alerta de Cantidad Incorrecta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                La cantidad debe ser un número mayor o igual a 1.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('botonAgregar').addEventListener('click', function () {
+            var insumosInput = document.getElementById('insumosInput');
+            var cantidadInput = document.getElementById('cantidadInput');
+            var cantidad = parseFloat(cantidadInput.value);
+            var cantidadDescuentoInput = document.getElementById('productoDInput');
+            var cantidadDescuento = parseFloat(cantidadDescuentoInput.value) || 0;
+            var descuentoInputVal = parseFloat(document.getElementById('descuentoInput').value) / 100 || 0;
+
+            if (insumosInput.value === "") {
+                $('#alertaModal').modal('show');
+                return;
+            }
+
+            if (isNaN(cantidad) || cantidad < 1) {
+                $('#cantidadAlertaModal').modal('show');
+                return;
+            }
+
+            if (cantidad > 1 && descuentoInputVal > 0 && (isNaN(cantidadDescuento) || cantidadDescuento < 1)) {
+                $('#descuentoAlertaModal').modal('show');
+                return;
+            }
+
+            var servicio = insumosInput.options[insumosInput.selectedIndex].text;
+            var instrucciones = document.getElementById('instruccionesInput').value;
+            var precioUnitario = parseFloat(insumosInput.options[insumosInput.selectedIndex].getAttribute('data-precio')) || 0;
+            var precioConDescuento = descuentoInputVal > 0 ? (precioUnitario - (precioUnitario * descuentoInputVal)) : precioUnitario;
+            var precioTotalDescuento = precioConDescuento * Math.min(cantidad, cantidadDescuento);
+            var precioTotalSinDescuento = precioUnitario * (cantidad - cantidadDescuento);
+            var precioTotal = precioTotalDescuento + precioTotalSinDescuento;
+
+            var tabla = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
+            var nuevaFila = tabla.insertRow(tabla.rows.length);
+            nuevaFila.insertCell(0).innerHTML = servicio;
+            nuevaFila.insertCell(1).innerHTML = instrucciones;
+            nuevaFila.insertCell(2).innerHTML = cantidad;
+            nuevaFila.insertCell(3).innerHTML = precioTotal.toFixed(2);
+
+            actualizarTotal();
+
+            document.getElementById('cantidadInput').value = '';
+            document.getElementById('instruccionesInput').value = '';
+            document.getElementById('descuentoInput').value = '';
+            document.getElementById('productoDInput').value = '';
+            $('#insumosInput').val(null).trigger('change');
+        });
+
+        document.getElementById('ivaPInput').addEventListener('input', actualizarTotal);
+        document.getElementById('ivaSInput').addEventListener('input', actualizarTotal);
+
+
+
+        function actualizarTotal() {
+            var total = 0;
+            var tabla = document.getElementById('miTabla').getElementsByTagName('tbody')[0];
+            var filas = tabla.getElementsByTagName('tr');
+
+            for (var i = 0; i < filas.length; i++) {
+                var precio = parseFloat(filas[i].cells[3].innerHTML) || 0;
+                total += precio;
+            }
+
+            var ivaPInput = parseFloat(document.getElementById('ivaPInput').value) || 0;
+            var totalIVAProducto = total * (ivaPInput / 100);
+
+            var ivaSInput = parseFloat(document.getElementById('ivaSInput').value) || 0;
+            var totalIVAServicio = total * (ivaSInput / 100);
+
+            var totalFInput = total + totalIVAProducto + totalIVAServicio;
+
+            document.getElementById('totalpagar').value = total.toFixed(2);
+            document.getElementById('totalFInput').value = totalFInput.toFixed(2);
+
+            // Actualizar preciofinalInput con el mismo valor
+            document.getElementById('preciofinalInput').value = totalFInput.toFixed(2);
+        }
+
+
+        function obtenerDatosTabla() {
+            var datos = [];
+            $('#miTabla tbody tr').each(function () {
+                var fila = {
+                    servicio: $(this).find('td').eq(0).text(),
+                    detalle: $(this).find('td').eq(1).text(),
+                    cantidad: $(this).find('td').eq(2).text(),
+                    precio: $(this).find('td').eq(3).text()
+                };
+                datos.push(fila);
+            });
+            return datos;
+        }
+
+        $('#btnProcesar').click(function () {
+            var datosTabla = obtenerDatosTabla();
+            console.log(datosTabla)
+        });
+
+    });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
