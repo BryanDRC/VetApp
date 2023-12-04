@@ -24,6 +24,7 @@ builder.Services.AddScoped<EmailSend>();
 builder.Services.AddScoped<AppointmentModel>();
 builder.Services.AddScoped<ReportsModel>();
 builder.Services.AddScoped<RoleModel>();
+builder.Services.AddScoped<PaymentModel>();
 
 var app = builder.Build();
 
