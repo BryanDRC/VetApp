@@ -44,7 +44,7 @@ namespace VetApp.Models
             }
         }
 
-        public List<InvoicesObj>? GetInvoices()
+        public List<InvoicesListObj>? GetInvoices()
         {
             using (var client = new HttpClient())
             {
@@ -53,9 +53,9 @@ namespace VetApp.Models
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadFromJsonAsync<List<InvoicesObj>>().Result;
+                    return response.Content.ReadFromJsonAsync<List<InvoicesListObj>>().Result;
 
-                return new List<InvoicesObj>();
+                return new List<InvoicesListObj>();
             }
         }
 
@@ -71,6 +71,36 @@ namespace VetApp.Models
                     return response.Content.ReadFromJsonAsync<List<DetailInvoicesObj>>().Result;
 
                 return new List<DetailInvoicesObj>();
+            }
+        }
+
+        public List<CreditObj>? GetCredits()
+        {
+            using (var client = new HttpClient())
+            {
+                string url = _urlApi + "api/Payment/GetCredits";
+
+                HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadFromJsonAsync<List<CreditObj>>().Result;
+
+                return new List<CreditObj>();
+            }
+        }
+
+        public List<CreditObj>? GetCreditsByIdClient(int idClient)
+        {
+            using (var client = new HttpClient())
+            {
+                string url = _urlApi + "api/Payment/GetCreditsByIdClient?idClient="+ idClient;
+
+                HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadFromJsonAsync<List<CreditObj>>().Result;
+
+                return new List<CreditObj>();
             }
         }
     }

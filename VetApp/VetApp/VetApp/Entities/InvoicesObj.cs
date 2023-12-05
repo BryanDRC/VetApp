@@ -9,6 +9,8 @@
         public decimal totalCanceled { get; set; }
         public int idPaymentType { get; set; }
         public int idClient { get; set; }
+        public int invoiceType { get; set; }
         public List<DetailInvoicesObj>? DetailInvoices { get; set; }
+        public CreditObj? Credit { get; set; }
     }
 }

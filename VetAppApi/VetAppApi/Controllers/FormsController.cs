@@ -24,10 +24,10 @@ namespace VetAppApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetForms")]
-        public ActionResult<IEnumerable<FormsListObj>> GetFormss()
+        [Route("GetFormsForCurrentDay")]
+        public ActionResult<IEnumerable<FormsListObj>> GetFormsForCurrentDay()
         {
-            return _formsModel.GetForms().ToList();
+            return _formsModel.GetFormsForCurrentDay().ToList();
         }
 
         [HttpPut]
@@ -42,6 +42,13 @@ namespace VetAppApi.Controllers
         public ActionResult<int> DeleteForms(int idForms)
         {
             return _formsModel.DeleteForms(idForms);
+        }
+
+        [HttpGet]
+        [Route("GetForms")]
+        public ActionResult<IEnumerable<FormsListObj>> GetForms()
+        {
+            return _formsModel.GetForms().ToList();
         }
 
     }

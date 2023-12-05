@@ -28,11 +28,11 @@ namespace VetApp.Models
 			}
 		}
 
-		public List<FormsListObj>? GetForms()
+		public List<FormsListObj>? GetFormsForCurrentDay()
 		{
 			using (var client = new HttpClient())
 			{
-				string url = _urlApi + "api/Forms/GetForms";
+				string url = _urlApi + "api/Forms/GetFormsForCurrentDay";
 
 				HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
@@ -43,8 +43,22 @@ namespace VetApp.Models
 			}
 		}
 
+        public List<FormsListObj>? GetForms()
+        {
+            using (var client = new HttpClient())
+            {
+                string url = _urlApi + "api/Forms/GetForms";
 
-		public int UpdateForms(FormsObj formsObj)
+                HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadFromJsonAsync<List<FormsListObj>>().Result;
+
+                return new List<FormsListObj>();
+            }
+        }
+
+        public int UpdateForms(FormsObj formsObj)
 		{
 			using (var client = new HttpClient())
 			{

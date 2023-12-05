@@ -65,6 +65,15 @@ namespace VetApp.Controllers
 
             return Json(create);
         }
+
+        [HttpGet]
+        [FilterSecurity]
+        public JsonResult GetCreditsByIdClient(int idClient)
+        {
+            var response = _paymentModel.GetCreditsByIdClient(idClient);
+
+            return Json(response);
+        }
     }
 }
 

@@ -18,20 +18,38 @@ namespace VetApp.Controllers
 		public List<FormsListObj>? _formsObject;
 
 		private readonly IConfiguration _configuration;
-		public FormsController(IConfiguration configuration)
-		{
-			_configuration = configuration;
-			_forms = new FormsModel(configuration);
-			_user = new EmployeeModel(configuration);
-			_product = new ProductModel(configuration);
-			_service = new ServiceModel(configuration);
-			_pet = new PetModel(configuration);
-			_client = new ClientModel(configuration);
-			_formsObject = _forms.GetForms();
+        private readonly IHttpContextAccessor _contextAccessor;
+        public FormsController(IConfiguration configuration, IHttpContextAccessor contextAccessor)
+        {
+            _configuration = configuration;
+            _forms = new FormsModel(configuration);
+            _user = new EmployeeModel(configuration);
+            _product = new ProductModel(configuration);
+            _service = new ServiceModel(configuration);
+            _pet = new PetModel(configuration);
+            _client = new ClientModel(configuration);
+            _contextAccessor = contextAccessor;
 
-		}
+            var roleId = contextAccessor.HttpContext?.Session.GetInt32("UserIdRol");
 
-		public IActionResult Forms()
+            if (roleId != null)
+            {
+
+                if (roleId == 1)
+                {
+                    
+                    _formsObject = _forms.GetForms();
+                    
+                }
+                else
+                {
+                   _formsObject = _forms.GetFormsForCurrentDay();
+                }
+
+            }
+        }
+
+        public IActionResult Forms()
 		{
 
 			ViewBag.Clients = _client.GetClients();

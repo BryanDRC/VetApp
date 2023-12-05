@@ -46,7 +46,7 @@ namespace VetAppApi.Models
             return 0;
         }
 
-        public IEnumerable<FormsListObj> GetForms()
+        public IEnumerable<FormsListObj> GetFormsForCurrentDay()
         {
 
             try
@@ -54,6 +54,27 @@ namespace VetAppApi.Models
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
                     var datos = connection.Query<FormsListObj>("SP_GetFormsForCurrentDay", null,
+                        commandType: CommandType.StoredProcedure).ToList();
+
+                    return datos;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return new List<FormsListObj>();
+        }
+
+        public IEnumerable<FormsListObj> GetForms()
+        {
+
+            try
+            {
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+                {
+                    var datos = connection.Query<FormsListObj>("SP_GetForms", null,
                         commandType: CommandType.StoredProcedure).ToList();
 
                     return datos;

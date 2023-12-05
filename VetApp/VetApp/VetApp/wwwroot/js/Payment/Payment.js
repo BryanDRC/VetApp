@@ -193,29 +193,45 @@ function CreateInvoices() {
 
     var detailInvoice = getDetailsTable();
 
-    //var numReference = $('#numReference').val();
+    var numReference = $('#referencia').val();
     var dateInvoices = $('#fechaInput').val();
-    var totalCancel = parseInt($('#preciofinalInput').val());
+    var totalCancel = parseInt($('#preciototalInput').val());
     var totalCanceled = parseInt($('#canceladoInput').val());
     var idPaymentType = $('#tipopagoInput').val();
     var idClient = $('#clienteInput').val();
+    var invoiceType = $('#tipofacturaInput').val();
+
+    var credit = {
+        dateCredit: dateInvoices,
+        totalBalance: totalCancel,
+        totalCredit: totalCancel
+    }
+
+    //var credit = {
+    //    idCredit:0,
+    //    dateCredit: dateInvoices,
+    //    totalBalance: totalCanceled,
+    //    totalCredit: totalCancel
+    //}
 
     $.ajax({
         type: "POST",
         url: "../Payment/CreateInvoices",
         dataType: "json",
         data: {
-            "numReference": 0,
+            "numReference": numReference,
             "dateInvoices": dateInvoices,
             "totalCancel": totalCancel,
             "totalCanceled": totalCanceled,
             "idPaymentType": idPaymentType,
             "idClient": idClient,
-            "detailInvoices": detailInvoice
+            "invoiceType": invoiceType,
+            "detailInvoices": detailInvoice,
+            "credit": credit
         },
         success: function (res) {
 
-            if (res == 1) {
+            if (res > 0) {
 
                 Swal.fire({
                     title: '',
