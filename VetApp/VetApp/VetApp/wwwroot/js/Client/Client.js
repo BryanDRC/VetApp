@@ -231,7 +231,7 @@ function ValidateClientIdCardExist() {
         const button = document.getElementById("btnGuardarModal");
 
         // Disable the button
-        button.disabled = true;
+      //  button.disabled = true;
         clientIdCardMessage.text("");
 
         $.ajax({
