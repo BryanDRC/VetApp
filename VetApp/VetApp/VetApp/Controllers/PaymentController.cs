@@ -6,7 +6,8 @@ using VetApp.Models;
 using System.Drawing;
 using System.Text;
 using System.IO;
-
+using System.Runtime.CompilerServices;
+using VetApp.Services;
 
 namespace VetApp.Controllers
 {
@@ -16,6 +17,7 @@ namespace VetApp.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly ServiceModel _service;
+        private readonly PaymentModel _paymentModel;
         public List<ServiceObj> _servicesObject;
         private readonly ProductModel _productModel;
         public List<ProductObj> _productsList;
@@ -25,6 +27,7 @@ namespace VetApp.Controllers
         public PaymentController(IConfiguration configuration)
         {
             _configuration = configuration;
+            _paymentModel = new PaymentModel(configuration);
             _service = new ServiceModel(configuration);
             _servicesObject = _service.GetServices();
             _productModel = new ProductModel(configuration);
@@ -34,20 +37,34 @@ namespace VetApp.Controllers
 
         }
 
-
-        public IActionResult Payment()
+        [HttpGet]
+		[FilterSecurity]
+		public IActionResult Payment()
         {
 
             ViewBag.Services = _servicesObject;
             ViewBag.Products = _productsList;
             ViewBag.Clients = _clientList;
+            ViewBag.PaymentTypes = _paymentModel.GetPaymentType();
             return View();
         }
 
+        [HttpPost]
+		[FilterSecurity]
+		public JsonResult CreateInvoices(InvoicesObj invoicesObj)
+        {
+            foreach(var details in invoicesObj.DetailInvoices.ToList())
+            {
+                if (String.IsNullOrEmpty(details.descriptionDetail))
+                {
+                    details.descriptionDetail = "";
+                }
+            }
 
+            var create = _paymentModel.CreateInvoices(invoicesObj);
 
-
-
+            return Json(create);
+        }
     }
 }
 

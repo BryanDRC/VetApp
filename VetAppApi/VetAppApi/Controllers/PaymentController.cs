@@ -30,7 +30,7 @@ namespace VetAppApi.Controllers
 
         [HttpPost]
         [Route("CreateInvoices")]
-        public ActionResult<int> CreateIncoices(InvoicesObj invoices)
+        public ActionResult<int> CreateInvoices(InvoicesObj invoices)
         {
             return _paymentModel.CreateInvoices(invoices);
         }
@@ -42,11 +42,11 @@ namespace VetAppApi.Controllers
             return _paymentModel.GetDetail().ToList();
         }
 
-        [HttpPost]
-        [Route("CreateDetail")]
-        public ActionResult<int> CreateDetail(DetailObj detail)
-        {
-            return _paymentModel.CreateDetail(detail);
-        }
+        //[HttpPost]
+        //[Route("CreateDetail")]
+        //public ActionResult<int> CreateDetail(DetailObj detail)
+        //{
+        //    return _paymentModel.CreateDetail(detail);
+        //}
     }
 }

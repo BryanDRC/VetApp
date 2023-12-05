@@ -60,20 +60,25 @@ namespace VetAppApi.Models
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Execute("SP_InsertInvoice",
+                    var datos = connection.Query<int>("SP_InsertInvoice",
                         new
                         {
                             invoices.numReference,
                             invoices.dateInvoices,
                             invoices.totalCancel,
                             invoices.totalCanceled,
-                            invoices.idPayment,
+                            invoices.idPaymentType,
                             invoices.idClient
                         },
-                        commandType: CommandType.StoredProcedure);
+                        commandType: CommandType.StoredProcedure).FirstOrDefault();
 
-                    return datos;
+                    if (datos > 0)
+                    {
+                        invoices.idInvoices = datos;
+                    }
                 }
+
+                return CreateDetail(invoices);
             }
             catch (Exception ex)
             {
@@ -105,24 +110,30 @@ namespace VetAppApi.Models
             return new List<DetailObj>();
         }
 
-        public int CreateDetail(DetailObj detail)
+        public int CreateDetail(InvoicesObj detail)
         {
             try
             {
+                int status = 0;
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Execute("SP_InsertDetail",
+                    foreach (var details in detail.DetailInvoices.ToList())
+                    {
+                        var datos = connection.Execute("SP_InsertDetail",
                         new
                         {
-                            detail.nameDetail,
-                            detail.descriptionDetail,
-                            detail.amountDetail,
-                            detail.costDetail,
+                            details.nameDetail,
+                            details.descriptionDetail,
+                            details.amountDetail,
+                            details.costDetail,
                             detail.idInvoices
                         },
                         commandType: CommandType.StoredProcedure);
 
-                    return datos;
+                        status = datos;
+                    }
+
+                    return status;
                 }
             }
             catch (Exception ex)
