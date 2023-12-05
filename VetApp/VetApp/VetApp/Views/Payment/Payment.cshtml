@@ -156,8 +156,8 @@
                             <div class="col-md-2">
                                 <label for="inputState" class="form-label">Tipo Factura</label>
                                 <select id="tipofacturaInput" class="form-select">
-                                    <option>Contado</option>
-                                    <option>Credito</option>
+                                    <option value="contadoOption">Contado</option>
+                                    <option value="creditoOption">Credito</option>
                                 </select>
                             </div> <!-- end col -->
 
@@ -194,22 +194,28 @@
                                 <input type="number" readonly class="form-control" id="preciototalInput">
                             </div>
 
-                            <div id="divReferencia" style="display: none;" class="col-md-2">
-                                <label for="inputZip" class="form-label"># Referencia</label>
-                                <input type="text" class="form-control" id="referencia">
-                            </div>
-
-
                             <div id="divCancelaCon" style="display: none;" class="col-md-2">
                                 <label for="inputZip" class="form-label">Cancela Con</label>
                                 <input type="number" class="form-control" id="canceladoInput" placeholder="₡₡₡">
                             </div>
 
+                            <div id="divCredito" style="display: none;" class="col-md-2">
+                                <label for="inputZip" class="form-label">Credito</label>
+                                <input type="number" class="form-control" readonly id="creditoInput" placeholder="₡₡₡">
+                            </div>
+
+                            <div id="divReferencia" style="display: none;" class="col-md-2">
+                                <label for="inputZip" class="form-label"># Referencia</label>
+                                <input type="text" class="form-control" id="referencia">
+                            </div>
 
                             <div id="divVuelto" style="display: none;" class="col-md-2">
                                 <label for="inputZip" class="form-label">Vuelto</label>
                                 <input type="number" class="form-control" readonly id="vueltoInput" placeholder="₡₡₡">
                             </div>
+
+
+
 
                         </div>
 
@@ -237,6 +243,43 @@
 
 
 </div> <!-- content -->
+
+<!-- Modal para la Alerta de Cliente Requerido -->
+<div class="modal fade" id="clienteRequeridoModal" tabindex="-1" aria-labelledby="clienteRequeridoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="clienteRequeridoModalLabel">Cliente Requerido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, seleccione un cliente para facturas de crédito.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para la Alerta de Total de Factura Requerido -->
+<div class="modal fade" id="totalFacturaRequeridoModal" tabindex="-1" aria-labelledby="totalFacturaRequeridoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="totalFacturaRequeridoModalLabel">Total de Factura Requerido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Por favor, asegúrese de que los servicios o productos han sido agregados a la factura.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Modal para la alerta -->
 <div class="modal fade" id="alertaModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -327,6 +370,81 @@
         </div>
     </div>
 </div>
+
+<!-- Modal para la Alerta de Cancelado Requerido -->
+<div class="modal fade" id="canceladoRequeridoModal" tabindex="-1" aria-labelledby="canceladoRequeridoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="canceladoRequeridoModalLabel">Monto Cancelado Requerido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                El monto cancelado es obligatorio y debe ser mayor a 0.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para la Alerta de Cancelado en Crédito Inválido -->
+<div class="modal fade" id="canceladoCreditoInvalidoModal" tabindex="-1" aria-labelledby="canceladoCreditoInvalidoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="canceladoCreditoInvalidoModalLabel">Monto Cancelado Inválido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                El monto cancelado es obligatorio, debe ser mayor a 0 y no puede superar el total de la factura.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para la Alerta de Crédito y Referencia Requeridos -->
+<div class="modal fade" id="creditoYReferenciaRequeridosModal" tabindex="-1" aria-labelledby="creditoYReferenciaRequeridosModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="creditoYReferenciaRequeridosModalLabel">Crédito y Referencia Requeridos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                El monto cancelado y la referencia son obligatorios para pagos con tarjeta en crédito.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para la Alerta de Referencia Requerida -->
+<div class="modal fade" id="referenciaRequeridaModal" tabindex="-1" aria-labelledby="referenciaRequeridaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="referenciaRequeridaModalLabel">Referencia Requerida</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                La referencia es obligatoria para pagos con tarjeta.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Modal para la Alerta de Cantidad Incorrecta -->
 <div class="modal fade" id="cantidadAlertaModal" tabindex="-1" aria-labelledby="cantidadIncorrectaModalLabel" aria-hidden="true">
