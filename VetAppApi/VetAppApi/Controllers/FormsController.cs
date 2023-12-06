@@ -30,6 +30,13 @@ namespace VetAppApi.Controllers
             return _formsModel.GetFormsForCurrentDay().ToList();
         }
 
+        [HttpGet]
+        [Route("GetAllForms")]
+        public ActionResult<IEnumerable<FormsListObj>> GetAllForms()
+        {
+            return _formsModel.GetAllForms().ToList();
+        }
+
         [HttpPut]
         [Route("UpdateForms")]
         public ActionResult<int> UpdateForms(FormsObj formsObj)
