@@ -111,14 +111,14 @@ document.addEventListener('DOMContentLoaded', function () {
         divReferencia.style.display = 'none';
 
         // Condiciones para mostrar los divs
-        if (tipofacturaInput.value === 'contadoOption') {
+        if (tipofacturaInput.value === '1') {
             if (tipopagoInput.value === '1') {
                 divCancelaCon.style.display = 'block';
                 divVuelto.style.display = 'block';
             } else if (tipopagoInput.value === '2') {
                 divReferencia.style.display = 'block';
             }
-        } else if (tipofacturaInput.value === 'creditoOption') {
+        } else if (tipofacturaInput.value === '2') {
             if (tipopagoInput.value === '1') {
                 divCancelaCon.style.display = 'block';
                 divCredito.style.display = 'block';
@@ -185,10 +185,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //Validacion para la referencia
     //document.getElementById('btnProcesar').addEventListener('click', function () {
-        
+
     //});
 
 });
+
+
+let minDate = new Date();
+let minDateConversion = minDate.getFullYear() + '-' + validatePaymentMonth(minDate) + '-' + validatePaymentDay(minDate);
+$("#fechaInput").attr('min', minDateConversion);
 
 function getDetailsTable() {
     var datos = [];
@@ -214,55 +219,55 @@ function CreateInvoices() {
     var cancelado = parseFloat(document.getElementById('canceladoInput').value) || 0;
     var totalFactura = parseFloat(document.getElementById('preciototalInput').value) || 0;
 
-    if (tipoPago === '2' && !referencia) {
-        $('#referenciaFaltanteModal').modal('show');
-        return;
-    } else {
-        console.log('Requisitos cumplidos');
-    }
+    //if (tipoPago === '2' && !referencia) {
+    //    $('#referenciaFaltanteModal').modal('show');
+    //    return;
+    //} else {
+    //    console.log('Requisitos cumplidos');
+    //}
 
-    if (tipoFacturaInput.value === 'creditoOption' && clienteInput.value === '') {
-        $('#clienteRequeridoModal').modal('show');
-        return;
-    } else {
-        console.log('ponga cliente')
-    }
+    //if (tipoFacturaInput.value === '2' && clienteInput.value === '') {
+    //    $('#clienteRequeridoModal').modal('show');
+    //    return;
+    //} else {
+    //    console.log('ponga cliente')
+    //}
 
-    // Validación para asegurarse de que el total de la factura no esté vacío
-    if (precioTotalInput.value === '' || parseFloat(precioTotalInput.value) <= 0) {
-        $('#totalFacturaRequeridoModal').modal('show');
-        return;
-    } else {
-        console.log('ponga monto zzzz')
-    }
+    //// Validación para asegurarse de que el total de la factura no esté vacío
+    //if (precioTotalInput.value === '' || parseFloat(precioTotalInput.value) <= 0) {
+    //    $('#totalFacturaRequeridoModal').modal('show');
+    //    return;
+    //} else {
+    //    console.log('ponga monto zzzz')
+    //}
 
-    if (tipofacturaInput.value === 'contadoOption' && tipopagoInput.value === '1') {
-        if (cancelado <= 0) {
-            $('#canceladoRequeridoModal').modal('show');
-            return;
-        }
-    }
+    //if (tipofacturaInput.value === '1' && tipopagoInput.value === '1') {
+    //    if (cancelado <= 0) {
+    //        $('#canceladoRequeridoModal').modal('show');
+    //        return;
+    //    }
+    //}
 
-    if (tipofacturaInput.value === 'contadoOption' && tipopagoInput.value === '2') {
-        if (!referencia) {
-            $('#referenciaRequeridaModal').modal('show');
-            return;
-        }
-    }
+    //if (tipofacturaInput.value === '1' && tipopagoInput.value === '2') {
+    //    if (!referencia) {
+    //        $('#referenciaRequeridaModal').modal('show');
+    //        return;
+    //    }
+    //}
 
-    if (tipofacturaInput.value === 'creditoOption' && tipopagoInput.value === '1') {
-        if (cancelado <= 0 || cancelado > totalFactura) {
-            $('#canceladoCreditoInvalidoModal').modal('show');
-            return;
-        }
-    }
+    //if (tipofacturaInput.value === '2' && tipopagoInput.value === '1') {
+    //    if (cancelado <= 0 || cancelado > totalFactura) {
+    //        $('#canceladoCreditoInvalidoModal').modal('show');
+    //        return;
+    //    }
+    //}
 
-    if (tipofacturaInput.value === 'creditoOption' && tipopagoInput.value === '2') {
-        if (cancelado <= 0 || cancelado > totalFactura || !referencia) {
-            $('#creditoYReferenciaRequeridosModal').modal('show');
-            return;
-        }
-    }
+    //if (tipofacturaInput.value === '2' && tipopagoInput.value === '2') {
+    //    if (cancelado <= 0 || cancelado > totalFactura || !referencia) {
+    //        $('#creditoYReferenciaRequeridosModal').modal('show');
+    //        return;
+    //    }
+    //}
 
     var detailInvoice = getDetailsTable();
 
@@ -273,19 +278,25 @@ function CreateInvoices() {
     var idPaymentType = $('#tipopagoInput').val();
     var idClient = $('#clienteInput').val();
     var invoiceType = $('#tipofacturaInput').val();
+    let idCreditClient = $('#creditClientSelect').val();
 
-    var credit = {
-        dateCredit: dateInvoices,
-        totalBalance: totalCancel,
-        totalCredit: totalCancel
+    if (idCreditClient == null) {
+        var credit = {
+            dateCredit: dateInvoices,
+            totalBalance: totalCancel,
+            totalCredit: totalCancel
+        }
+    } else {
+        var credit = {
+            idCredit: idCreditClient,
+            dateCredit: dateInvoices,
+            totalBalance: totalCanceled,
+            totalCredit: totalCancel
+        }
     }
 
-    //var credit = {
-    //    idCredit:0,
-    //    dateCredit: dateInvoices,
-    //    totalBalance: totalCanceled,
-    //    totalCredit: totalCancel
-    //}
+
+
 
     $.ajax({
         type: "POST",
@@ -330,6 +341,43 @@ function CreateInvoices() {
 
 }
 
+$('#clienteInput').on('change', function () {
+    let tipoFactura = $('#tipofacturaInput').val();
+    if (tipoFactura === '2') {
+        GetCreditsByIdClient(this.value);
+    }
+});
+
+function GetCreditsByIdClient(idClient) {
+    $.ajax({
+        type: "GET",
+        url: "../Payment/GetCreditsByIdClient?idClient=" + idClient,
+        dataType: "json",
+        success: function (res) {
+
+            $('#divCreditClient').hide();
+
+            if (res.length > 0) {
+
+                $('#divCreditClient').show();
+
+                Object.keys(res).forEach(function (key) {
+
+                    let optionText = '#' + res[key].idCredit;
+                    let optionValue = res[key].idCredit;
+
+                    parseFloat($('#preciototalInput').val(res[key].totalBalance));
+                    parseFloat($('#creditoInput').val(res[key].totalCredit));
+
+                    $('#creditClientSelect').append(new Option(optionText, optionValue));
+                });
+            }
+
+
+        }
+    });
+}
+
 function validateAmount() {
 
     let totalCancel = parseFloat($('#preciofinalInput').val());
@@ -341,6 +389,38 @@ function validateAmount() {
         parseFloat($('#vueltoInput').val(result));
     } else {
         parseFloat($('#vueltoInput').val(0));
-    } 
+    }
 
+}
+
+function validatePaymentMonth(date) {
+
+    let mes = date.getMonth()
+
+    if (mes + 1 === 1) {
+        mes = '01';
+        return mes;
+    }
+
+    if (mes <= 9) {
+        mes = mes + 1;
+        mes = '0' + mes;
+        return mes;
+    }
+
+    return mes + 1;
+}
+
+function validatePaymentDay(date) {
+
+    let day = date.getDate();
+
+    if (day <= 9) {
+
+        day = '0' + day;
+
+        return day;
+    }
+
+    return day;
 }

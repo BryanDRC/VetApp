@@ -53,11 +53,14 @@ namespace VetApp.Controllers
 		[FilterSecurity]
 		public JsonResult CreateInvoices(InvoicesObj invoicesObj)
         {
-            foreach(var details in invoicesObj.DetailInvoices.ToList())
+            if(invoicesObj.DetailInvoices != null)
             {
-                if (String.IsNullOrEmpty(details.descriptionDetail))
+                foreach (var details in invoicesObj.DetailInvoices.ToList())
                 {
-                    details.descriptionDetail = "";
+                    if (String.IsNullOrEmpty(details.descriptionDetail))
+                    {
+                        details.descriptionDetail = "";
+                    }
                 }
             }
 
@@ -70,7 +73,7 @@ namespace VetApp.Controllers
         [FilterSecurity]
         public JsonResult GetCreditsByIdClient(int idClient)
         {
-            var response = _paymentModel.GetCreditsByIdClient(idClient);
+            var response = _paymentModel.GetCredits(idClient);
 
             return Json(response);
         }

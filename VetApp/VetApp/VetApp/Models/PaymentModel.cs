@@ -44,11 +44,11 @@ namespace VetApp.Models
             }
         }
 
-        public List<InvoicesListObj>? GetInvoices()
+        public List<InvoicesListObj>? GetInvoices(string startDate, string endDate)
         {
             using (var client = new HttpClient())
             {
-                string url = _urlApi + "api/Payment/GetInvoices";
+                string url = _urlApi + "api/Payment/GetInvoices?startDate="+startDate+"&endDate="+endDate+"";
 
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
@@ -74,33 +74,48 @@ namespace VetApp.Models
             }
         }
 
-        public List<CreditObj>? GetCredits()
+        public List<CreditListObj>? GetCredits(int idClient)
         {
             using (var client = new HttpClient())
             {
-                string url = _urlApi + "api/Payment/GetCredits";
+                string url = _urlApi + "api/Payment/GetCredits?idClient=" + idClient;
 
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadFromJsonAsync<List<CreditObj>>().Result;
+                    return response.Content.ReadFromJsonAsync<List<CreditListObj>>().Result;
 
-                return new List<CreditObj>();
+                return new List<CreditListObj>();
             }
         }
 
-        public List<CreditObj>? GetCreditsByIdClient(int idClient)
+        public List<DetailListObj>? GetDetailByIdInvoices(int idInvoice)
         {
             using (var client = new HttpClient())
             {
-                string url = _urlApi + "api/Payment/GetCreditsByIdClient?idClient="+ idClient;
+                string url = _urlApi + "api/Payment/GetDetailByIdInvoices?idInvoice=" + idInvoice;
 
                 HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
                 if (response.IsSuccessStatusCode)
-                    return response.Content.ReadFromJsonAsync<List<CreditObj>>().Result;
+                    return response.Content.ReadFromJsonAsync<List<DetailListObj>>().Result;
 
-                return new List<CreditObj>();
+                return new List<DetailListObj>();
+            }
+        }
+
+        public List<CreditListObj>? GetDepositsCreditsByIdClient(int idClient)
+        {
+            using (var client = new HttpClient())
+            {
+                string url = _urlApi + "api/Payment/GetDepositsCreditsByIdClient?idClient=" + idClient;
+
+                HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadFromJsonAsync<List<CreditListObj>>().Result;
+
+                return new List<CreditListObj>();
             }
         }
     }

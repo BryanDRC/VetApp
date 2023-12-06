@@ -14,6 +14,7 @@
         public decimal totalCancel {  get; set; }
         public decimal totalCanceled {  get; set; }
         public string paymentName {  get; set; } = string.Empty;
+		public int idClient { get; set; }
 
-    }
+	}
 }

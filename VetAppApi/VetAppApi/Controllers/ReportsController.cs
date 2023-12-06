@@ -29,5 +29,14 @@ namespace VetAppApi.Controllers
 		{
 			return _reportsModel.FormsReport(startDate, endDate).ToList();
 		}
-	}
+
+
+        [HttpGet]
+        [Route("GetCreditsReport")]
+        public ActionResult<IEnumerable<CreditListObj>> GetCreditsReport(string startDate, string endDate)
+        {
+            return _reportsModel.GetCreditsReport(startDate, endDate).ToList();
+        }
+
+    }
 }

@@ -63,5 +63,26 @@ namespace VetAppApi.Models
 
 			return new List<FormsObj>();
 		}
-	}
+
+        public IEnumerable<CreditListObj> GetCreditsReport(string startDate, string @endDate)
+        {
+
+            try
+            {
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+                {
+                    var datos = connection.Query<CreditListObj>("SP_GetCreditsReport", new { startDate, @endDate },
+                        commandType: CommandType.StoredProcedure).ToList();
+
+                    return datos;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return new List<CreditListObj>();
+        }
+    }
 }

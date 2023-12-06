@@ -2,7 +2,7 @@
 {
     public class DetailListObj
     {
-        public int idDteail {  get; set; }
+        public int idDetail {  get; set; }
         public string nameDetail { get; set; } = string.Empty;
         public string descriptionDetail { get; set; } = string.Empty;
         public int amountDetail {  get; set; }
