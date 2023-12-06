@@ -39,14 +39,14 @@ namespace VetAppApi.Models
 			return new List<AppointmentObj>();
 		}
 
-		public IEnumerable<FormsObj> FormsReport(string startDate, string endDate)
+		public IEnumerable<FormsListObj> FormsReport(string startDate, string endDate)
 		{
 
 			try
 			{
 				using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
 				{
-					var datos = connection.Query<FormsObj>("SP_FormsReport", new
+					var datos = connection.Query<FormsListObj>("SP_FormsReport", new
 					{
 						startDate,
 						endDate
@@ -61,7 +61,7 @@ namespace VetAppApi.Models
 				Console.WriteLine(ex.Message);
 			}
 
-			return new List<FormsObj>();
+			return new List<FormsListObj>();
 		}
 	}
 }

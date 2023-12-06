@@ -1,31 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {}
+    "C:\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {}
   },
   "projects": {
-    "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {
+    "C:\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+        "projectUniqueName": "C:\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
         "projectName": "VetAppApi",
-        "projectPath": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
-        "packagesPath": "C:\\Users\\Yohan Alvarado\\.nuget\\packages\\",
-        "outputPath": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetAppApi\\VetAppApi\\obj\\",
+        "projectPath": "C:\\VetApp\\VetAppApi\\VetAppApi\\VetAppApi.csproj",
+        "packagesPath": "C:\\Users\\XPC\\.nuget\\packages\\",
+        "outputPath": "C:\\VetApp\\VetAppApi\\VetAppApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Yohan Alvarado\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\XPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -76,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

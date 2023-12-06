@@ -27,7 +27,7 @@ namespace VetApp.Models
 			}
 		}
 
-		public List<FormsObj>? FormsReport(string startDate, string endDate)
+		public List<FormsListObj>? FormsReport(string startDate, string endDate)
 		{
 			using (var client = new HttpClient())
 			{
@@ -36,9 +36,9 @@ namespace VetApp.Models
 				HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
 
 				if (response.IsSuccessStatusCode)
-					return response.Content.ReadFromJsonAsync<List<FormsObj>>().Result;
+					return response.Content.ReadFromJsonAsync<List<FormsListObj>>().Result;
 
-				return new List<FormsObj>();
+				return new List<FormsListObj>();
 			}
 		}
 	}

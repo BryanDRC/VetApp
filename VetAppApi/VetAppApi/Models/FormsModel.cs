@@ -67,6 +67,30 @@ namespace VetAppApi.Models
             return new List<FormsListObj>();
         }
 
+        public IEnumerable<FormsListObj> GetAllForms()
+        {
+
+            try
+            {
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+                {
+                    var datos = connection.Query<FormsListObj>("SP_GetAllForms", null,
+                        commandType: CommandType.StoredProcedure).ToList();
+
+                    return datos;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return new List<FormsListObj>();
+        }
+
+
+
+
         public int UpdateForms(FormsObj formsObj)
         {
             try
