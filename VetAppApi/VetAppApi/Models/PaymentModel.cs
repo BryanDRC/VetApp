@@ -2,6 +2,8 @@
 using System.Data;
 using VetAppApi.Entities;
 using Dapper;
+using System.Globalization;
+using VetAppApi.Services;
 
 namespace VetAppApi.Models
 {
@@ -34,14 +36,19 @@ namespace VetAppApi.Models
             return new List<PaymentTypeObj>();
         }
 
-        public IEnumerable<InvoicesObj> GetInvoices()
+        public IEnumerable<InvoicesListObj> GetInvoices(string startDate, string endDate)
         {
 
             try
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Query<InvoicesObj>("SP_GetAllInvoices", null,
+                    var datos = connection.Query<InvoicesListObj>("SP_GetInvoices", new
+                    {
+                        startDate
+                        ,
+                        endDate
+                    },
                         commandType: CommandType.StoredProcedure).ToList();
 
                     return datos;
@@ -52,12 +59,19 @@ namespace VetAppApi.Models
                 Console.WriteLine(ex.Message);
             }
 
-            return new List<InvoicesObj>();
+            return new List<InvoicesListObj>();
         }
+
         public int CreateInvoices(InvoicesObj invoices)
         {
+
             try
             {
+                if (invoices.invoiceType == 2)
+                {
+                    invoices.Credit.IdCredit = InsertCredits(invoices.Credit);
+                }
+
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
                     var datos = connection.Query<int>("SP_InsertInvoice",
@@ -68,7 +82,8 @@ namespace VetAppApi.Models
                             invoices.totalCancel,
                             invoices.totalCanceled,
                             invoices.idPaymentType,
-                            invoices.idClient
+                            invoices.idClient,
+                            invoices.Credit.IdCredit
                         },
                         commandType: CommandType.StoredProcedure).FirstOrDefault();
 
@@ -89,14 +104,14 @@ namespace VetAppApi.Models
         }
 
 
-        public IEnumerable<DetailObj> GetDetail()
+        public IEnumerable<DetailListObj> GetDetailByIdInvoices(int idInvoice)
         {
 
             try
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Query<DetailObj>("SP_GetDetail", null,
+                    var datos = connection.Query<DetailListObj>("SP_GetDetailByIdInvoices", new { idInvoice },
                         commandType: CommandType.StoredProcedure).ToList();
 
                     return datos;
@@ -107,7 +122,7 @@ namespace VetAppApi.Models
                 Console.WriteLine(ex.Message);
             }
 
-            return new List<DetailObj>();
+            return new List<DetailListObj>();
         }
 
         public int CreateDetail(InvoicesObj detail)
@@ -126,7 +141,8 @@ namespace VetAppApi.Models
                             details.descriptionDetail,
                             details.amountDetail,
                             details.costDetail,
-                            detail.idInvoices
+                            detail.idInvoices,
+                            detail.Credit.IdCredit
                         },
                         commandType: CommandType.StoredProcedure);
 
@@ -143,6 +159,83 @@ namespace VetAppApi.Models
 
             return 0;
         }
+
+        public int InsertCredits(CreditObj credit)
+        {
+            try
+            {
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+                {
+                    var datos = connection.Query<int>("SP_InsertCredits",
+                        new
+                        {
+                            credit.IdCredit
+                             ,
+                            credit.DateCredit
+                             ,
+                            credit.TotalBalance
+                             ,
+                            credit.TotalCredit
+                        },
+                        commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+                    return datos;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return 0;
+        }
+
+        public IEnumerable<CreditListObj> GetCredits(int idClient)
+        {
+
+            try
+            {
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+                {
+                    var datos = connection.Query<CreditListObj>("SP_GetCredits", new { idClient },
+                        commandType: CommandType.StoredProcedure).ToList();
+
+                    return datos;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return new List<CreditListObj>();
+        }
+
+
+        public IEnumerable<CreditListObj> GetDepositsCreditsByIdClient(int idClient)
+        {
+
+            try
+            {
+                using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+                {
+                    var datos = connection.Query<CreditListObj>("SP_GetDepositsCreditsByIdClient", new { idClient },
+                        commandType: CommandType.StoredProcedure).ToList();
+
+                    return datos;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return new List<CreditListObj>();
+        }
+
+
 
     }
 }

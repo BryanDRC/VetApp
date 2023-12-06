@@ -1,16 +1,14 @@
 ﻿namespace VetAppApi.Entities
 {
-    public class InvoicesObj
+    public class InvoicesListObj
     {
         public int idInvoices { get; set; } = 0;
         public long numReference { get; set; }
         public string dateInvoices { get; set; } = string.Empty;
         public decimal totalCancel { get; set; }
         public decimal totalCanceled { get; set; }
-        public int idPaymentType { get; set; }
-        public int idClient { get; set; }
-        public int invoiceType { get; set; }
-        public List<DetailObj>? DetailInvoices { get; set; }
-        public CreditObj? Credit { get; set; }
+        public string paymentName { get; set; } = string.Empty;
+        public string clientName { get; set; } = string.Empty;
+        public int idCredit { get; set; }
     }
 }

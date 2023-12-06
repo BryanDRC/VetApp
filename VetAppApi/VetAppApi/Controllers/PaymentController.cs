@@ -23,9 +23,9 @@ namespace VetAppApi.Controllers
 
         [HttpGet]
         [Route("GetInvoices")]
-        public ActionResult<IEnumerable<InvoicesObj>> GetInvoices()
+        public ActionResult<IEnumerable<InvoicesListObj>> GetInvoices(string startDate, string endDate)
         {
-            return _paymentModel.GetInvoices().ToList();
+            return _paymentModel.GetInvoices(startDate, endDate).ToList();
         }
 
         [HttpPost]
@@ -36,17 +36,24 @@ namespace VetAppApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetDetail")]
-        public ActionResult<IEnumerable<DetailObj>> GetDetails()
+        [Route("GetDetailByIdInvoices")]
+        public ActionResult<IEnumerable<DetailListObj>> GetDetailByIdInvoices(int idInvoice)
         {
-            return _paymentModel.GetDetail().ToList();
+            return _paymentModel.GetDetailByIdInvoices(idInvoice).ToList();
         }
 
-        //[HttpPost]
-        //[Route("CreateDetail")]
-        //public ActionResult<int> CreateDetail(DetailObj detail)
-        //{
-        //    return _paymentModel.CreateDetail(detail);
-        //}
+        [HttpGet]
+        [Route("GetCredits")]
+        public ActionResult<IEnumerable<CreditListObj>> GetCredits(int idClient)
+        {
+            return _paymentModel.GetCredits(idClient).ToList();
+        }
+
+        [HttpGet]
+        [Route("GetDepositsCreditsByIdClient")]
+        public ActionResult<IEnumerable<CreditListObj>> GetDepositsCreditsByIdClient(int idClient)
+        {
+            return _paymentModel.GetDepositsCreditsByIdClient(idClient).ToList();
+        }
     }
 }

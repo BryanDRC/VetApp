@@ -93,6 +93,53 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('ivaSInput').addEventListener('input', actualizarTotal);
 
 
+
+
+    var tipofacturaInput = document.getElementById('tipofacturaInput');
+    var tipopagoInput = document.getElementById('tipopagoInput');
+
+    function actualizarVistas() {
+        var divCancelaCon = document.getElementById('divCancelaCon');
+        var divCredito = document.getElementById('divCredito');
+        var divVuelto = document.getElementById('divVuelto');
+        var divReferencia = document.getElementById('divReferencia');
+
+        // Ocultar todos los divs primero
+        divCancelaCon.style.display = 'none';
+        divCredito.style.display = 'none';
+        divVuelto.style.display = 'none';
+        divReferencia.style.display = 'none';
+
+        // Condiciones para mostrar los divs
+        if (tipofacturaInput.value === 'contadoOption') {
+            if (tipopagoInput.value === '1') {
+                divCancelaCon.style.display = 'block';
+                divVuelto.style.display = 'block';
+            } else if (tipopagoInput.value === '2') {
+                divReferencia.style.display = 'block';
+            }
+        } else if (tipofacturaInput.value === 'creditoOption') {
+            if (tipopagoInput.value === '1') {
+                divCancelaCon.style.display = 'block';
+                divCredito.style.display = 'block';
+            } else if (tipopagoInput.value === '2') {
+                divCancelaCon.style.display = 'block';
+                divCredito.style.display = 'block';
+                divReferencia.style.display = 'block';
+            }
+        }
+    }
+
+    // Agregar el evento de cambio a ambos selectores
+    tipofacturaInput.addEventListener('change', actualizarVistas);
+    tipopagoInput.addEventListener('change', actualizarVistas);
+
+    // Inicializar la vista
+    actualizarVistas();
+
+
+
+
     //Lógica mostrar total y actualizar con IVAS
     function actualizarTotal() {
         var total = 0;
@@ -117,28 +164,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('preciototalInput').value = totalFInput.toFixed(2);
     }
 
-
-    ////Lógica para mostrar campos distintos en tarjeta y efectivo
-    var tipoPagoInput = document.getElementById('tipopagoInput');
-    var divReferencia = document.getElementById('divReferencia');
-    var divCancelaCon = document.getElementById('divCancelaCon');
-    var divVuelto = document.getElementById('divVuelto');
-
-    tipoPagoInput.addEventListener('change', function () {
-        if (this.value === '2') {
-            divReferencia.style.display = 'block';
-            divCancelaCon.style.display = 'none';
-            divVuelto.style.display = 'none';
-        } else if (this.value === '1') {
-            divReferencia.style.display = 'none';
-            divCancelaCon.style.display = 'block';
-            divVuelto.style.display = 'block';
-        } else {
-            divReferencia.style.display = 'none';
-            divCancelaCon.style.display = 'none';
-            divVuelto.style.display = 'none';
-        }
-    });
 
     // Función para calcular y actualizar el vuelto
     function calcularVuelto() {
@@ -183,6 +208,11 @@ function CreateInvoices() {
 
     var tipoPago = document.getElementById('tipopagoInput').value;
     var referencia = document.getElementById('referencia').value;
+    var tipoFacturaInput = document.getElementById('tipofacturaInput');
+    var clienteInput = document.getElementById('clienteInput');
+    var precioTotalInput = document.getElementById('preciototalInput');
+    var cancelado = parseFloat(document.getElementById('canceladoInput').value) || 0;
+    var totalFactura = parseFloat(document.getElementById('preciototalInput').value) || 0;
 
     if (tipoPago === '2' && !referencia) {
         $('#referenciaFaltanteModal').modal('show');
@@ -191,31 +221,90 @@ function CreateInvoices() {
         console.log('Requisitos cumplidos');
     }
 
+    if (tipoFacturaInput.value === 'creditoOption' && clienteInput.value === '') {
+        $('#clienteRequeridoModal').modal('show');
+        return;
+    } else {
+        console.log('ponga cliente')
+    }
+
+    // Validación para asegurarse de que el total de la factura no esté vacío
+    if (precioTotalInput.value === '' || parseFloat(precioTotalInput.value) <= 0) {
+        $('#totalFacturaRequeridoModal').modal('show');
+        return;
+    } else {
+        console.log('ponga monto zzzz')
+    }
+
+    if (tipofacturaInput.value === 'contadoOption' && tipopagoInput.value === '1') {
+        if (cancelado <= 0) {
+            $('#canceladoRequeridoModal').modal('show');
+            return;
+        }
+    }
+
+    if (tipofacturaInput.value === 'contadoOption' && tipopagoInput.value === '2') {
+        if (!referencia) {
+            $('#referenciaRequeridaModal').modal('show');
+            return;
+        }
+    }
+
+    if (tipofacturaInput.value === 'creditoOption' && tipopagoInput.value === '1') {
+        if (cancelado <= 0 || cancelado > totalFactura) {
+            $('#canceladoCreditoInvalidoModal').modal('show');
+            return;
+        }
+    }
+
+    if (tipofacturaInput.value === 'creditoOption' && tipopagoInput.value === '2') {
+        if (cancelado <= 0 || cancelado > totalFactura || !referencia) {
+            $('#creditoYReferenciaRequeridosModal').modal('show');
+            return;
+        }
+    }
+
     var detailInvoice = getDetailsTable();
 
-    //var numReference = $('#numReference').val();
+    var numReference = $('#referencia').val();
     var dateInvoices = $('#fechaInput').val();
-    var totalCancel = parseInt($('#preciofinalInput').val());
+    var totalCancel = parseInt($('#preciototalInput').val());
     var totalCanceled = parseInt($('#canceladoInput').val());
     var idPaymentType = $('#tipopagoInput').val();
     var idClient = $('#clienteInput').val();
+    var invoiceType = $('#tipofacturaInput').val();
+
+    var credit = {
+        dateCredit: dateInvoices,
+        totalBalance: totalCancel,
+        totalCredit: totalCancel
+    }
+
+    //var credit = {
+    //    idCredit:0,
+    //    dateCredit: dateInvoices,
+    //    totalBalance: totalCanceled,
+    //    totalCredit: totalCancel
+    //}
 
     $.ajax({
         type: "POST",
         url: "../Payment/CreateInvoices",
         dataType: "json",
         data: {
-            "numReference": 0,
+            "numReference": numReference,
             "dateInvoices": dateInvoices,
             "totalCancel": totalCancel,
             "totalCanceled": totalCanceled,
             "idPaymentType": idPaymentType,
             "idClient": idClient,
-            "detailInvoices": detailInvoice
+            "invoiceType": invoiceType,
+            "detailInvoices": detailInvoice,
+            "credit": credit
         },
         success: function (res) {
 
-            if (res == 1) {
+            if (res > 0) {
 
                 Swal.fire({
                     title: '',
@@ -232,8 +321,8 @@ function CreateInvoices() {
             }
             Swal.fire({
                 icon: 'error',
-                title: 'Erorr',
-                text: 'Lo sentimos ha ocurrido un error.',
+                title: 'Error',
+                text: 'Revisa que todos los datos solicitados se han ingresado.',
             });
 
         }
