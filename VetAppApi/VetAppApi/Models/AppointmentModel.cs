@@ -9,10 +9,11 @@ namespace VetAppApi.Models
 	public class AppointmentModel
 	{
 		private readonly IConfiguration _configuration;
-
+		private readonly CurrentDateTimeZoneInfo _currentDateTimeZoneInfo;
 		public AppointmentModel(IConfiguration configuration)
 		{
 			_configuration = configuration;
+			_currentDateTimeZoneInfo = new CurrentDateTimeZoneInfo();
 		}
 
 		public int ScheduleAppointment(AppointmentObj appointmentObj)
@@ -112,9 +113,11 @@ namespace VetAppApi.Models
 
 			try
 			{
+				var currentDate = _currentDateTimeZoneInfo.GetCurrentDateTimeZone();
+
 				using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
 				{
-					var datos = connection.Query<AppointmentObj>("SP_GetAppointmentsByDay", null,
+					var datos = connection.Query<AppointmentObj>("SP_GetAppointmentsByDay", new { currentDate },
 						commandType: CommandType.StoredProcedure).ToList();
 
 					return datos;

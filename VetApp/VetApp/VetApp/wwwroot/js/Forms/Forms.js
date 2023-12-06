@@ -9,7 +9,7 @@ let statusPModalMessage = $("#statusPModalMessage");
 let motiveModalMessage = $("#motiveModalMessage");
 
 $(document).ready(function () {
-    $("#motiveModal").attr('maxlength', '30');
+    $("#motiveModal").attr('maxlength', '50');
 });
 
 $(document).on("click", "#btnAddForms", function () {

@@ -196,7 +196,7 @@ function DeleteSupplier() {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Lo sentimos ha ocurrido un error.',
+                text: 'El proveedor no puede ser eliminado, ya que esta siendo utilizado en otras funcionalidades del sistema.',
             });
 
         }
@@ -231,6 +231,21 @@ function ValidateSupplierIdCard() {
         }
 
         if (selectUserIdCard === '2') {
+
+            if (userIdCard.trim().length < 10) {
+                supplierIdCardMessage.text("C\u00E9dula no puede ser menor a 10 d\u00EDgitos.");
+                return false;
+            }
+
+            if (userIdCard.trim().length > 10) {
+                supplierIdCardMessage.text("C\u00E9dula no puede ser mayor a 10 d\u00EDgitos.");
+                return false;
+            }
+
+            return true;
+        }
+
+        if (selectUserIdCard === '3') {
 
             if (userIdCard.trim().length < 12) {
                 supplierIdCardMessage.text("DIMEX no puede ser menor a 12 d\u00EDgitos.");

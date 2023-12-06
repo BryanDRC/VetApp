@@ -213,7 +213,7 @@ function DeleteClient() {
             Swal.fire({
                 icon: 'error',
                 title: 'Erorr',
-                text: 'Lo sentimos ha ocurrido un error.',
+                text: 'El cliente no puede ser eliminado, ya que esta siendo utilizado en otras funcionalidades del sistema.',
             });
 
         }
@@ -277,6 +277,21 @@ function validateClientIdCard() {
     }
 
     if (selectClientIdCard === '2') {
+
+        if (clientIdCard.trim().length < 10) {
+            clientIdCardMessage.text("C\u00E9dula  no puede ser menor a 10 d\u00EDgitos.");
+            return false;
+        }
+
+        if (clientIdCard.trim().length > 10) {
+            clientIdCardMessage.text("C\u00E9dula  no puede ser mayor a 10 d\u00EDgitos.");
+            return false;
+        }
+
+        return true;
+    }
+
+    if (selectClientIdCard === '3') {
 
         if (clientIdCard.trim().length < 12) {
             clientIdCardMessage.text("DIMEX no puede ser menor a 12 d\u00EDgitos.");

@@ -15,6 +15,7 @@ namespace VetApp.Controllers
 		private readonly ServiceModel _service;
 		private readonly PetModel _pet;
 		private readonly ClientModel _client;
+		private readonly CurrentDateTimeZoneInfo _currentDateTimeZoneInfo;
 		public List<FormsListObj>? _formsObject;
 
 		private readonly IConfiguration _configuration;
@@ -22,6 +23,7 @@ namespace VetApp.Controllers
         public FormsController(IConfiguration configuration, IHttpContextAccessor contextAccessor)
         {
             _configuration = configuration;
+			_currentDateTimeZoneInfo = new CurrentDateTimeZoneInfo();
             _forms = new FormsModel(configuration);
             _user = new EmployeeModel(configuration);
             _product = new ProductModel(configuration);
@@ -100,7 +102,7 @@ namespace VetApp.Controllers
 		[HttpPut]
 		public JsonResult UpdateForms(FormsObj formsObj)
 		{
-            formsObj.arrival = DateTime.Now.Date.ToString("yyyy/MM/dd") + " " + formsObj.arrival;
+            formsObj.arrival = _currentDateTimeZoneInfo.GetCurrentDateTimeZone().ToString("yyyy/MM/dd") + " " + formsObj.arrival;
 
             if (String.IsNullOrEmpty(formsObj.motive))
             {
@@ -114,7 +116,7 @@ namespace VetApp.Controllers
             }
             else
             {
-                formsObj.attention = DateTime.Now.Date.ToString("yyyy/MM/dd") + " " + formsObj.attention;
+                formsObj.attention = _currentDateTimeZoneInfo.GetCurrentDateTimeZone().ToString("yyyy/MM/dd") + " " + formsObj.attention;
             }
 
             var updateForms = _forms.UpdateForms(formsObj);

@@ -167,7 +167,7 @@ function DeletePet() {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Lo sentimos ha ocurrido un error.',
+                text: 'La mascota no puede ser eliminada, ya que esta siendo utilizada en otras funcionalidades del sistema.',
             });
         }
     });

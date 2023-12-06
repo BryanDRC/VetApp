@@ -2,16 +2,19 @@
 using System.Data;
 using VetAppApi.Entities;
 using Dapper;
+using VetAppApi.Services;
 
 namespace VetAppApi.Models
 {
     public class FormsModel
     {
         private readonly IConfiguration _configuration;
+        private readonly CurrentDateTimeZoneInfo _currentDateTimeZoneInfo;
 
         public FormsModel(IConfiguration configuration)
         {
             _configuration = configuration;
+            _currentDateTimeZoneInfo = new CurrentDateTimeZoneInfo();
         }
 
         public int CreateForms(FormsObj formsObj)
@@ -46,14 +49,15 @@ namespace VetAppApi.Models
             return 0;
         }
 
-        public IEnumerable<FormsListObj> GetForms()
+        public IEnumerable<FormsListObj> GetFormsForCurrentDay()
         {
+            var currentDate = _currentDateTimeZoneInfo.GetCurrentDateTimeZone();
 
-            try
+			try
             {
                 using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
                 {
-                    var datos = connection.Query<FormsListObj>("SP_GetFormsForCurrentDay", null,
+                    var datos = connection.Query<FormsListObj>("SP_GetFormsForCurrentDay", new { currentDate },
                         commandType: CommandType.StoredProcedure).ToList();
 
                     return datos;
@@ -67,7 +71,28 @@ namespace VetAppApi.Models
             return new List<FormsListObj>();
         }
 
-        public IEnumerable<FormsListObj> GetAllForms()
+		public IEnumerable<FormsListObj> GetForms()
+		{
+
+			try
+			{
+				using (var connection = new SqlConnection(_configuration.GetConnectionString("Connection")))
+				{
+					var datos = connection.Query<FormsListObj>("SP_GetForms", null,
+						commandType: CommandType.StoredProcedure).ToList();
+
+					return datos;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+			}
+
+			return new List<FormsListObj>();
+		}
+
+		public IEnumerable<FormsListObj> GetAllForms()
         {
 
             try

@@ -182,7 +182,7 @@ function DeleteProduct() {
             Swal.fire({
                 icon: 'error',
                 title: 'Erorr',
-                text: 'Lo sentimos ha ocurrido un error.',
+                text: 'El producto no puede ser eliminado, ya que esta siendo utilizado en otras funcionalidades del sistema.',
             });
 
         }
