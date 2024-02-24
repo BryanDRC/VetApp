@@ -1,4 +1,9 @@
-﻿$(document).on("click", "#btnAddPet", function () {
+﻿$(document).ready(function () {
+    let maxDate = new Date();
+    let maxDateConversion = maxDate.getFullYear() + '-' + validatePetMonth(maxDate) + '-' + validatePetDay(maxDate);
+    $("#birthDateModal").attr('max', maxDateConversion);
+});
+$(document).on("click", "#btnAddPet", function () {
 
     $("#petNameModal").prop("readonly", false);
     $("#petSpeciesModal").prop("readonly", false);
@@ -162,7 +167,7 @@ function DeletePet() {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Lo sentimos ha ocurrido un error.',
+                text: 'La mascota no puede ser eliminada, ya que esta siendo utilizada en otras funcionalidades del sistema.',
             });
         }
     });

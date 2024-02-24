@@ -4,11 +4,13 @@ $(document).ready(function () {
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
         },
+        "ordering": false,
         "bDestroy": true
     });
     var a = $("#datatable-buttons").DataTable({
         lengthChange: !1,
         buttons: ["copy", "excel", "pdf"],
+        "ordering": false,
     });
     $("#key-table").DataTable({
         keys: !0

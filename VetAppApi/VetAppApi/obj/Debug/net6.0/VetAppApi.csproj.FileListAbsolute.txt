@@ -31,7 +31,6 @@ E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\ne
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\staticwebassets.build.json
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\staticwebassets.development.json
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\scopedcss\bundle\VetAppApi.styles.css
-E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\VetAppApi.csproj.CopyComplete
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\VetAppApi.dll
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\refint\VetAppApi.dll
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\VetAppApi.pdb
@@ -115,3 +114,5 @@ C:\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\refint\VetAppApi.dll
 C:\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\VetAppApi.pdb
 C:\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\VetAppApi.genruntimeconfig.cache
 C:\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\ref\VetAppApi.dll
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\VetAppApi.sourcelink.json
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetAppApi\VetAppApi\obj\Debug\net6.0\VetAppApi.csproj.Up2Date

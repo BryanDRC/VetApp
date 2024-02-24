@@ -145,7 +145,7 @@ function DeleteService() {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Lo sentimos ha ocurrido un error.',
+                text: 'El servicio no puede ser eliminado, ya que esta siendo utilizado en otras funcionalidades del sistema.',
             });
         }
     });

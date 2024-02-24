@@ -213,14 +213,46 @@ function DeleteClient() {
             Swal.fire({
                 icon: 'error',
                 title: 'Erorr',
-                text: 'Lo sentimos ha ocurrido un error.',
+                text: 'El cliente no puede ser eliminado, ya que esta siendo utilizado en otras funcionalidades del sistema.',
             });
 
         }
     });
 }
 
+function ValidateClientIdCardExist() {
 
+    let idClient = $("#idClientModal").val();
+
+    if (idClient.trim().length === 0) {
+
+        let clientIdCard = $("#clientIdCardModal").val()
+
+        const button = document.getElementById("btnGuardarModal");
+
+        // Disable the button
+      //  button.disabled = true;
+        clientIdCardMessage.text("");
+
+        $.ajax({
+            type: "GET",
+            url: "../Client/ValidateClientIdCardExist?clientIdCard=" + clientIdCard,
+            dataType: "json",
+            success: function (res) {
+
+                if (res === null) {
+                    button.disabled = false;
+
+                } else {
+                    clientIdCardMessage.text("La c\u00E9dula ingresada ya existe en el sistema.");
+                    button.disabled = true;
+                }
+
+            }
+        });
+    }
+
+}
 function validateClientIdCard() {
 
     let clientIdCard = $("#clientIdCardModal").val();
@@ -245,6 +277,21 @@ function validateClientIdCard() {
     }
 
     if (selectClientIdCard === '2') {
+
+        if (clientIdCard.trim().length < 10) {
+            clientIdCardMessage.text("C\u00E9dula  no puede ser menor a 10 d\u00EDgitos.");
+            return false;
+        }
+
+        if (clientIdCard.trim().length > 10) {
+            clientIdCardMessage.text("C\u00E9dula  no puede ser mayor a 10 d\u00EDgitos.");
+            return false;
+        }
+
+        return true;
+    }
+
+    if (selectClientIdCard === '3') {
 
         if (clientIdCard.trim().length < 12) {
             clientIdCardMessage.text("DIMEX no puede ser menor a 12 d\u00EDgitos.");

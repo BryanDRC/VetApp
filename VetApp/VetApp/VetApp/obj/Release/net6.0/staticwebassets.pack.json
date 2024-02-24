@@ -781,6 +781,18 @@
       "PackagePath": "staticwebassets\\js\\Forms\\Forms.js"
     },
     {
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Payment\\Payment.js",
+      "PackagePath": "staticwebassets\\js\\Payment\\Payment.js"
+    },
+    {
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Payment\\Payment.min.js",
+      "PackagePath": "staticwebassets\\js\\Payment\\Payment.min.js"
+    },
+    {
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Payment\\Payment.min.js.map",
+      "PackagePath": "staticwebassets\\js\\Payment\\Payment.min.js.map"
+    },
+    {
       "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Pet\\Pet.js",
       "PackagePath": "staticwebassets\\js\\Pet\\Pet.js"
     },
@@ -803,6 +815,18 @@
     {
       "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Supplier\\Supplier.js",
       "PackagePath": "staticwebassets\\js\\Supplier\\Supplier.js"
+    },
+    {
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Transactions\\Transactions.js",
+      "PackagePath": "staticwebassets\\js\\Transactions\\Transactions.js"
+    },
+    {
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Transactions\\Transactions.min.js",
+      "PackagePath": "staticwebassets\\js\\Transactions\\Transactions.min.js"
+    },
+    {
+      "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\Transactions\\Transactions.min.js.map",
+      "PackagePath": "staticwebassets\\js\\Transactions\\Transactions.min.js.map"
     },
     {
       "Id": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\wwwroot\\js\\app.js",

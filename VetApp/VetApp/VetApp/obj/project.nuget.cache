@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bPl12M5/2fLd97hgQbK+o1ooj08Ety2bx5YLfmVOu52snwb98jW4HvxBcx4HvDJnNOM9QIK9avcJnii80d9+ZQ==",
+  "dgSpecHash": "wSPWotbL1zcXOWBFPmze7sbRkAUrvObH7kE0Tt8Mra/Hp3ukNocvf8/fZ7q8JGElgW9udf8DT8IS5fi/2b/wog==",
   "success": true,
   "projectFilePath": "E:\\Yohan\\DiseñoDesarrolloSistemas\\Repo2\\VetApp\\VetApp\\VetApp\\VetApp\\VetApp.csproj",
   "expectedPackageFiles": [
@@ -213,5 +213,16 @@
     "C:\\Users\\Yohan Alvarado\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Yohan Alvarado\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Microsoft.Data.SqlClient\" 5.1.1 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "Microsoft.Data.SqlClient",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

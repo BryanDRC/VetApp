@@ -241,7 +241,6 @@ E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\n
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutAutentificacion.cshtml.rz.scp.css
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\scopedcss\bundle\VetApp.styles.css
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\scopedcss\projectbundle\VetApp.bundle.scp.css
-E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\VetApp.csproj.CopyComplete
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\VetApp.dll
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\refint\VetApp.dll
 E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\VetApp.pdb
@@ -745,3 +744,5 @@ C:\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\refint\VetApp.dll
 C:\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\VetApp.pdb
 C:\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\VetApp.genruntimeconfig.cache
 C:\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\ref\VetApp.dll
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\VetApp.sourcelink.json
+E:\Yohan\DiseñoDesarrolloSistemas\Repo2\VetApp\VetApp\VetApp\VetApp\obj\Debug\net6.0\VetApp.csproj.Up2Date

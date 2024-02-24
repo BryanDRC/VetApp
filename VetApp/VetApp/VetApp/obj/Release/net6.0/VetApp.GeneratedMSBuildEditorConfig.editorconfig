@@ -60,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xJbnZlbnRhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Payment/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Pet/CreatePet.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGV0XENyZWF0ZVBldC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -78,6 +82,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Reportes/ReporteCitas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZUNpdGFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Reportes/ReporteCreditos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0ZXNcUmVwb3J0ZUNyZWRpdG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Reportes/ReportePlanilla.cshtml]
@@ -102,14 +110,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Supplier/Supplier.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJcU3VwcGxpZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Transaccion/CierreCaja.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY2Npb25cQ2llcnJlQ2FqYS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Transaccion/Cobro.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY2Npb25cQ29icm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Yohan/DiseñoDesarrolloSistemas/Repo2/VetApp/VetApp/VetApp/VetApp/Views/Usuarios/AgregarCliente.cshtml]

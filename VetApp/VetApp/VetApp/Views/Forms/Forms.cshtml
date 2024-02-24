@@ -78,8 +78,8 @@
                                                     <td><span class="badge bg-secondary">Sin Cobrar</span></td>
                                                 }
                                                 
-                                                @if (Context.Session.GetInt32("UserIdRol") == 1)
-                                                {
+                                                @* @if (Context.Session.GetInt32("UserIdRol") == 1)
+                                                { *@
                                                     <td class="white-space: nowrap; width: 1%;">
 
                                                         <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
@@ -103,7 +103,7 @@
                                                         </div>
 
                                                     </td>
-                                                }
+                                                @* } *@
                                                
                                             </tr>
                                         }

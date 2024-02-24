@@ -137,7 +137,7 @@
                         <br>
 
 
-                        <div style="margin-left: 19%;" class="row">
+                        <div style="margin-left: 15%;" class="row">
 
                             <div class="col-md-3">
                                 <p class="mb-1 fw-bold ">Tipo Factura</p>
@@ -154,7 +154,7 @@
                                     <option value="0">Seleccione</option>
                                     @foreach (var client in ViewBag.Clients)
                                     {
-                                        <option value="@client.idClient">@client.clientName</option>
+                                        <option value="@client.idClient">@($"{@client.clientName} {@client.clientFirstLastName} {@client.clientSecondLastName}")</option>
                                     }
                                 </select>
                             </div> <!-- end col -->
@@ -194,12 +194,12 @@
                         <br />
 
 
-                        <div style="margin-left: 19%;" class="row">
+                        <div class="row" style="margin-left: 10%;">
                             <!-- Tipo de Pago -->
                             <div class="col-md-3">
                                 <label for="inputState" class="form-label">Tipo de Pago</label>
-                                <select id="tipopagoInput" class="form-select">
-                                    <option value="">Seleccione Tipo Pago</option>
+                                <select id="tipopagoInput" class="form-select" data-toggle="select2">
+                                    <option value="0">Seleccione Tipo Pago</option>
                                     @foreach (var type in ViewBag.PaymentTypes)
                                     {
                                         <option value="@type.idPayment">@type.paymentName</option>
@@ -213,14 +213,19 @@
                                 <input type="number" readonly class="form-control" id="preciototalInput">
                             </div>
 
-                            <div id="divCancelaCon" style="display: none;" class="col-md-2">
+                            <div id="divCancelaCon" class="col-md-2">
                                 <label for="inputZip" class="form-label">Cancela Con</label>
                                 <input type="number" class="form-control" id="canceladoInput" placeholder="₡₡₡">
                             </div>
 
                             <div id="divCredito" style="display: none;" class="col-md-2">
-                                <label for="inputZip" class="form-label">Credito</label>
-                                <input type="number" class="form-control" id="creditoInput" placeholder="₡₡₡" readonly>
+                                <label for="inputZip" class="form-label">Saldo Restante</label>
+                                <input type="number" class="form-control" id="balanceInput" placeholder="₡₡₡" readonly>
+                            </div>
+
+                            <div id="divVuelto" class="col-md-2">
+                                <label for="inputZip" class="form-label">Vuelto</label>
+                                <input type="number" class="form-control" readonly id="vueltoInput" placeholder="₡₡₡">
                             </div>
 
                             <div id="divReferencia" style="display: none;" class="col-md-2">
@@ -228,18 +233,9 @@
                                 <input type="text" class="form-control" id="referencia">
                             </div>
 
-                            <div id="divVuelto" style="display: none;" class="col-md-2">
-                                <label for="inputZip" class="form-label">Vuelto</label>
-                                <input type="number" class="form-control" readonly id="vueltoInput" placeholder="₡₡₡">
-                            </div>
-
-
 
 
                         </div>
-
-
-
 
                         <br>
                         <div style="margin-left: 19%;" class="row">
@@ -322,11 +318,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="referenciaFaltanteModalLabel">Referencia Faltante</h5>
+                <h5 class="modal-title" id="referenciaFaltanteModalLabel">Mensaje</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Por favor, ingresa el número de referencia para el pago con tarjeta.
+                <p id="MensajeValidacion"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -485,6 +481,9 @@
 
 <script src="~/libs/jquery/jquery.min.js"></script>
 <script src="~/libs/jquery.counterup/jquery.counterup.min.js"></script>
+@* <script src="~/libs/select2/js/select2.min.js"></script>
+<script src="~/js/pages/form-advanced.init.js"></script>
+<script src="~/js/app.min.js"></script> *@
 <script charset="utf-8" src="~/js/Payment/Payment.js"></script>
 
 @* <script>

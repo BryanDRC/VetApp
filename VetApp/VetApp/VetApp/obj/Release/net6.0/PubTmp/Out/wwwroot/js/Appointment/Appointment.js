@@ -4,6 +4,12 @@ let hourMessage = $("#hourMessage");
 let dayDateMessage = $("#dayDateMessage");
 let idDoctorMessage = $("#idDoctorMessage");
 
+$(document).ready(function () {
+    let minDate = new Date();
+    let minDateConversion = minDate.getFullYear() + '-' + validateMonth(minDate) + '-' + validateDay(minDate);
+    $("#dayDate").attr('min', minDateConversion);
+    $("#dateReason").attr('maxlength', '20');
+});
 
 $(document).on("click", "#btnAddAppointment", function () {
 
@@ -73,7 +79,7 @@ function ScheduleAppointment() {
             Swal.fire({
                 icon: 'error',
                 title: 'Erorr',
-                text: 'Lo sentimos ha ocurrido un error.',
+                text: 'El Doctor ya cuenta con una cita agendada el día y hora ingresados.',
             });
 
         }
@@ -93,7 +99,7 @@ function OpenUpdateAppointmentModal(idDate) {
             $("#dateReason").val(res.dateReason);
             $("#idDoctor").val(res.idDoctor);
 
-            let date = new Date(res.dayDate);
+            let date = new Date(res.appointmentDate);
             let dateConversion = date.getFullYear() + '-' + validateMonth(date) + '-' + validateDay(date);
             let hour = validateHour(date) + ':' + validateMinutes(date);
 
@@ -148,7 +154,7 @@ function UpdateAppointment() {
             Swal.fire({
                 icon: 'error',
                 title: 'Erorr',
-                text: 'Lo sentimos ha ocurrido un error.',
+                text: 'El Doctor ya cuenta con una cita agendada el día y hora ingresados.',
             });
 
         }

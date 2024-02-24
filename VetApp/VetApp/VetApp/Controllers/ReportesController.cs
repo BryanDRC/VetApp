@@ -38,11 +38,23 @@ namespace VetApp.Controllers
 		{
 
 			if(String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate)){
-				ViewBag.Message = "Debe de seleccionar la fecha de inicio y la fecha de fin del reporte.";
+				ViewBag.Message = "Debe de seleccionar la fecha de inicio.";
 				return View();
 			}
 
-			ViewBag.AppointmentReport = _reportsModel.AppointmentsReport(startDate, endDate);
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de fin.";
+                return View();
+            }
+
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de inicio y la fecha de fin del reporte.";
+                return View();
+            }
+
+            ViewBag.AppointmentReport = _reportsModel.AppointmentsReport(startDate, endDate);
 			
 			return View();
 		}
@@ -58,13 +70,25 @@ namespace VetApp.Controllers
 		public IActionResult ReportePlanilla(string startDate, string endDate)
 		{
 
-			if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
-			{
-				ViewBag.Message = "Debe de seleccionar la fecha de inicio y la fecha de fin del reporte.";
-				return View();
-			}
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de inicio.";
+                return View();
+            }
 
-			ViewBag.FormReport = _reportsModel.FormsReport(startDate, endDate);
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de fin.";
+                return View();
+            }
+
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de inicio y la fecha de fin del reporte.";
+                return View();
+            }
+
+            ViewBag.FormReport = _reportsModel.FormsReport(startDate, endDate);
 
 			return View();
 		}
@@ -78,13 +102,25 @@ namespace VetApp.Controllers
 		[HttpPost]
 		public IActionResult ReporteTransacciones(string startDate, string endDate)
         {
-			if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
-			{
-				ViewBag.Message = "Debe de seleccionar la fecha de inicio y la fecha de fin del reporte.";
-				return View();
-			}
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de inicio.";
+                return View();
+            }
 
-			ViewBag.TransactionsReport = _paymentModel.GetInvoices(startDate, endDate);
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de fin.";
+                return View();
+            }
+
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de inicio y la fecha de fin del reporte.";
+                return View();
+            }
+
+            ViewBag.TransactionsReport = _paymentModel.GetInvoices(startDate, endDate);
 
 			return View();
 		}
@@ -106,13 +142,25 @@ namespace VetApp.Controllers
 		[HttpPost]
 		public IActionResult ReporteCreditos(string startDate, string endDate)
 		{
-			if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
-			{
-				ViewBag.Message = "Debe de seleccionar la fecha de inicio y la fecha de fin del reporte.";
-				return View();
-			}
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de inicio.";
+                return View();
+            }
 
-			ViewBag.TransactionsReport = _reportsModel.GetCreditsReport(startDate, endDate);
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de fin.";
+                return View();
+            }
+
+            if (String.IsNullOrEmpty(startDate) || String.IsNullOrEmpty(startDate))
+            {
+                ViewBag.Message = "Debe de seleccionar la fecha de inicio y la fecha de fin del reporte.";
+                return View();
+            }
+
+            ViewBag.TransactionsReport = _reportsModel.GetCreditsReport(startDate, endDate);
 
 			return View();
 		}
